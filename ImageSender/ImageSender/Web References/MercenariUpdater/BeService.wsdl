@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhotoGalleryList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NomeUtente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PhotoGalleryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhotoGalleryListResult" type="tns:ArrayOfOggetto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOggetto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Oggetto" nillable="true" type="tns:Oggetto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Oggetto">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:OggettoBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Foto" type="tns:ArrayOfOggettoFoto" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="OggettoBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SottoTitolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Testo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataInserimento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataModifica" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdUtente" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoOggetto" type="tns:TipoOggetto" />
+          <s:element minOccurs="0" maxOccurs="1" name="PathFileOggetto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeFileOggetto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumOrder" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isHomeNews" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoOggetto">
+        <s:restriction base="s:string">
+          <s:enumeration value="Homepage" />
+          <s:enumeration value="News" />
+          <s:enumeration value="Photogallery" />
+          <s:enumeration value="Eventi" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfOggettoFoto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OggettoFoto" nillable="true" type="tns:OggettoFoto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OggettoFoto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SottoTitolo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Percorso" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataInserimento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentObjectID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumOrder" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estensione" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oImage" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="GalleryID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NomeUtente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveImageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="PhotoGalleryListSoapIn">
+    <wsdl:part name="parameters" element="tns:PhotoGalleryList" />
+  </wsdl:message>
+  <wsdl:message name="PhotoGalleryListSoapOut">
+    <wsdl:part name="parameters" element="tns:PhotoGalleryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveImageSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveImage" />
+  </wsdl:message>
+  <wsdl:message name="SaveImageSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveImageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BeServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PhotoGalleryList">
+      <wsdl:input message="tns:PhotoGalleryListSoapIn" />
+      <wsdl:output message="tns:PhotoGalleryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveImage">
+      <wsdl:input message="tns:SaveImageSoapIn" />
+      <wsdl:output message="tns:SaveImageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BeServiceSoap" type="tns:BeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotoGalleryList">
+      <soap:operation soapAction="http://tempuri.org/PhotoGalleryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveImage">
+      <soap:operation soapAction="http://tempuri.org/SaveImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BeServiceSoap12" type="tns:BeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PhotoGalleryList">
+      <soap12:operation soapAction="http://tempuri.org/PhotoGalleryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveImage">
+      <soap12:operation soapAction="http://tempuri.org/SaveImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BeService">
+    <wsdl:port name="BeServiceSoap" binding="tns:BeServiceSoap">
+      <soap:address location="http://localhost:15419/BeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BeServiceSoap12" binding="tns:BeServiceSoap12">
+      <soap12:address location="http://localhost:15419/BeService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

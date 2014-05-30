@@ -1,0 +1,39 @@
+﻿div.homepage{margin-top:15px;}
+.news .titolo{background:transparent url(/images/titoli/notizie.png) no-repeat scroll 30px 0; height:45px; margin-top:10px;}
+
+.pnewshome {margin:10px 0;}
+.pnewshome a{color:#5e121c;text-decoration:none;font-weight:bold;}
+.pnewshome a:hover{color:#5e121c;text-decoration:underline;}
+
+.homepage .grid_4 h2{margin:5px 0; text-transform:none;}
+
+.photogallery h2{font-size:14px;}
+
+div.fb{padding:10px 0 0 30px;}
+a.fb img{width:140px;border:none;}
+
+
+ul.notizie {margin:10px 0 0 0;}
+ul.notizie li{margin:0 0 20px 0;}
+ul.notizie li .divnews{margin:5px 0;}
+ul.notizie li h2 a,ul.notizie li h2 a:hover {text-decoration:none; color:#5e121c;}
+ul.notizie li .leggitutto a,ul.notizie li .leggitutto a:hover{text-decoration:underline; color:#5e121c;}
+ul.notizie li h2{background: transparent url('/images/stemmi/stella_20.png') no-repeat; padding:0 0 0 25px; line-height:20px;}
+
+ul.fotohome li a img{border:none;}
+
+.newsdate{font-weight:bold;margin:2px 0 2px; overflow:auto;}
+.share{float:right;}
+.sottotitolo{margin:5px 0 5px;}
+.testo{margin:5px 0 5px; line-height:1.5em;}
+
+.pgnews{margin-top:20px;}
+
+ul.gallery{margin-top:10px;}
+ul.gallery li{display: block;margin:0 8px;width: 140px;float:left;}
+ul.gallery li a img{border:0;}
+ul.gallery li.first{margin:0 10px 15px 0;}
+
+.leggitutto {text-align:right; margin-top:5px;}
+.leggitutto a{color:#5e121c;}
+

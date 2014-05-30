@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="be.master.cs" Inherits="be_be" %>
+
+<%@ Register src="uc/menu.ascx" tagname="menu" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Gestione Contenuti - Pifferi e Tamburi Ivrea</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    	<script type="text/javascript" src="/js/jquery.js" language="javascript"></script>
+	<script type="text/javascript" src="/js/jquery.form.js"  language="javascript"></script>
+	<script type="text/javascript" src="/js/lightbox/jquery.lightbox-0.5.min.js"  language="javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/be/css/be.css" />
+    <link rel="stylesheet" type="text/css" href="/css/grid.css" />
+</head>
+<body class="be">
+    <div class="container_12">
+        <div class="grid_12">
+            <div class="row">
+                <img src="/be/images/logo.png" alt="" class="fl"/>
+                <h1>Pifferi e Tamburi Ivrea</h1>
+            </div>
+        </div>
+        <div class="menu grid_2">
+            <uc1:menu ID="mnu1" runat="server" />
+        </div>
+        <div class="grid_10">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+    </div>
+</body>
+</html>

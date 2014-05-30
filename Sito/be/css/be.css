@@ -1,0 +1,17 @@
+﻿body 
+{
+    font-family:Verdana,Arial,Helvetica,sans-serif;;
+    font-size: 10px;
+}
+
+.header{background-image:url(/be/images/labaro.jpg); background-repeat:no-repeat; height:120px;}
+.menu{background-color:#ddd;}
+.menu ul, .menu li{font-size:12px;list-style:none;margin:0;padding:0;}
+
+
+.fl{float:left;}
+
+/* ucnews */
+.txtTitolo, .txtSottoTitolo{width:544px;font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px;}
+.btnControllo .bottone{font-size:10px; padding: 2px 5px;}
+.txtContainer{width:550px;}

@@ -1,0 +1,43 @@
+﻿.foto .titolo{background:transparent url(/images/titoli/foto.png) no-repeat scroll 30px 0; height:45px; margin-top:10px;}
+.titolo img{margin-top:3px;}
+#map{height:450px; border:2px solid #5e121c; margin:15px 0 15px 0;}
+a, a:hover {text-decoration:none; color:#5e121c; font-weight:bold;}
+
+ul.elencogallerie h2{line-height:1.8em;}
+ul.elencogallerie li
+{
+    display: block;
+    margin:0 10px 0 0;
+    width: 300px;
+    float:left;
+    height:180px;
+    overflow:hidden;
+    position:relative;
+    
+}
+ul.elencogallerie li a img{border:0;}
+ul.elencogallerie li .newsappuntamenti
+{
+    background: #F1D11C;    
+    bottom: 0;
+    margin: auto 0;
+    padding: 5px;
+    position: absolute;
+}
+
+.gallery{margin-top: 10px;}
+ul.gallery{margin-top:10px;}
+ul.gallery li{display: block;margin:0 8px;width: 140px;float:left;height: 100px;overflow: hidden;}
+ul.gallery li a img{border:0;}
+ul.gallery li.first{margin:0 10px 15px 0;}
+
+ul.fotogallery{}
+ul.fotogallery li h2{font-size:12px;}
+ul.fotogallery li{display: block;margin:0 10px 5px 0;width: 140px;float:left;}
+ul.fotogallery li div.photodiv{height: 100px;overflow: hidden;}
+ul.fotogallery li a img{border:0;}
+
+.gallerydate{font-weight:bold;margin:2px 0 2px; overflow:auto;}
+.share{float:right;}
+
+.gallery.Collage img{margin:3px;}

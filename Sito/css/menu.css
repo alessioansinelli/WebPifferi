@@ -1,0 +1,38 @@
+﻿#header .navigation{
+	position:absolute; 
+	font-family:RockwellExtraBold,Georgia, 'Lucida Grande','Lucida Sans Unicode','Lucida Sans', Georgia, Verdana, Tahoma, Arial, Times New Roman;
+	font-size: 1.35em;
+}
+#header ul.navigation {margin:0; bottom:0;}
+#header ul.navigation li{
+	float:left; margin:0 0.5em; height: 1.8em; line-height: 1.7em;
+}
+#header ul.navigation li a{display:block; text-decoration:none; height:23px; color:#5E121C;}
+#header ul.navigation li a:hover{text-decoration:underline;}
+
+/*
+li#notizie {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -395px; width:73px;}
+li#squadra {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -5px; width:104px;}
+li#sede {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -35px; width:74px;}
+li#iscrizioni {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -95px; width:96px;}
+li#programma {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -65px; width:115px;}
+li#feste {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -125px; width:64px;}
+li#bandiere {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -155px; width:90px;}
+li#foto {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -275px; width:48px;}
+li#video {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -305px; width:59px;}
+li#link {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -335px; width:52px;}
+li#canzoniere {background:transparent url(/images/layout/menu.png) no-repeat scroll -10px -245px; width:111px;}
+
+li:hover#notizie, .notizie li#notizie  {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -395px; width:73px;}
+li:hover#squadra, .squadra li#squadra{background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -5px;}
+li:hover#sede, .sede li#sede {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -35px; width:74px;}
+li:hover#iscrizioni, .iscrizioni li#iscrizioni {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -95px; width:96px;}
+li:hover#programma, .programma li#programma {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -65px; width:115px;}
+li:hover#feste, .feste li#feste  {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -125px; width:64px;}
+li:hover#bandiere, .bandiere li#bandiere {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -155px; width:90px;}
+li:hover#foto, .foto li#foto {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -275px; width:48px;}
+li:hover#video, .video li#video {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -305px; width:59px;}
+li:hover#link, .link li#link {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -335px; width:52px;}
+li:hover#canzoniere, .canzoniere li#canzoniere  {background:transparent url(/images/layout/menu_over.png) no-repeat scroll -10px -245px; width:111px;}
+/*
+

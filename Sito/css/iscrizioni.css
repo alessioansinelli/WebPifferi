@@ -1,0 +1,12 @@
+﻿.iscrizioni .titolo{background:transparent url(/images/titoli/iscrizioni.png) no-repeat scroll 30px 0; height:45px; margin-top:10px;}
+.titolo img{margin-top:3px;}
+
+a, a:hover {text-decoration:none; color:#5e121c; font-weight:bold;font-style:italic;}
+
+.right a, .right a:hover{font-style:normal;}
+
+ul.calendario{list-style-type:circle !important; list-style-position:inside !important;}
+ul.calendario li{padding: 5px 10px;}
+
+ul.quote{list-style-type:circle !important; list-style-position:inside !important;}
+ul.quote li{padding: 5px 0 0 5px;}
