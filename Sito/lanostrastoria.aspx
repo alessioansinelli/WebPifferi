@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="lanostrastoria.aspx.cs" Inherits="_storia" %>
-
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
+<%@ Register Src="~/uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRepeater"  %>
 
-<%@ Register Src="uc/Photogallery.ascx" TagName="Photogallery" TagPrefix="uc2" %>
 
 <%-- Aggiungere qui i controlli del contenuto --%>
 <asp:Content ID="menu" runat="server" ContentPlaceHolderID="menu">
@@ -92,23 +91,7 @@
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
     <div class="col-sm-6 col-md-4">
-        <asp:Repeater ID="repnews" runat="server">
-            <HeaderTemplate>
-                <h1>Notizie ed eventi</h1>
-                <ul class="notizie">
-            </HeaderTemplate>
-            <ItemTemplate>
-                <li class="clearfix">
-                    <h2><%# DataBinder.Eval(Container.DataItem, "Titolo")%></h2>
-                    <%# getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w4") %>
-                    <div><%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%></div>
-                    <div class="leggitutto"><a href="dettaglionews.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">Leggi tutto &raquo;</a></div>
-                </li>
-            </ItemTemplate>
-            <FooterTemplate>
-                </ul>
-            </FooterTemplate>
-        </asp:Repeater>       
+       <edtRepeater:EditorialRepeater runat="server" ID="storiaRepeater" Count="5" Titolo="Foto" TipoOggetto="PhotoGallery" />
     </div>
 </asp:Content>
 

@@ -14,7 +14,7 @@ public class OggettoBase
     private string _Titolo = "";
     private string _SottoTitolo = "";
     private string _Testo = "";
-    private DateTime _DataInserimento ;
+    private DateTime _DataInserimento;
     private DateTime _DataModifica;
     private int _IdUtente;
     private TipoOggetto _TipoOggetto;
@@ -54,7 +54,8 @@ public class OggettoBase
     /// <summary>
     /// Testo
     /// </summary>
-    public string Testo {
+    public string Testo
+    {
         get { return _Testo; }
         set { _Testo = value; }
     }
@@ -62,7 +63,8 @@ public class OggettoBase
     /// <summary>
     /// Data inserimento
     /// </summary>
-    public DateTime DataInserimento {
+    public DateTime DataInserimento
+    {
         get { return _DataInserimento; }
         set { _DataInserimento = value; }
     }
@@ -70,7 +72,8 @@ public class OggettoBase
     /// <summary>
     /// Data Modifica
     /// </summary>
-    public DateTime DataModifica {
+    public DateTime DataModifica
+    {
         get { return _DataModifica; }
         set { _DataModifica = value; }
     }
@@ -78,43 +81,49 @@ public class OggettoBase
     /// <summary>
     /// IdUtente
     /// </summary>
-    public int IdUtente {
+    public int IdUtente
+    {
         get { return _IdUtente; }
         set { _IdUtente = value; }
     }
 
-    public TipoOggetto TipoOggetto {
+    public TipoOggetto TipoOggetto
+    {
         get { return _TipoOggetto; }
         set { _TipoOggetto = value; }
     }
 
-    public string PathFileOggetto {
+    public string PathFileOggetto
+    {
         get { return _PathOggetto; }
         set { _PathOggetto = value; }
     }
 
-    public string NomeFileOggetto {
+    public string NomeFileOggetto
+    {
         get { return _NomeFileOggetto; }
         set { _NomeFileOggetto = value; }
     }
 
-    public int NumOrder {
+    public int NumOrder
+    {
         get { return _NumOrder; }
         set { _NumOrder = value; }
     }
 
-	public virtual void FromDataReader(IDataReader oDr ) {
-		this.ID = int.Parse(oDr["tObjectID"].ToString());
-		this.Titolo = oDr["tObjectTitolo"].ToString();
+    public virtual void FromDataReader(IDataReader oDr)
+    {
+        this.ID = int.Parse(oDr["tObjectID"].ToString());
+        this.Titolo = oDr["tObjectTitolo"].ToString();
         this.Testo = oDr["tObjectTesto"].ToString();
-		this.SottoTitolo = oDr["tObjectSottoTitolo"].ToString();
-		this.DataInserimento = DateTime.Parse(oDr["tObjectDataInserimento"].ToString());
-		this.DataModifica = DateTime.Parse(oDr["tObjectDataModifica"].ToString());
-		this.IdUtente = int.Parse(oDr["tObjectIDUtente"].ToString());
-		this.TipoOggetto = (TipoOggetto) int.Parse(oDr["tObjectIDUtente"].ToString());
+        this.SottoTitolo = oDr["tObjectSottoTitolo"].ToString();
+        this.DataInserimento = DateTime.Parse(oDr["tObjectDataInserimento"].ToString());
+        this.DataModifica = DateTime.Parse(oDr["tObjectDataModifica"].ToString());
+        this.IdUtente = int.Parse(oDr["tObjectIDUtente"].ToString());
+        this.TipoOggetto = (TipoOggetto)int.Parse(oDr["tObjectTypeID"].ToString());
         this.NumOrder = int.Parse(oDr["tObjectNumOrder"].ToString());
         bool.TryParse(oDr["isHomeNews"].ToString(), out _isHomeNews);
-	}
+    }
 
     public bool isHomeNews
     {
@@ -124,7 +133,8 @@ public class OggettoBase
 
 }
 
-public enum TipoOggetto { 
+public enum TipoOggetto
+{
     Homepage = 0,
     News = 1,
     Photogallery = 2,

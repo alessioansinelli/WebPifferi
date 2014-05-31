@@ -34,9 +34,6 @@ public partial class _storia : System.Web.UI.Page
         oOggetti = new List<Oggetti.Oggetto>();
         oOggetti = NotiziePrimoPiano;
 
-        repnews.DataSource = oOggetti;
-        repnews.DataBind();
-
     }
 
     public string getUrlPhoto(Oggetti.OggettoFoto[] oFoto, string Dimensione)
