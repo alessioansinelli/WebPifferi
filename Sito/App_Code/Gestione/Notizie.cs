@@ -238,7 +238,7 @@ public class Notizie
         dbC.Parameters.Add(DAL.CreatePar("@tObjectDataInserimento", DateTime.Now));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectDataModifica", DateTime.Now));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectIDUtente", oNotizia.IdUtente));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTypeID", oNotizia.TipoOggetto));
+        dbC.Parameters.Add(DAL.CreatePar("@tObjectTypeID", (int)oNotizia.TipoOggetto));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectNumOrder", 1));
 
 
