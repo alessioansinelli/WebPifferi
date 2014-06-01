@@ -36,7 +36,6 @@ public class Utility
     {
         string sret = "";
         sret = VirtualPathUtility.ToAbsolute(Business.ConstWrapper.CartellaFoto + oFoto.Percorso + Dimensione + oFoto.Estensione );
-
         return sret;
     }
 

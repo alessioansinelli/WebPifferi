@@ -28,33 +28,30 @@
     <script type="text/javascript">
         $(document).ready(function ($) {
             $('#full-width-gallery-slider').royalSlider({
-                arrowsNav: true,
-                loop: true,
-                keyboardNavEnabled: true,
-                controlsInside: false,
-                imageScaleMode: 'fit-if-smaller',
-                arrowsNavAutoHide: false,
-                /*autoScaleSlider: true,
-                autoScaleSliderWidth: 960,*/
-                autoScaleSliderHeight: 750,
-                controlNavigation: 'thumbnails',
-                thumbsFitInViewport: false,
-                navigateByClick: true,
-                startSlideId: 0,
-                autoPlay: false,
-                transitionType: 'move',
-                globalCaption: true,
-                deeplinking: {
+                fullscreen: {
                     enabled: true,
-                    change: false
+                    nativeFS: true
                 },
+                controlNavigation: 'thumbnails',
+                autoScaleSlider: true,
+                autoScaleSliderWidth: 960,
+                autoScaleSliderHeight: 600,
+                loop: true,
+                imageScaleMode: 'fit-if-smaller',
+                navigateByClick: true,
+                numImagesToPreload: 2,
+                arrowsNav: true,
+                arrowsNavAutoHide: true,
+                arrowsNavHideOnTouch: true,
+                keyboardNavEnabled: true,
+                fadeinLoadedSlide: true,
+                globalCaption: true,
+                globalCaptionInside: false,
                 thumbs: {
-                    // thumbnails options go gere
-                    spacing: 10,
-                    arrowsAutoHide: true
-                }/*, size of all images http://help.dimsemenov.com/kb/royalslider-jquery-plugin-faq/adding-width-and-height-properties-to-images 
-                imgWidth: 1140,
-                imgHeight: 800*/
+                    appendSpan: true,
+                    firstMargin: true,
+                    paddingBottom: 4
+                }
             });
         });
     </script>

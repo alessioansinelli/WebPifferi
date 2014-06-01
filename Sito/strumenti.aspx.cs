@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _storia : System.Web.UI.Page
+public partial class _strumenti : System.Web.UI.Page
 {
 
     public string TitoloHomePage = "";
@@ -14,8 +14,7 @@ public partial class _storia : System.Web.UI.Page
     public string ImmagineHomePage = "";
 
     protected void Page_Load(object sender, EventArgs e)
-    {
-    }
+    {                
 
-
+    }    
 }

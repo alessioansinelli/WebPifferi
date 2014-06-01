@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="lanostrastoria.aspx.cs" Inherits="_storia" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="strumenti.aspx.cs" Inherits="_strumenti" %>
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="~/uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRepeater"  %>
 
@@ -91,7 +91,7 @@
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
     <div class="col-sm-6 col-md-4">
-       <edtRepeater:EditorialRepeater runat="server" ID="storiaRepeater" Count="4" Titolo="Video" TipoOggetto="PhotoGallery" />
+       <edtRepeater:EditorialRepeater runat="server" ID="strumentiRepeater" Count="4" Titolo="Video" TipoOggetto="Video" />
     </div>
 </asp:Content>
 

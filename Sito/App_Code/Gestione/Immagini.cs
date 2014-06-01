@@ -195,7 +195,7 @@ public class Immagini
                     string filename = "";
 
                     Dictionary<string, string> versions = new Dictionary<string, string>();
-                    for (int iRow = 1; iRow < 13; iRow++)
+                    for (int iRow = 1; iRow < 3; iRow++)
                     {
                         double width = 0;
                         double height = 0;

@@ -19,10 +19,13 @@ public partial class uc_Photogallery : System.Web.UI.UserControl
     private string _pageurl = "";
     public string _DataPubblicazione = "";
     public string _ShowShareUrl = "";
-		public bool _ShowOnlyPhoto = false;
+    public bool _ShowOnlyPhoto = false;
+    public string Anno, Mese, Giorno;
+
 
     protected void Page_Load(object sender, EventArgs e)
     {
+                
         int iPagina = 1;
         int iCount = int.Parse(System.Configuration.ConfigurationManager.AppSettings["countphoto"].ToString());
         if (Request["page"] != null)
@@ -36,15 +39,17 @@ public partial class uc_Photogallery : System.Web.UI.UserControl
         oDs.PageSize = iCount;
 
         Oggetti.Oggetto oFoto = Galleria;
-
         oDs.DataSource = oFoto.Foto;
 
         repFoto.DataSource = oDs;
         repFoto.DataBind();
         _TitoloGallery = oFoto.Titolo;
         _SottoTitoloGallery = oFoto.SottoTitolo;
-        _SottoTitoloGallery = oFoto.Testo;
-        _DataPubblicazione = oFoto.DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT"));
+        _SottoTitoloGallery = oFoto.Testo;        
+
+        Anno = oFoto.DataInserimento.ToString("yyyy", new System.Globalization.CultureInfo("it-IT"));
+        Mese = oFoto.DataInserimento.ToString("MMM", new System.Globalization.CultureInfo("it-IT")).ToUpper();
+        Giorno = oFoto.DataInserimento.ToString("dd", new System.Globalization.CultureInfo("it-IT"));
 
 
         //paginazione 
