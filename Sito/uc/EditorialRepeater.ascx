@@ -7,7 +7,7 @@
     <ItemTemplate>
         <div class="box">
             <figure>
-                <a href="photogallery.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                <a href="<%# Utility.GetBaseUrlByObjectType((TipoOggetto)DataBinder.Eval(Container.DataItem, "TipoOggetto"))  %>?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">
                     <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w6") %>
                 </a>
                 <figcaption><a href="photogallery.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>

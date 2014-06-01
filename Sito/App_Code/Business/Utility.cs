@@ -51,4 +51,25 @@ public class Utility
             return "";
         }
     }
+
+    public static string GetBaseUrlByObjectType(TipoOggetto tipoOggetto){
+        string sRet = "";
+
+        switch (tipoOggetto)
+        {
+            case TipoOggetto.News:
+                sRet = "dettaglionews.aspx";
+                break;
+            case TipoOggetto.Video:
+                sRet = "video.aspx";
+                break;
+            case TipoOggetto.Photogallery:
+                sRet = "photogallery.aspx";
+                break;
+
+        }
+
+        return sRet;
+    }
+
 }
