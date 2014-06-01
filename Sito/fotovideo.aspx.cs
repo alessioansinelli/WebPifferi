@@ -11,6 +11,9 @@ public partial class _fotoVideo : System.Web.UI.Page
     {
         repFoto.DataSource = GalleriePhoto;
         repFoto.DataBind();
+
+        repVideo.DataSource = Video;
+        repVideo.DataBind();
     }
 
     public List<Oggetti.Oggetto> GalleriePhoto

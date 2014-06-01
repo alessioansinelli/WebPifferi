@@ -3,8 +3,6 @@
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="uc/contenuto.ascx" TagName="contenuto" TagPrefix="uc2" %>
 
-<%@ Register Src="uc/Appuntamenti.ascx" TagName="Appuntamenti" TagPrefix="uc3" %>
-
 <%-- Aggiungere qui i controlli del contenuto --%>
 <asp:Content ID="menu" runat="server" ContentPlaceHolderID="menu">
     <uc1:menu ID="menu1" runat="server" SelectedMenu="mnuFotoVideo" />
@@ -56,8 +54,5 @@
     </div>
 </asp:Content>
 <asp:Content ID="right" ContentPlaceHolderID="contentright" runat="server">
-    <div class="col-sm-6 col-md-4">
-        <uc3:Appuntamenti ID="Appuntamenti1" runat="server" />
-    </div>
 
 </asp:Content>

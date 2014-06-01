@@ -17,9 +17,6 @@ public partial class _dettaglionews : System.Web.UI.Page
 	protected void Page_Load(object sender, EventArgs e)
 	{
 
-		List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-        oOggetti = ElencoNotizie;
-
         notizia1.PreRender += new EventHandler(notizia1_PreRender);
 
 	}
@@ -29,24 +26,4 @@ public partial class _dettaglionews : System.Web.UI.Page
         TitoloPagina = notizia1.Notizia.Titolo;
     }
 
-    
-    public List<Oggetti.Oggetto> ElencoNotizie
-    {
-        get
-        {
-            if (HttpContext.Current.Cache["ElencoNotizie"] != null)
-            {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["ElencoNotizie"];
-            }
-            else
-            {
-                Notizie oNotizie = new Notizie(TipoOggetto.News);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetAll(0, true,1);
-                ElencoNotizie = oOggetti;
-                return oOggetti;
-            }
-        }
-        set { HttpContext.Current.Cache["ElencoNotizie"] = value; }
-    }    
 }

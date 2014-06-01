@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="dettaglionews.aspx.cs" Inherits="_dettaglionews" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="video.aspx.cs" Inherits="_video" %>
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRepeater" %>
-<%@ Register Src="uc/notizia.ascx" TagName="notizia" TagPrefix="uc3" %>
+<%@ Register Src="uc/video.ascx" TagName="video" TagPrefix="video" %>
 <%@ Register Src="~/uc/slider.ascx" TagPrefix="uc1" TagName="slider" %>
 
 
@@ -18,14 +18,14 @@
 <asp:Content ID="divcontenuto" runat="server" ContentPlaceHolderID="content">
     <div class="col-sm-6 col-md-8">
         <div class="news">
-            <uc3:notizia ID="notizia1" runat="server" />
+            <video:video ID="notizia1" runat="server" />
         </div>
     </div>
 </asp:Content>
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
     <div class="col-sm-6 col-md-4">
-        <edtRepeater:EditorialRepeater ID="repDettaglioNews" runat="server" Titolo="Video" TipoOggetto="Video" Count="3" />
+        <edtRepeater:EditorialRepeater ID="repDettaglioVideo" runat="server" Titolo="Foto" TipoOggetto="Photogallery" Count="3" />
     </div>
 </asp:Content>
 

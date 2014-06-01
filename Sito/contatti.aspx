@@ -3,30 +3,15 @@
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="uc/contenuto.ascx" TagName="contenuto" TagPrefix="uc2" %>
-<%@ Register Src="uc/Appuntamenti.ascx" TagName="Appuntamenti" TagPrefix="uc3" %>
+<%@ Register Src="uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRep" %>
 <%-- Aggiungere qui i controlli del contenuto --%>
 <asp:Content ID="menu" runat="server" ContentPlaceHolderID="menu">
     <uc1:menu ID="menu1" runat="server" SelectedMenu="mnuContatti" />
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="addheadcontent">
-    <title>Associazione Aranceri Mercenari - La Sede</title>
+    <title>Contatti - Pifferi e Tamburi di Ivrea</title>
     <link rel="stylesheet" type="text/css" href="/css/sede.css" />
-    <meta name="description" content="La sede dell'Associazione Aranceri Mercenari. Vieni a trovarci per un bicchiere di vino e aiutaci ad organizzare il nostro Carnevale." />
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA8AuoIwxyh1Vz7LXsOOI2txRJly9jtg3VEFeyI7mM9pFjTSDBDRTLKa5P3pcIW1tAgFMGdB6xEX4dIg" type="text/javascript"></script>
-    <script type="text/javascript">
-        function GoogleMapLoad() {
-            if (GBrowserIsCompatible()) {
-                var map = new GMap2(document.getElementById("map"));
-                map.setCenter(new GLatLng(45.441171312167825, 7.877798080444342), 15);
-                map.enableDoubleClickZoom();
-                map.enableScrollWheelZoom();
-                map.addControl(new GSmallMapControl());
-                map.addControl(new GMapTypeControl());
-                map.openInfoWindow(map.getCenter(), document.getElementById("mapinfo"));
-            }
-        }
-    </script>
-
+    <meta name="description" content="" />
 </asp:Content>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="content">
     <div class="col-sm-6 col-md-8">
@@ -54,8 +39,6 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-4">
-        <div class="grid_4">
-            <uc3:Appuntamenti ID="Appuntamenti1" runat="server" />
-        </div>
+        <edtRep:EditorialRepeater ID="rightContatti" runat="server" TipoOggetto="PhotoGallery" Count="5" Titolo="Foto" />
     </div>
 </asp:Content>

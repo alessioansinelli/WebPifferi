@@ -13,8 +13,7 @@
 <asp:Content ID="head" runat="server" ContentPlaceHolderID="addheadcontent">
     <title>
         <asp:Literal runat="server" ID="TitleTag"></asp:Literal>
-        - Associazione Aranceri Mercenari - Le Foto</title>
-    <link rel="stylesheet" type="text/css" href="/css/foto.css" />
+    </title>
 </asp:Content>
 
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="content">
@@ -33,7 +32,7 @@
                 loop: true,
                 keyboardNavEnabled: true,
                 controlsInside: false,
-                imageScaleMode: 'fill',
+                imageScaleMode: 'fit-if-smaller',
                 arrowsNavAutoHide: false,
                 /*autoScaleSlider: true,
                 autoScaleSliderWidth: 960,*/
