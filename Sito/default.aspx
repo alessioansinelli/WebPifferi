@@ -44,7 +44,7 @@
         <div class="homestoria box">
             <figure>
                 <a href="/lanostrastoria.aspx">
-                    <img src="http://placehold.it/360x270/11715F/ff0000&text=Pifferi+e+Tamburi" />
+                    <img src="/images/layout/lanostrastoriathumb.jpg" />
                 </a>
                 <figcaption>
                     <a href="/lanostrastoria.aspx"><span>La nostra Storia</span></a>

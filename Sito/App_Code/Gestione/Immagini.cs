@@ -272,6 +272,42 @@ public class Immagini
         return retList;
     }
 
+    public List<Oggetti.OggettoFoto> GetAll(string ParentSlug, int count)
+    {
+        List<Oggetti.OggettoFoto> retList = new List<Oggetti.OggettoFoto>();
+
+        dbC = DAL.CreateCommand();
+
+        if (count > 0)
+        {
+            dbC.CommandText = (sqlGetCountByParentSlug.Replace("{count}", count.ToString()));
+        }
+        else
+        {
+            dbC.CommandText = (sqlGetAllByParentSlug);
+        }
+
+        dbC.Parameters.Add(DAL.CreatePar("@slug", ParentSlug));
+        using (IDataReader oDr = DAL.GetDataReader(dbC))
+        {
+
+            if (oDr != null)
+            {
+                while (oDr.Read())
+                {
+                    Oggetti.OggettoFoto oFoto = new Oggetti.OggettoFoto();
+                    oFoto.FromDataReader(oDr);
+
+                    retList.Add(oFoto);
+
+                }
+                oDr.Close();
+            }
+        }
+
+        return retList;
+    }
+
     public bool UpdateNumOrder(int ID, string Direction, int ParentID)
     {
         bool bRet = false;
@@ -387,6 +423,18 @@ public class Immagini
 			"INNER JOIN tRelatedItem r " +
 			"ON r.tObjectRelatedId = i.tImageID where r.tObjectId = @tObjectID order by r.tRelatedItemOrder";
 
+        private const string sqlGetAllByParentSlug = "SELECT [tImageID] " +
+          ",[tImageTitolo] " +
+          ",[tImageSottoTitolo] " +
+          ",[tImagePercorso] " +
+          ",[tImageEstensione] " +
+          ",[tImageDataInserimento] " +
+          ",r.tObjectId " +
+          ",r.tRelatedItemOrder as tImageNumOrder " +
+                "FROM [tImage] i  " +
+                "INNER JOIN tRelatedItem r " +
+                "ON r.tObjectRelatedId = i.tImageID where r.slug = @slug order by r.tRelatedItemOrder";
+
 		private const string sqlGetCountByParentId = "SELECT TOP {count} [tImageID]" + 
 			",[tImageTitolo] " +
 			",[tImageSottoTitolo] " +
@@ -398,6 +446,18 @@ public class Immagini
 			"FROM [tImage] i  " +
 			"INNER JOIN tRelatedItem r " +
 			"ON r.tObjectRelatedId = i.tImageID where r.tObjectId = @tObjectID order by r.tRelatedItemOrder";
+
+        private const string sqlGetCountByParentSlug = "SELECT TOP {count} [tImageID]" +
+        ",[tImageTitolo] " +
+        ",[tImageSottoTitolo] " +
+        ",[tImagePercorso] " +
+        ",[tImageEstensione] " +
+        ",[tImageDataInserimento] " +
+        ",r.tObjectId " +
+        ",r.tRelatedItemOrder as tImageNumOrder " +
+        "FROM [tImage] i  " +
+        "INNER JOIN tRelatedItem r " +
+        "ON r.tObjectRelatedId = i.tImageID where r.slug = @slug order by r.tRelatedItemOrder";
 
     private const string sqlGetFromId = "SELECT [tImageID] " +
       ",[tImageTitolo] " +

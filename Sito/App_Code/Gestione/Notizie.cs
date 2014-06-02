@@ -77,12 +77,60 @@ public class Notizie
 
     }
 
+    public Oggetto Get(string slug)
+    {
+
+        Oggetto ret = new Oggetto();
+        //OleDbManager oDbManager = Business.ConstWrapper.DbManager;
+
+        string sTipoOggetto = "";
+        for (int iT = 0; iT < _TipoOggetto.Length; iT++)
+        {
+            sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
+            if (iT < _TipoOggetto.Length)
+            {
+                sTipoOggetto += ", ";
+            }
+        }
+
+        sSQL = sqlGetSingleObject;
+
+        IDbCommand dbC = DAL.CreateCommand();
+        dbC.CommandText = sSQL;
+        dbC.CommandType = CommandType.StoredProcedure;
+
+        dbC.Parameters.Add(DAL.CreatePar("@slug", slug));
+
+
+        IDataReader oDr = DAL.GetDataReader(dbC);
+        if (oDr.Read())
+        {
+            ret.FromDataReader(oDr);
+            oDr.Close();
+        }
+        else { ret = null; }
+
+        return ret;
+
+    }
+
     public Oggetto Get(int iNotizia, bool GetFoto, int CountImage)
     {
 
         Oggetto ret = Get(iNotizia);
 
         ret.Foto = new Immagini().GetAll(iNotizia, CountImage).ToArray();
+
+        return ret;
+
+    }
+
+    public Oggetto Get(string slug, bool GetFoto, int CountImage)
+    {
+
+        Oggetto ret = Get(slug);
+
+        ret.Foto = new Immagini().GetAll(slug, CountImage).ToArray();
 
         return ret;
 
@@ -233,6 +281,7 @@ public class Notizie
         dbC.CommandText = (sqlInsertSingleObject);
 
         dbC.Parameters.Add(DAL.CreatePar("@tObjectTitolo", oNotizia.Titolo));
+        dbC.Parameters.Add(DAL.CreatePar("@slug", Utility.GenerateSlug(oNotizia.Titolo)));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectSottoTitolo", oNotizia.SottoTitolo));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectTesto", oNotizia.Testo));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectDataInserimento", DateTime.Now));
@@ -408,8 +457,8 @@ public class Notizie
     private const string sqlUpdateSingleObject = "UPDATE tObject SET tObjectTitolo = @tObjectTitolo, tObjectSottoTitolo = @tObjectSottoTitolo, tObjectTesto = @tObjectTesto, tObjectDataModifica = @tObjectDataModifica, tObjectIDUtente = @tObjectIDUtente " +
         " WHERE tObjectID=@tObjectID";
 
-    private const string sqlInsertSingleObject = "INSERT INTO tObject ( tObjectTitolo, tObjectSottoTitolo, tObjectTesto, tObjectDataInserimento, tObjectDataModifica, tObjectIDUtente, tObjectTypeID, tObjectNumOrder ) " +
-        " VALUES ( @tObjectTitolo, @tObjectSottoTitolo, @tObjectTesto, @tObjectDataInserimento, @tObjectDataModifica, @tObjectIDUtente, @tObjectTypeID, @tObjectNumOrder )";
+    private const string sqlInsertSingleObject = "INSERT INTO tObject ( tObjectTitolo, tObjectSottoTitolo, tObjectTesto, tObjectDataInserimento, tObjectDataModifica, tObjectIDUtente, tObjectTypeID, tObjectNumOrder, slug ) " +
+        " VALUES ( @tObjectTitolo, @tObjectSottoTitolo, @tObjectTesto, @tObjectDataInserimento, @tObjectDataModifica, @tObjectIDUtente, @tObjectTypeID, @tObjectNumOrder, @slug )";
 
     private const string sqlUpdateNumOrder = "";
 
