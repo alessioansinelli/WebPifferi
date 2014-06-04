@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _video : System.Web.UI.Page
+public partial class _video : CheckLoginPage
 {
 
 	public string TitoloHomePage = "";

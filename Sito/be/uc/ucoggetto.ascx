@@ -10,8 +10,12 @@
 </div>
 <div>
   <span><b>Titolo :</b></span><br />
-  <asp:TextBox ID="txtTitolo" runat="server" CssClass="txtTitolo"></asp:TextBox>
+  <asp:TextBox ID="txtTitolo" runat="server" CssClass="txtTitolo" AutoPostBack="True" OnTextChanged="titoloChanged"></asp:TextBox>
 </div>
+    <div>
+        <span><b>Slug :</b></span>
+        <asp:TextBox id="txtSlug" runat="server" CssClass="txtTitolo"></asp:TextBox>
+    </div>
 <div>
   <span><b>Sotto Titolo :</b></span><br />
   <asp:TextBox ID="txtSottoTitolo" runat="server" Rows="3" TextMode="MultiLine" CssClass="txtSottoTitolo"></asp:TextBox>

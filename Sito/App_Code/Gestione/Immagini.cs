@@ -195,7 +195,7 @@ public class Immagini
                     string filename = "";
 
                     Dictionary<string, string> versions = new Dictionary<string, string>();
-                    for (int iRow = 1; iRow < 3; iRow++)
+                    for (int iRow = 1; iRow < 13; iRow++)
                     {
                         double width = 0;
                         double height = 0;
@@ -457,7 +457,7 @@ public class Immagini
         ",r.tRelatedItemOrder as tImageNumOrder " +
         "FROM [tImage] i  " +
         "INNER JOIN tRelatedItem r " +
-        "ON r.tObjectRelatedId = i.tImageID where r.slug = @slug order by r.tRelatedItemOrder";
+        "ON r.tObjectRelatedId = i.tImageID where i.slug = @slug order by r.tRelatedItemOrder";
 
     private const string sqlGetFromId = "SELECT [tImageID] " +
       ",[tImageTitolo] " +

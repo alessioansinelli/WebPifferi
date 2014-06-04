@@ -30,7 +30,8 @@ public class CheckLoginPage : NoViewState.EliminaViewState.SessionPersisterBaseP
 
         if (ConstWrapper.UtenteLoggato == null)
         {
-           Response.Redirect(ResolveUrl("~/be/default.aspx"));
+
+            Response.Redirect(ResolveUrl("~/be/default.aspx?from=" + Request.Path));
         }
     }
 

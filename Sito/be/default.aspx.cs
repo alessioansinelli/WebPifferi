@@ -24,7 +24,7 @@ public partial class be_default : System.Web.UI.Page
 				
 				if (oLogin != null)
 				{
-					try { Response.Redirect("admin.aspx"); }
+					try { Response.Redirect(Request["from"]); }
 					catch (System.Threading.ThreadAbortException ex) {
                         
                     }

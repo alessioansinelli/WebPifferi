@@ -16,8 +16,14 @@ public partial class uc_notizia : System.Web.UI.UserControl
     public string Giorno = "";
     public string ID = "";
 
+
+    private string slug = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        slug = Page.RouteData.Values["slug"] as string;
+
         Oggetti.Oggetto oNotizia = Notizia;
         TitoloNotizia = oNotizia.Titolo;
         SottoTitolo = oNotizia.SottoTitolo;
@@ -30,14 +36,14 @@ public partial class uc_notizia : System.Web.UI.UserControl
 
     public Oggetti.Oggetto Notizia {
         get {
-            if (HttpContext.Current.Cache["notizia" + Request["id"].ToString()] != null)
+            if (HttpContext.Current.Cache["notizia-" + slug] != null)
             {
-                return (Oggetti.Oggetto)HttpContext.Current.Cache["notizia" + Request["id"].ToString()];
+                return (Oggetti.Oggetto)HttpContext.Current.Cache["notizia-" + slug];
             }
             else
             {
-                Oggetti.Oggetto oNews = new Notizie(TipoOggetto.News).Get(int.Parse(Request["id"].ToString()), false, 0);
-                HttpContext.Current.Cache["notizia" + Request["id"].ToString()] = oNews;
+                Oggetti.Oggetto oNews = new Notizie(TipoOggetto.News).Get(slug, false, 0);
+                HttpContext.Current.Cache["notizia-" + slug] = oNews;
                 return oNews;
             }
         }

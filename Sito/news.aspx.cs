@@ -6,17 +6,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 
-public partial class _news : System.Web.UI.Page
+public partial class _news : CheckLoginPage
 {
-
-	public string TitoloHomePage = "";
-	public string SottoTitoloHomePage = "";
-	public string TestoHomePage = "";
-	public string ImmagineHomePage = "";
+    public string TitoloHomePage = "";
+    public string SottoTitoloHomePage = "";
+    public string TestoHomePage = "";
+    public string ImmagineHomePage = "";
     private string _pageurl = "";
 
-	protected void Page_Load(object sender, EventArgs e)
-	{
+    protected void Page_Load(object sender, EventArgs e)
+    {
 
         int iPagina = 1;
         int iCount = int.Parse(System.Configuration.ConfigurationManager.AppSettings["countnews"].ToString());
@@ -35,7 +34,7 @@ public partial class _news : System.Web.UI.Page
 
 
         repnews.DataSource = oDs;
-		repnews.DataBind();
+        repnews.DataBind();
 
 
         //paginazione 
@@ -70,19 +69,21 @@ public partial class _news : System.Web.UI.Page
         }
 
 
-	}
+    }
 
-	public string getUrlPhoto(Oggetti.OggettoFoto[] oFoto, string Dimensione) {
-		string sret = "";
-		if (oFoto.Length > 0) {
-			sret = "<img src=\"" + ResolveUrl(Business.ConstWrapper.CartellaFoto + oFoto[0].Percorso + Dimensione + oFoto[0].Estensione + "\" alt=\"" + oFoto[0].Titolo + "\" />");
-			
-		}
+    public string getUrlPhoto(Oggetti.OggettoFoto[] oFoto, string Dimensione)
+    {
+        string sret = "";
+        if (oFoto.Length > 0)
+        {
+            sret = "<img src=\"" + ResolveUrl(Business.ConstWrapper.CartellaFoto + oFoto[0].Percorso + Dimensione + oFoto[0].Estensione + "\" alt=\"" + oFoto[0].Titolo + "\" />");
 
-		return sret;
-	}
+        }
 
-    
+        return sret;
+    }
+
+
     public List<Oggetti.Oggetto> ElencoNotizie
     {
         get
@@ -95,11 +96,11 @@ public partial class _news : System.Web.UI.Page
             {
                 Notizie oNotizie = new Notizie(TipoOggetto.News);
                 List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetAll(0, true,1);
+                oOggetti = oNotizie.GetAll(0, true, 1);
                 ElencoNotizie = oOggetti;
                 return oOggetti;
             }
         }
         set { HttpContext.Current.Cache["ElencoNotizie"] = value; }
-    }    
+    }
 }

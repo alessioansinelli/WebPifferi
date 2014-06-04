@@ -130,7 +130,7 @@ public class Notizie
 
         Oggetto ret = Get(slug);
 
-        ret.Foto = new Immagini().GetAll(slug, CountImage).ToArray();
+        ret.Foto = new Immagini().GetAll(ret.ID, CountImage).ToArray();
 
         return ret;
 
@@ -281,7 +281,8 @@ public class Notizie
         dbC.CommandText = (sqlInsertSingleObject);
 
         dbC.Parameters.Add(DAL.CreatePar("@tObjectTitolo", oNotizia.Titolo));
-        dbC.Parameters.Add(DAL.CreatePar("@slug", Utility.GenerateSlug(oNotizia.Titolo)));
+        string slug = string.IsNullOrEmpty(oNotizia.Slug) ? oNotizia.Slug : Utility.GenerateSlug(oNotizia.Titolo);
+        dbC.Parameters.Add(DAL.CreatePar("@slug", oNotizia.Slug));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectSottoTitolo", oNotizia.SottoTitolo));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectTesto", oNotizia.Testo));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectDataInserimento", DateTime.Now));

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _storia : System.Web.UI.Page
+public partial class _storia : CheckLoginPage
 {
 
     public string TitoloHomePage = "";

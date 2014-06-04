@@ -5,11 +5,11 @@
 
 <%-- Aggiungere qui i controlli del contenuto --%>
 <asp:Content ID="menu" runat="server" ContentPlaceHolderID="menu">
-    <uc1:menu ID="menu1" runat="server" SelectedMenu="mnuStoria" />
+    <uc1:menu ID="menu1" runat="server" SelectedMenu="mnuStrumenti" />
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="addheadcontent">
-    <title>La nostra Storia - Pifferi e Tamburi Ivrea</title>
+    <title>Gli Strumenti - Pifferi e Tamburi Ivrea</title>
 </asp:Content>
 
 <asp:Content ID="top" runat="server" ContentPlaceHolderID="top">
@@ -18,7 +18,7 @@
 <asp:Content ID="divcontenuto" runat="server" ContentPlaceHolderID="content">
     <div class="col-sm-6 col-md-8">
         <div class="homepage newshome">
-            <h1>La nostra Storia</h1>
+            <h1>Gli strumenti</h1>
             <div class="pnewshome">
                 Il gruppo dei Pifferi e Tamburi della Città di Ivrea pare derivare dall'antica tradizione sei-
             settecentesca dei carnevali rionali, richiamata da alcune "pifferate" del loro repertorio che portano i 

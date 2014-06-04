@@ -20,9 +20,23 @@ public partial class uc_slider : System.Web.UI.UserControl
     public string _DataPubblicazione = "";
     public string _ShowShareUrl = "";
     public bool _ShowOnlyPhoto = false;
+    public string slug = "";
+
+    public string Slug { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+        
+        if (!string.IsNullOrEmpty(Slug)) {
+            slug = Slug;
+        }
+        else
+        {
+            slug = Page.RouteData.Values["slug"] as string;
+        }
+        
+        
         if (Fotografie.Foto.Length > 0)
         {
             repSlider.DataSource = Fotografie.Foto;
@@ -34,14 +48,14 @@ public partial class uc_slider : System.Web.UI.UserControl
     {
         get
         {
-            if (HttpContext.Current.Cache["notizia" + Request["id"].ToString()] != null)
+            if (HttpContext.Current.Cache["notizia-" + slug] != null)
             {
-                return (Oggetti.Oggetto)HttpContext.Current.Cache["notizia" + Request["id"].ToString()];
+                return (Oggetti.Oggetto)HttpContext.Current.Cache["notizia-" + slug];
             }
             else
             {
-                Oggetti.Oggetto oNews = new Notizie(TipoOggetto.News).Get(int.Parse(Request["id"].ToString()), false, 0);
-                HttpContext.Current.Cache["notizia" + Request["id"].ToString()] = oNews;
+                Oggetti.Oggetto oNews = new Notizie(TipoOggetto.News).Get(slug, false, 0);
+                HttpContext.Current.Cache["notizia-" + slug] = oNews;
                 return oNews;
             }
         }

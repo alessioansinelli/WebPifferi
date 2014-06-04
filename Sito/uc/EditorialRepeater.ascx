@@ -7,10 +7,10 @@
     <ItemTemplate>
         <div class="box">
             <figure>
-                <a href="<%# Utility.GetBaseUrlByObjectType((TipoOggetto)DataBinder.Eval(Container.DataItem, "TipoOggetto"))  %>?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                <a href="/<%# Utility.GetBaseUrlByObjectType((TipoOggetto)DataBinder.Eval(Container.DataItem, "TipoOggetto"))  %>/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
                     <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w6") %>
                 </a>
-                <figcaption><a href="photogallery.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
+                <figcaption><a href="/<%# Utility.GetBaseUrlByObjectType((TipoOggetto)DataBinder.Eval(Container.DataItem, "TipoOggetto"))  %>/<%# DataBinder.Eval(Container.DataItem, "slug")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
             </figure>
         </div>
     </ItemTemplate>

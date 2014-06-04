@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Photogallery.ascx.cs"
     Inherits="uc_Photogallery" %>
-
+<%  if (!HideTitle)
+    { %>
 <div class="newsdate vertical">
     <span class="giorno"><% = Giorno %></span>
     <span class="mese"><% = Mese %></span>
@@ -8,6 +9,8 @@
 </div>
 <h1><% = _TitoloGallery %></h1>
 <div class="testo"><% = _SottoTitoloGallery%></div>
+<% }  
+%>
 <div class="photogallery">
     <asp:Repeater ID="repFoto" runat="server">
         <HeaderTemplate>
@@ -25,8 +28,10 @@
         </FooterTemplate>
     </asp:Repeater>
 </div>
-<div id="divPaginazione" runat="server" class="pagfoto">
-</div>
+<% if (!HideTitle)
+   { %>
+<div id="divPaginazione" runat="server" class="pagfoto"></div>
 
 <div class="testo"><% = _TestoGallery%></div>
+<% } %>
 

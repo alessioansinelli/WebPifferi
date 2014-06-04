@@ -2,7 +2,8 @@
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="~/uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRepeater" %>
-
+<%@ Register Src="~/uc/Photogallery.ascx" TagPrefix="edtRepeater" TagName="Photogallery" %>
+<%@ Register Src="~/uc/slider.ascx" TagPrefix="uc1" TagName="slider" %>
 
 <%-- Aggiungere qui i controlli del contenuto --%>
 <asp:Content ID="menu" runat="server" ContentPlaceHolderID="menu">
@@ -17,9 +18,11 @@
 </asp:Content>
 
 <asp:Content ID="divcontenuto" runat="server" ContentPlaceHolderID="content">
-    <div class="col-sm-6 col-md-8">
+    <div class="col-sm-6 col-md-8">            
         <div class="homepage newshome">
             <h1>La nostra Storia</h1>
+            <% // Attenzione, settare una photogallery con slug "photo-storia" %>
+            <uc1:slider runat="server" ID="slider" Slug="photo-storia" />
             <div class="pnewshome">
                 Il gruppo dei Pifferi e Tamburi della Città di Ivrea pare derivare dall'antica tradizione sei-
             settecentesca dei carnevali rionali, richiamata da alcune "pifferate" del loro repertorio che portano i 
@@ -100,9 +103,37 @@
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
     <div class="col-sm-6 col-md-4">
-        <edtRepeater:EditorialRepeater runat="server" ID="storiaRepeater" Count="4" Titolo="Video" TipoOggetto="PhotoGallery" />
+        <edtRepeater:EditorialRepeater runat="server" ID="storiaRepeater" Count="3" Titolo="Foto" TipoOggetto="PhotoGallery" />
     </div>
 </asp:Content>
 
 <asp:Content ID="script" runat="server" ContentPlaceHolderID="addScript">
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#full-width-slider').royalSlider({
+                arrowsNav: true,
+                loop: true,
+                keyboardNavEnabled: true,
+                controlsInside: false,
+                imageScaleMode: 'fit-if-smaller',
+                arrowsNavAutoHide: false,
+                /*autoScaleSlider: true,
+                autoScaleSliderWidth: 960,
+                autoScaleSliderHeight: 350,*/
+                controlNavigation: 'bullets',
+                thumbsFitInViewport: false,
+                navigateByClick: true,
+                startSlideId: 0,
+                autoPlay: false,
+                transitionType: 'move',
+                globalCaption: true,
+                deeplinking: {
+                    enabled: true,
+                    change: false
+                }/*, size of all images http://help.dimsemenov.com/kb/royalslider-jquery-plugin-faq/adding-width-and-height-properties-to-images 
+                imgWidth: 1140,
+                imgHeight: 800*/
+            });
+        });
+    </script>
 </asp:Content>

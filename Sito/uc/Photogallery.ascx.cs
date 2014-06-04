@@ -21,11 +21,14 @@ public partial class uc_Photogallery : System.Web.UI.UserControl
     public string _ShowShareUrl = "";
     public bool _ShowOnlyPhoto = false;
     public string Anno, Mese, Giorno;
+    private string slug = "";
+
+    public string Slug { get; set; }
+    public bool HideTitle { get; set; }
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
-                
         int iPagina = 1;
         int iCount = int.Parse(System.Configuration.ConfigurationManager.AppSettings["countphoto"].ToString());
         if (Request["page"] != null)
@@ -45,7 +48,7 @@ public partial class uc_Photogallery : System.Web.UI.UserControl
         repFoto.DataBind();
         _TitoloGallery = oFoto.Titolo;
         _SottoTitoloGallery = oFoto.SottoTitolo;
-        _SottoTitoloGallery = oFoto.Testo;        
+        _SottoTitoloGallery = oFoto.Testo;
 
         Anno = oFoto.DataInserimento.ToString("yyyy", new System.Globalization.CultureInfo("it-IT"));
         Mese = oFoto.DataInserimento.ToString("MMM", new System.Globalization.CultureInfo("it-IT")).ToUpper();
@@ -89,14 +92,24 @@ public partial class uc_Photogallery : System.Web.UI.UserControl
     {
         get
         {
-            if (HttpContext.Current.Cache["photogallery" + Request["id"].ToString()] != null)
+            if (string.IsNullOrEmpty(Slug))
             {
-                return (Oggetti.Oggetto)HttpContext.Current.Cache["photogallery" + Request["id"].ToString()];
+                slug = Page.RouteData.Values["slug"] as string;
             }
             else
             {
-                Oggetti.Oggetto oNews = new Notizie(_TipoOggetto).Get(int.Parse(Request["id"].ToString()), true, 0);
-                HttpContext.Current.Cache["photogallery" + Request["id"].ToString()] = oNews;
+                slug = Slug;
+            }
+            
+
+            if (HttpContext.Current.Cache["photogallery-" + slug] != null)
+            {
+                return (Oggetti.Oggetto)HttpContext.Current.Cache["photogallery-" + slug];
+            }
+            else
+            {                
+                Oggetti.Oggetto oNews = new Notizie(_TipoOggetto).Get(slug, true, 0);
+                HttpContext.Current.Cache["photogallery-" + slug] = oNews;
                 return oNews;
             }
         }
@@ -137,10 +150,10 @@ public partial class uc_Photogallery : System.Web.UI.UserControl
         set { _ShowShareUrl = value; }
     }
 
-		public bool ShowOnlyPhoto
-		{
-			get { return _ShowOnlyPhoto; }
-			set { _ShowOnlyPhoto = value; }
-		}
+    public bool ShowOnlyPhoto
+    {
+        get { return _ShowOnlyPhoto; }
+        set { _ShowOnlyPhoto = value; }
+    }
 
 }

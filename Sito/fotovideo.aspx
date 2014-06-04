@@ -23,10 +23,10 @@
                 <div class="col-md-4">
                     <div class="box">
                         <figure>
-                            <a href="photogallery.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                            <a href="/gallery/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
                                 <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w6") %>
                             </a>
-                            <figcaption><a href="photogallery.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
+                            <figcaption><a href="/gallery/<%# DataBinder.Eval(Container.DataItem, "slug")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
                         </figure>
                     </div>
                 </div>
@@ -42,10 +42,10 @@
                 <div class="col-md-4">
                     <div class="box">
                         <figure>
-                            <a href="video.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                            <a href="/video/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
                                 <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w6") %>
                             </a>
-                            <figcaption><a href="video.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
+                            <figcaption><a href="/video/<%# DataBinder.Eval(Container.DataItem, "slug")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
                         </figure>
                     </div>
                 </div>

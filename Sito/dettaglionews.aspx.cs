@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _dettaglionews : System.Web.UI.Page
+public partial class _dettaglionews : CheckLoginPage
 {
 
 	public string TitoloHomePage = "";

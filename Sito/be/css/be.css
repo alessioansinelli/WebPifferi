@@ -12,6 +12,6 @@
 .fl{float:left;}
 
 /* ucnews */
-.txtTitolo, .txtSottoTitolo{width:544px;font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px;}
+.txtTitolo, .txtSottoTitolo, .txtSlug{width:544px;font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px;}
 .btnControllo .bottone{font-size:10px; padding: 2px 5px;}
 .txtContainer{width:550px;}

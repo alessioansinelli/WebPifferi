@@ -12,16 +12,16 @@
 </asp:Content>
 <asp:Content ID="divcontenuto" runat="server" ContentPlaceHolderID="content">
     <div class="col-sm-6 col-md-8">
-        <div class="news">
+        <div class="newslist">
             <asp:Repeater ID="repnews" runat="server">
                 <HeaderTemplate>
-                    <h1>Notizie in primo piano</h1>
+                    <h1>Notizie</h1>
                     <ul class="notizie">
                 </HeaderTemplate>
                 <ItemTemplate>
                     <li>
                         <h2>
-                            <a href="dettaglionews.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                            <a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
                                 <%# DataBinder.Eval(Container.DataItem, "Titolo")%>
                                 (<%# ((Oggetti.Oggetto)Container.DataItem).DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT")) %>)
                             </a>
@@ -30,7 +30,7 @@
                             <%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%>
                         </div>
                         <div class="leggitutto fr">
-                            <a href="dettaglionews.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">Leggi
+                            <a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">Leggi
                                 tutto &raquo;</a>
                         </div>
                     </li>
@@ -39,13 +39,13 @@
                     </ul>
                 </FooterTemplate>
             </asp:Repeater>
-            <div id="divPaginazione" runat="server" class="pagfoto"></div>
+            <div id="divPaginazione" runat="server" class="pagnews"></div>
         </div>
     </div>
 </asp:Content>
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
     <div class="col-sm-6 col-md-4">
-        <edtRep:EditorialRepeater ID="rightNews" runat="server" TipoOggetto="PhotoGallery" Count="5" Titolo="Foto" />
+        <edtRep:EditorialRepeater ID="rightNews" runat="server" TipoOggetto="PhotoGallery" Count="3" Titolo="Foto" />
     </div>
 </asp:Content>

@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <div>
 			<fieldset>
-				<legend>Effettua l'accesso per accedere alla gestione dei contenuti</legend>
+				<legend>Effettua l'accesso</legend>
 				<asp:TextBox ID="txtNomeUtente" runat="server"></asp:TextBox>
 				<asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
 				<asp:Button runat="server" ID="btnSubmit" Text="Accedi" ToolTip="Accedi" 

@@ -42,6 +42,8 @@ public class OggettoBase
         set { _Titolo = value; }
     }
 
+    public string Slug { get; set; }
+
     /// <summary>
     /// SottoTitolo
     /// </summary>
@@ -122,6 +124,7 @@ public class OggettoBase
         this.IdUtente = int.Parse(oDr["tObjectIDUtente"].ToString());
         this.TipoOggetto = (TipoOggetto)int.Parse(oDr["tObjectTypeID"].ToString());
         this.NumOrder = int.Parse(oDr["tObjectNumOrder"].ToString());
+        this.Slug = oDr["slug"].ToString();
         bool.TryParse(oDr["isHomeNews"].ToString(), out _isHomeNews);
     }
 

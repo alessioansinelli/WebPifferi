@@ -47,7 +47,7 @@
                     <img src="/images/layout/lanostrastoriathumb.jpg" />
                 </a>
                 <figcaption>
-                    <a href="/lanostrastoria.aspx"><span>La nostra Storia</span></a>
+                    <a href="/storia"><span>La nostra Storia</span></a>
                 </figcaption>
             </figure>
         </div>
@@ -58,14 +58,14 @@
                 <a href="/strumenti.aspx">
                     <img src="http://placehold.it/360x270/11715F/ff0000&text=Pifferi+e+Tamburi" />
                 </a>
-                <figcaption><a href="/strumenti.aspx"><span>Gli strumenti</span></a></figcaption>
+                <figcaption><a href="/strumenti"><span>Gli strumenti</span></a></figcaption>
             </figure>
         </div>
     </div>
     <div class="col-sm-6 col-md-4">
         <div class="homefotovideo box">
             <figure>
-                <a href="/fotovideo.aspx">
+                <a href="/fotovideo">
                     <img src="/images/fotovideo.jpg" />
                 </a>
                 <figcaption>

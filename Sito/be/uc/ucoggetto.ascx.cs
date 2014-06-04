@@ -39,7 +39,7 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
         if (!Page.IsPostBack)
         {
             if (IdNews != 0)
-            {                
+            {
                 Oggetti.Oggetto oNotizia = new Notizie(TipoOggetto).Get(IdNews);
                 Popolanotizia(oNotizia);
             }
@@ -49,9 +49,10 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
 
     private void Popolanotizia(Oggetti.Oggetto oNotizia)
     {
-        txtTitolo.Text = oNotizia.Titolo;        
+        txtTitolo.Text = oNotizia.Titolo;
         txtSottoTitolo.Text = oNotizia.SottoTitolo;
         txtTesto.Value = oNotizia.Testo;
+        txtSlug.Text = oNotizia.Slug;
     }
 
 
@@ -60,7 +61,7 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
         if (txtTitolo.Text != "")
         {
 
-						Notizie oNotizie = new Notizie(_TipoOggetto);
+            Notizie oNotizie = new Notizie(_TipoOggetto);
             Oggetti.Oggetto oNotizia = new Oggetti.Oggetto();
 
             if (IdNews != 0)
@@ -87,14 +88,17 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
                 oNotizia.DataModifica = DateTime.Now;
                 oNotizia.TipoOggetto = _TipoOggetto;
                 oNotizia.Testo = txtTesto.Value;
+                oNotizia.Slug = txtSlug.Text.Trim();
+
 
                 int idnews = oNotizie.Add(oNotizia);
 
-                switch (_TipoOggetto) { 
+                switch (_TipoOggetto)
+                {
                     case TipoOggetto.Eventi:
                         Response.Redirect("/be/eventi.aspx");
                         break;
-                    case TipoOggetto.News :
+                    case TipoOggetto.News:
                         Response.Redirect("/be/news.aspx");
                         break;
                     case TipoOggetto.Homepage:
@@ -105,7 +109,7 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
                         break;
                 }
 
-                
+
             }
         }
     }
@@ -118,5 +122,15 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
         dettaglionews.Visible = false;
         gestioneimmagini.Visible = true;
         imgNotizia.TitoloOggettoParent = txtTitolo.Text.ToString();
+    }
+    protected void titoloChanged(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(txtTitolo.Text))
+        {
+            if (string.IsNullOrEmpty(txtSlug.Text))
+            {
+                txtSlug.Text = Utility.GenerateSlug(txtTitolo.Text);
+            }
+        }
     }
 }
