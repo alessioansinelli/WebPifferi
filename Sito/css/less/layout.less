@@ -73,6 +73,12 @@ figure.imgHome img {
     }
 }
 
+.storia, .strumenti {
+    #full-width-slider{
+        margin-bottom:15px;
+    }
+}
+
 .box {
     margin: 25px 0 0;
 
@@ -80,10 +86,10 @@ figure.imgHome img {
         position: relative;
 
         figcaption {
-            #gradient.horizontal(#f00; #11715f; 0%; 100%);
+            /*#gradient.horizontal(#f00; #11715f; 0%; 100%);*/
             position: absolute;
             bottom: 15px;
-            background-color: #f00;
+            background-color: #11715f;
             padding: 10px 30px;
             font-size: 25px;
             text-transform: uppercase;
@@ -136,6 +142,7 @@ figure.imgHome img {
 }
 
 .news{
+    text-align:justify;
     .sottotitolo{}
     .testo{margin-top: 15px;}
 }
@@ -167,12 +174,26 @@ video {
 
 .pagnews{
     text-align:center;
-    ul{margin: 0 auto; display:inline-block;}
+    ul{margin: 20px auto 0; display:inline-block;}
     li{display:inline-block; width:35px; height:35px; background-color:#dc242e; color:#fff;text-align:center;margin:0 5px;}
     li a{color:white; font-size:24px; font-weight:bold;}
 }
 
 .newslist{
+    li{
+        clear:both;
+        a{
+            text-decoration:none;
+            h2{color:rgb(220,36,46);}
+            .divnews{color:rgb(0,0,0);}
+        }
+    }
+    figure{
+        float:left;
+        width:120px; max-height:90px !important;
+        margin:0 10px 0 0;
+        img {width:100%;}
+    }
     .leggitutto a{
         color:rgb(17,113,95);
     }

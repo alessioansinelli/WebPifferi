@@ -73,6 +73,7 @@ public partial class be_uc_ucoggetto : System.Web.UI.UserControl
                 oNotizia.IdUtente = Business.ConstWrapper.UtenteLoggato.IdUtente;
                 oNotizia.DataModifica = DateTime.Now;
                 oNotizia.ID = IdNews;
+                oNotizia.Slug = txtSlug.Text.Trim();
 
                 oNotizie.Update(oNotizia);
 

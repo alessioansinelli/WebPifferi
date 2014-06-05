@@ -20,19 +20,20 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <li>
-                        <h2>
-                            <a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
-                                <%# DataBinder.Eval(Container.DataItem, "Titolo")%>
+                        <a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
+                            <figure class="imgList">
+                                <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w2") %>
+                            </figure>
+                            <div class="newsdetail">
+                                <h2><%# DataBinder.Eval(Container.DataItem, "Titolo")%>
                                 (<%# ((Oggetti.Oggetto)Container.DataItem).DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT")) %>)
-                            </a>
-                        </h2>
-                        <div class="divnews">
-                            <%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%>
-                        </div>
-                        <div class="leggitutto fr">
-                            <a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">Leggi
-                                tutto &raquo;</a>
-                        </div>
+                                
+                                </h2>
+                                <div class="divnews">
+                                    <%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%>
+                                </div>
+                            </div>
+                        </a>
                     </li>
                 </ItemTemplate>
                 <FooterTemplate>

@@ -320,6 +320,7 @@ public class Notizie
         dbC.Parameters.Add(DAL.CreatePar("@tObjectDataModifica", oNotizia.DataModifica));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectIDUtente", oNotizia.IdUtente));
         dbC.Parameters.Add(DAL.CreatePar("@tObjectID", oNotizia.ID));
+        dbC.Parameters.Add(DAL.CreatePar("@slug", oNotizia.Slug));
 
         iRetVal = DAL.Execute(dbC);
 
@@ -455,7 +456,7 @@ public class Notizie
         "FROM tObject " +
         "WHERE tObject.tObjectTypeID IN ({@TipoOggetto}) {sOrderBy}";
 
-    private const string sqlUpdateSingleObject = "UPDATE tObject SET tObjectTitolo = @tObjectTitolo, tObjectSottoTitolo = @tObjectSottoTitolo, tObjectTesto = @tObjectTesto, tObjectDataModifica = @tObjectDataModifica, tObjectIDUtente = @tObjectIDUtente " +
+    private const string sqlUpdateSingleObject = "UPDATE tObject SET tObjectTitolo = @tObjectTitolo, tObjectSottoTitolo = @tObjectSottoTitolo, tObjectTesto = @tObjectTesto, tObjectDataModifica = @tObjectDataModifica, tObjectIDUtente = @tObjectIDUtente, slug=@slug " +
         " WHERE tObjectID=@tObjectID";
 
     private const string sqlInsertSingleObject = "INSERT INTO tObject ( tObjectTitolo, tObjectSottoTitolo, tObjectTesto, tObjectDataInserimento, tObjectDataModifica, tObjectIDUtente, tObjectTypeID, tObjectNumOrder, slug ) " +

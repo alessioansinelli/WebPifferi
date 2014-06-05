@@ -18,84 +18,83 @@
 </asp:Content>
 
 <asp:Content ID="divcontenuto" runat="server" ContentPlaceHolderID="content">
-    <div class="col-sm-6 col-md-8">            
-        <div class="homepage newshome">
+    <div class="col-sm-6 col-md-8">
+        <div class="storia news">
             <h1>La nostra Storia</h1>
             <% // Attenzione, settare una photogallery con slug "photo-storia" %>
             <uc1:slider runat="server" ID="slider" Slug="photo-storia" />
             <div class="pnewshome">
-                Il gruppo dei Pifferi e Tamburi della Città di Ivrea pare derivare dall'antica tradizione sei-
+                <p>
+                    Il gruppo dei Pifferi e Tamburi della Città di Ivrea pare derivare dall'antica tradizione sei-
             settecentesca dei carnevali rionali, richiamata da alcune "pifferate" del loro repertorio che portano i 
             nomi delle cinque diverse parrocchie degli antichi rioni della città.<br />
-                Il gruppo si riconosce nella tradizione delle bande militari che accompagnavano anticamente gli 
-            eserciti lungo le campagne d’Europa.<br />
-                Una volta persa la connotazione militare, questo accompagnamento musicale, è stato adottato a 
+                    Il gruppo si riconosce nella tradizione delle bande militari che accompagnavano anticamente gli 
+            eserciti lungo le campagne d’Europa.
+                </p>
+                <p>
+                    Una volta persa la connotazione militare, questo accompagnamento musicale, è stato adottato a 
             ritmare il passo di un corteo Carnevalesco, composto a metà ‘800 per lo più da personaggi in divisa 
-            militare e di modeste proporzioni.<br />
-                Il Gruppo composto da un drappello di suonatori, che appare in rare riprese fotografiche è 
+            militare e di modeste proporzioni.
+                </p>
+                <p>
+                    Il Gruppo composto da un drappello di suonatori, che appare in rare riprese fotografiche è 
             costituito di soli tre o quattro pifferi e di altrettanti tamburini, taluni in borghese, schierati in modo 
             apparentemente casuale, ma nel 1908, nell'edizione del centenario del Carnevale contava, oltre al 
-            mazziere, cinque pifferi, cinque tamburini, un portatore di grancassa ed il suo battitore.<br />
-                Si costituì poi il” Comitato per il riordinamento dei pifferi e dei tamburini" formato dal maestro 
+            mazziere, cinque pifferi, cinque tamburini, un portatore di grancassa ed il suo battitore.
+                </p>
+                <p>
+                    Si costituì poi il” Comitato per il riordinamento dei pifferi e dei tamburini" formato dal maestro 
             di musica Angelo Burbatti, trascrittore di tutte le suonate, da Pietro Cavallo, aiutante di campo del 
-            generale e da Nicola Viglio.<br />
-                Col passare del tempo l'organico si incrementò fino a che, negli anni successivi alla prima guerra 
+            generale e da Nicola Viglio.
+                </p>
+                <p>
+                    Col passare del tempo l'organico si incrementò fino a che, negli anni successivi alla prima guerra 
             mondiale si raggiunse il numero di sei-otto pifferi, sei od otto-dieci tamburini, oltre ai due addetti 
-            alla grancassa.<br />
+            alla grancassa.
+                
                 Tale organico è rimasto sostanzialmente invariato sin quasi ai nostri giorni e attualmente si 
-            annoverano quindici pifferi, altrettanti tamburini, il portatore ed il suonatore della grancassa.<br />
-                Alcune sonate che compongono il repertorio traggono ispirazione dalle marce dell’esercito
+            annoverano quindici pifferi, altrettanti tamburini, il portatore ed il suonatore della grancassa.
+                </p>
+                <p>
+                    Alcune sonate che compongono il repertorio traggono ispirazione dalle marce dell’esercito
             piemontese di Emanuele Filiberto, restauratore dello Stato Sabaudo nel XVI secolo. 
             <br />
-                A queste, successivamente , si sono aggiunte le “monferrine”, gaie e vivaci danze popolari piemontesi, alcune 
+                    A queste, successivamente , si sono aggiunte le “monferrine”, gaie e vivaci danze popolari piemontesi, alcune 
             marce tipiche del periodo napoleonico e altre musiche di origine risorgimentale, riconoscendo 
             l’intero repertorio parte fondamentale del patrimonio culturale della tradizione etnomusicale 
-            piemontese.<br />
-                L’imprescindibile e indissolubile legame che lega il Gruppo allo storico Carnevale di Ivrea, 
+            piemontese.
+                </p>
+                <p>
+                    L’imprescindibile e indissolubile legame che lega il Gruppo allo storico Carnevale di Ivrea, 
             di cui rappresenta l’insostituibile colonna sonora, arricchisce di significati e richiami antichi 
             l'animazione musicale della festa.<br />
-                Il retroterra storico della formazione dei Pifferi e Tamburi, pur 
+                    Il retroterra storico della formazione dei Pifferi e Tamburi, pur 
             calato nella tradizione militare,è da sempre una parte non separabile dal mondo popolare eporediese 
             e canavesano.
-                <br />
-                Con la capacità di fare propria l’esperienza musicale della tradizione arcaica 
+                </p>
+                <p>
+                    Con la capacità di fare propria l’esperienza musicale della tradizione arcaica 
             del Carnevale eporediese, il repertorio si pone dunque quale emblematico esempio di ritualità 
-            popolare, orientato ad un sempre nuovo racconto.<br />
-                Gli strumenti utilizzati dal gruppo sono:
-            <em>il piffero</em> (un piccolo flauto traverso generalmente in legno di bosso), <em>il tamburo</em> e la <em>grancassa</em>.<br />
-                Questi sono gli unici strumenti impiegati e ancora oggi vengono realizzati artigianalmente su 
-            precise indicazioni degli stessi componenti del gruppo.<br />
-                Il piffero, simbolo indiscusso del Carnevale, designa curiosamente, nel contempo, sia lo strumento 
-            suonato che il soggetto suonatore. Normalmente è costruito in bosso o corniolo, ha canneggio 
-            interno cilindrico e sei fori oltre, ovviamente, ad un’imboccatura (è simile, come forma, ad un 
-            ottavino ma senza le chiavi).
-                <br />
-                Il prodotto artigianale finito è un pezzo unico, difficilmente riproducibile soprattutto nelle sue 
-            qualità sonore.
-                <br />
-                Infatti, le caratteristiche della compattezza del legno e della struttura anatomica del 
-            labbro di ogni suonatore, non garantiscono la stessa intonazione.<br />
-                Il tamburo, almeno quello in uso due generazioni or sono, presentava una cassa di ottone, più 
-            alta di quelle proprie degli strumenti civili, munita di timbro o "cordiera", ed era, e viene tutt’ora 
-            affiancato dalla grancassa (la "timbala"), anch'essa in dotazione ai corpi musicali sabaudi.<br />
-                La timbala, è uno strumento determinante nel gruppo Pifferi e Tamburi. Ha il compito di tenere 
-            il tempo e da essa ne trae beneficio tutto il gruppo; detta le velocità delle marce ed evita o decide 
-            l'accelerare o il rallentare delle stesse. È costruita in legno, con pelli naturali, con incordatura a 
-            corde di canapa.<br />
-                E’ fuor di dubbio che i Pifferi e Tamburi siano la componente del Carnevale più amata e seguita 
+            popolare, orientato ad un sempre nuovo racconto.
+                </p>
+                <p>
+                    E’ fuor di dubbio che i Pifferi e Tamburi siano la componente del Carnevale più amata e seguita 
             da eporediesi e canavesani; il loro seguito, si è di anno in anno incrementato, e coinvolge ormai 
             migliaia di persone, di tutte le età.<br />
-                Prova ne è il 6 gennaio, giorno dell’Epifania ed esordio annuale 
+                    Prova ne è il 6 gennaio, giorno dell’Epifania ed esordio annuale 
             del Carnevale.<br />
-                Ulteriore prova di quanto finora scritto è il conferimento al gruppo delle supreme insegne 
+                    Ulteriore prova di quanto finora scritto è il conferimento al gruppo delle supreme insegne 
             dell’ordine cavalleresco dell’Ordine degli Oditori e Intendenti Generali delle Milizie e Genti 
             da Guerra del Canavese, avvenuto il giovedì grasso dell'edizione 2014 dello Storico 
-            Carnevale di Ivrea.<br />
-                Sul verbale che riporta i momenti salienti della cerimonia è stato riportato che “senza le musiche di 
+            Carnevale di Ivrea.
+                </p>
+                <p>
+                    Sul verbale che riporta i momenti salienti della cerimonia è stato riportato che “senza le musiche di 
             questo preziosissimo gruppo, il Carnevale eporediese non potrebbe avere inizio, né conclusione”.<br />
-                Essi sono “un patrimonio a cui tutti gli eporediesi e i canavesani sono legati con grande sentimento 
+                    Essi sono “un patrimonio a cui tutti gli eporediesi e i canavesani sono legati con grande sentimento 
             di affetto, identificazione e soprattutto di riconoscimento per quelle radici che furono dei nostri 
             antenati e che loro rappresentano ancora oggi, riempiendoci di orgoglio”.
+                </p>
             </div>
         </div>
     </div>

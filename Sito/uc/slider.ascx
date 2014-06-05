@@ -8,7 +8,8 @@
     <ItemTemplate>
         <div class="rsContent">
             <%# getUrlPhoto(((Oggetti.OggettoFoto)Container.DataItem), "w8", "rsImg") %>
-            <div class="infoBlock infoBlockLeftBlack rsABlock">
+            
+            <div class="infoBlock infoBlockLeftBlack rsABlock" visible='<%# (DataBinder.Eval(Container.DataItem, "Titolo").ToString().Length > 0) %>' runat="server">
                 <h3><%# DataBinder.Eval(Container.DataItem, "Titolo")%>&nbsp;</h3>
                 <p><%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%>&nbsp;</p>
             </div>
