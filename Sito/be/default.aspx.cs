@@ -11,25 +11,36 @@ public partial class be_default : System.Web.UI.Page
     {
 
     }
-		protected void btnSubmit_Click(object sender, EventArgs e)
-		{
-			if ((txtNomeUtente.Text != string.Empty) && (txtPassword.Text != string.Empty)) {
-				Oggetti.OggettoLogin oLogin = new Oggetti.OggettoLogin();
-				oLogin.NomeUtente = txtNomeUtente.Text.Trim();
-				oLogin.PwdUtente = txtPassword.Text.Trim();
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        if ((txtNomeUtente.Text != string.Empty) && (txtPassword.Text != string.Empty))
+        {
+            Oggetti.OggettoLogin oLogin = new Oggetti.OggettoLogin();
+            oLogin.NomeUtente = txtNomeUtente.Text.Trim();
+            oLogin.PwdUtente = txtPassword.Text.Trim();
 
-				Login oggettoLogin = new Login();
+            Login oggettoLogin = new Login();
 
-				oLogin = oggettoLogin.AutenticaUtente(oLogin);
-				
-				if (oLogin != null)
-				{
-					try { Response.Redirect(Request["from"]); }
-					catch (System.Threading.ThreadAbortException ex) {
-                        
+            oLogin = oggettoLogin.AutenticaUtente(oLogin);
+
+            if (oLogin != null)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(Request["from"])) { 
+                        Response.Redirect(Request["from"]); 
                     }
-				}
+                    else
+                    {
+                        Response.Redirect("Admin.aspx");
+                    }
+                }
+                catch (System.Threading.ThreadAbortException ex)
+                {
 
-			}
-		}
+                }
+            }
+
+        }
+    }
 }

@@ -13,6 +13,7 @@ public partial class be_news : CheckLoginPage
         {
 
             PopolaGridNews();
+
         }
     }
     protected void RowCommand(object sender, GridViewCommandEventArgs e)

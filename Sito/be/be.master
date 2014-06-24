@@ -1,37 +1,64 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="be.master.cs" Inherits="be_be" %>
 
-<%@ Register src="uc/menu.ascx" tagname="menu" tagprefix="uc1" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="it">
 <head runat="server">
     <title>Gestione Contenuti - Pifferi e Tamburi Ivrea</title>
-    <asp:ContentPlaceHolder id="head" runat="server">
-    </asp:ContentPlaceHolder>
-    	<script type="text/javascript" src="/js/jquery.js" language="javascript"></script>
-	<script type="text/javascript" src="/js/jquery.form.js"  language="javascript"></script>
-	<script type="text/javascript" src="/js/lightbox/jquery.lightbox-0.5.min.js"  language="javascript"></script>
-    <link rel="stylesheet" type="text/css" href="/be/css/be.css" />
-    <link rel="stylesheet" type="text/css" href="/css/grid.css" />
+    <meta charset="utf-8">
+    <meta name="description" content="Sito Web Ufficiale del Gruppo Pifferi e Tamburi di Ivrea">
+    <meta name="keywords" content="Pifferi e Tamburi, Pifferi e Tamburi Ivrea, Pifferi, Tamburi, Carnevale Ivrea, Carnevale, Mugnaia, Generale, Sostituto Gran Cancelliere, Abbà,
+  	Podestà, Aranceri, Picche, Morte, Tuchini, Arduini, Scacchi, Pantere, Diavoli, Mercenari, Credendari, San Grato, San Salvatore, Sant'Ulderico, San Michele, Sacro Cuore, 
+  	San Lorenzo, Pierina, Serafina">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pifferitamburi.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <asp:ContentPlaceHolder ID="addheadcontent" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body class="be">
-    <div class="container_12">
-        <div class="grid_12">
-            <div class="row">
-                <img src="/be/images/logo.png" alt="" class="fl"/>
-                <h1>Pifferi e Tamburi Ivrea</h1>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#">Pifferi e Tamburi di IVREA</a>-->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <asp:ContentPlaceHolder ID="menu" runat="server"></asp:ContentPlaceHolder>
             </div>
         </div>
-        <div class="menu grid_2">
-            <uc1:menu ID="mnu1" runat="server" />
+    </nav>
+    <div class="container">
+        <header>
+            <img src="/be/images/logo.png" alt="" class="fl" />
+        </header>
+        <div class="row">
+            <div class="col-md-12">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </div>
-        <div class="grid_10">
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-        </div>
-        <div class="clearfix">&nbsp;</div>
     </div>
+    <div class="navbar navbar-fixed-bottom">
+        <div class="container">
+            <footer>
+                Pifferi e Tamburi Ivrea
+            </footer>
+        </div>
+    </div>
+
+    <!-- Javascript import -->
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/royalslider/jquery.royalslider.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="addScript" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>
