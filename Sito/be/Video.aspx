@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="Video.aspx.cs" Inherits="be_video" %>
+
 <%@ Register Assembly="Moxiecode.TinyMCE" Namespace="Moxiecode.TinyMCE.Web" TagPrefix="TinyMCE" %>
 <%@ Register Src="~/be/uc/menuvideo.ascx" TagName="menuvideo" TagPrefix="uc1" %>
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc2" %>
-<asp:Content id="mnu" ContentPlaceHolderID="menu" runat="server">
-    <uc2:menu ID="mnu1" runat="server"  SelectedMenu="Video"/>
+
+<asp:Content ID="mnu" ContentPlaceHolderID="menu" runat="server">
+    <uc2:menu ID="mnu1" runat="server" SelectedMenu="Video" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <form runat="server" id="frmNews">

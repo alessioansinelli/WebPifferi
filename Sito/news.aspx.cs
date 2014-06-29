@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 
-public partial class _news : CheckLoginPage
+public partial class _news : Page
 {
     public string TitoloHomePage = "";
     public string SottoTitoloHomePage = "";

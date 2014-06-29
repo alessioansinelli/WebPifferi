@@ -2,9 +2,8 @@
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc2" %>
 <%@ Register Assembly="Moxiecode.TinyMCE" Namespace="Moxiecode.TinyMCE.Web" TagPrefix="TinyMCE" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
 <%@ Register Src="uc/menunews.ascx" TagName="menunews" TagPrefix="uc1" %>
+
 <asp:Content ID="mnu" ContentPlaceHolderID="menu" runat="server">
     <uc2:menu ID="mnu1" runat="server" SelectedMenu="Notizie" />
 </asp:Content>
