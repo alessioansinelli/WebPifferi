@@ -16,9 +16,11 @@
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="content">
     <div class="col-sm-6 col-md-8">
         <h1>Contatti</h1>
-        <div class="contatti">
-            <p>
-            </p>
+        <div class="contatti box">
+                <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                <div style="overflow:hidden;height:100%;width:auto;"><div id="gmap_canvas"></div>
+                    <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+                </div><script type="text/javascript"> function init_map(){var myOptions = {zoom:16,center:new google.maps.LatLng(45.4630108,7.875959200000011),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(45.4630108, 7.875959200000011)});infowindow = new google.maps.InfoWindow({content:"<b>Pifferi e Tamburi di Ivrea</b><br/>Via Dora Baltea<br/>10015 IVREA" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
         </div>
     </div>
     <div class="col-sm-6 col-md-4">
