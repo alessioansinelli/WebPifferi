@@ -17,8 +17,8 @@
         routes.MapPageRoute("strumenti", "strumenti", "~/strumenti.aspx");
         routes.MapPageRoute("gallerydetail", "gallery/{slug}", "~/photogallery.aspx");
         routes.MapPageRoute("videodetail", "video/{slug}", "~/video.aspx");
-        routes.MapPageRoute("piffero", "ilpiffero", "~/ilpiffero.aspx");
-        routes.MapPageRoute("tamburo", "iltamburo", "~/iltamburo.aspx");  
+        routes.MapPageRoute("piffero", "strumenti/ilpiffero", "~/ilpiffero.aspx");
+        routes.MapPageRoute("tamburo", "strumenti/iltamburo", "~/iltamburo.aspx");  
     }
 
     void Application_End(object sender, EventArgs e) 

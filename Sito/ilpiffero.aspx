@@ -22,6 +22,7 @@
             <h1>La costruzione del piffero</h1>
             <div class="pnewshome">
                 <h3>La costruzione del piffero canavesano, come nasce la musica del Carnevale.</h3>
+                <p><img src="/images/strumenti/piffero/piffero.jpg" class="img-rounded img-responsive" /></p>
                 <p>
                     La costruzione del piffero canavesano ha subìto nel corso del tempo profondi mutamenti, soprattutto a livello tecnologico per quanto riguarda macchinari e utensili necessari, 
                     tuttavia le operazioni fondamentali sono rimaste invariate. <br />
@@ -43,26 +44,26 @@
                 <h3>Le fasi della lavorazione:</h3>
                 <p>le varie fasi della costruzione possono essere riassunte nell’immagine che segue.</p>
                 <p>
-                    <img src="images/strumenti/piffero/fasi.png" class="img-rounded img-responsive" />
+                    <img src="/images/strumenti/piffero/fasi.png" class="img-rounded img-responsive" />
                 </p>
                 <p>La foratura e la tornitura venivano effettuate con il tornio a pedale.</p>
-                <p><img src="images/strumenti/piffero/tornio.jpg" class="img-rounded img-responsive" /></p>
+                <p><img src="/images/strumenti/piffero/tornio.jpg" class="img-rounded img-responsive" /></p>
                 <p>
                     Gli utensili che si utilizzavano erano semplici mecchie o punte ad elica, spesso di lunghezza non 
                     sufficiente per forare il piffero in un'unica passata, spesso generavano problemi di scarico della 
                     polvere con conseguente surriscaldamento sia dell’utensile sia del legno, che portava spesso alla rottura dello stesso.<br />
                     Al termine della foratura si passava un tampone rovente all’interno per eliminare i residui e le eventuali pelurie lasciate dal passaggio dell’utensile.
                 </p>
-                <p><img src="images/strumenti/piffero/punteieri.jpg" class="img-rounded img-responsive" /></p>
+                <p><img src="/images/strumenti/piffero/punteieri.jpg" class="img-rounded img-responsive" /></p>
                 <p>
                     Attualmente la moderna tecnologia ci permette di usare, su un tornio di precisione, punte speciali e 
                     completamente differenti, chiamate “punte a cannone” che utilizzano il passaggio al loro interno di un getto di aria compressa che permette
                     di forare il legno ad una temperatura relativamente bassa e in una sola unica passata.
                 </p>
-                <p><img src="images/strumenti/piffero/puntemoderne.jpg" class="img-rounded img-responsive" /></p>
+                <p><img src="/images/strumenti/piffero/puntemoderne.jpg" class="img-rounded img-responsive" /></p>
                 <p>Terminata la fase di foratura interna si procede col creare la sede per gli anelli laterali di ottone che
                     servono, oltre che per un aspetto estetico, a rinforzare e proteggere le estremità del piffero.</p>  
-                <p><img src="images/strumenti/piffero/anello.jpg" class="img-rounded img-responsive" /></p>
+                <p><img src="/images/strumenti/piffero/anello.jpg" class="img-rounded img-responsive" /></p>
                 <p>
                     Di seguito si procede col dare la forma allo strumento, questa lavorazione si effettua a mano oggi 
                     come in passato e di conseguenza, fa si che ogni piffero sia un pezzo unico, caratteristica questa che 
@@ -73,11 +74,11 @@
                     insufflazione, dove si appoggerà il labbro del suonatore e sei di melodia che verranno chiusi dai 
                     polpastrelli delle dita.
                 </p>   
-                <p><img src="images/strumenti/piffero/foratura.jpg" class="img-rounded img-responsive" /></p>
+                <p><img src="/images/strumenti/piffero/foratura.jpg" class="img-rounded img-responsive" /></p>
                 <p> 
                     Infine, il piccolo tappo di sughero, che i pifferi chiamano “natin” sarà collocato internamente, 
                     vicino al foro di insufflazione e a questo punto lo strumento è terminato.</p>
-                <p><img src="images/strumenti/piffero/natin.jpg" class="img-rounded img-responsive" /></p>
+                <p><img src="/images/strumenti/piffero/natin.jpg" class="img-rounded img-responsive" /></p>
                 <p> Dopo un breve collaudo 
                     verrà marchiato, trattato con olio protettivo e finalmente sarà pronto per essere suonato.</p>
             </div>

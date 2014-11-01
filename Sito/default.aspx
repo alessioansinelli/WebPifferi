@@ -56,7 +56,7 @@
         <div class="homestrumenti box">
             <figure>
                 <a href="/strumenti.aspx">
-                    <img src="http://placehold.it/360x270/dc242e/11715F&text=Pifferi+e+Tamburi" />
+                    <img src="/images/glistrumentithumb.jpg" />
                 </a>
                 <figcaption><a href="/strumenti"><span>Gli strumenti</span></a></figcaption>
             </figure>
