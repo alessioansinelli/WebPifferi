@@ -3,61 +3,66 @@
 <!DOCTYPE html>
 <html lang="it">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="description" content="Sito Web Ufficiale del Gruppo Pifferi e Tamburi di Ivrea">
-    <meta name="keywords" content="Pifferi e Tamburi, Pifferi e Tamburi Ivrea, Pifferi, Tamburi, Carnevale Ivrea, Carnevale, Mugnaia, Generale, Sostituto Gran Cancelliere, Abbà,
+	<meta charset="utf-8">
+	<meta name="description" content="Sito Web Ufficiale del Gruppo Pifferi e Tamburi di Ivrea">
+	<meta name="keywords" content="Pifferi e Tamburi, Pifferi e Tamburi Ivrea, Pifferi, Tamburi, Carnevale Ivrea, Carnevale, Mugnaia, Generale, Sostituto Gran Cancelliere, Abbà,
   	Podestà, Aranceri, Picche, Morte, Tuchini, Arduini, Scacchi, Pantere, Diavoli, Mercenari, Credendari, San Grato, San Salvatore, Sant'Ulderico, San Michele, Sacro Cuore, 
   	San Lorenzo, Pierina, Serafina">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
-    <!-- basic stylesheet -->
-    <link rel="stylesheet" href="/royalslider/royalslider.css">
-    <!-- skin stylesheet (change it if you use another) -->
-    <link rel="stylesheet" href="/royalslider/skins/minimal-white/rs-minimal-white.css"> 
-    <link rel="stylesheet" type="text/css" href="/css/pifferitamburi.css">
-    <link rel="shortcut icon" href="favicon.ico">
-    <asp:ContentPlaceHolder ID="addheadcontent" runat="server"></asp:ContentPlaceHolder>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
+	<!-- basic stylesheet -->
+	<link rel="stylesheet" href="/royalslider/royalslider.css">
+	<!-- skin stylesheet (change it if you use another) -->
+	<link rel="stylesheet" href="/royalslider/skins/minimal-white/rs-minimal-white.css">
+	<link rel="stylesheet" type="text/css" href="/css/pifferitamburi.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<asp:ContentPlaceHolder ID="addheadcontent" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!--<a class="navbar-brand" href="#">Pifferi e Tamburi di IVREA</a>-->
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <asp:ContentPlaceHolder ID="menu" runat="server"></asp:ContentPlaceHolder>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
-        <header>
-            <img src="/images/layout/logo.png" class="header-logo" alt="Logo Gruppo Pifferi e Tamburi di Ivrea" />
-        </header>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!--<a class="navbar-brand" href="#">Pifferi e Tamburi di IVREA</a>-->
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<asp:ContentPlaceHolder ID="menu" runat="server"></asp:ContentPlaceHolder>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<header>
+			<img src="/images/layout/logo.png" class="header-logo" alt="Logo Gruppo Pifferi e Tamburi di Ivrea" />
+		</header>
 
-        <div class="row">
-            <!-- In home page contiene slider immagini e news -->
-            <asp:ContentPlaceHolder ID="top" runat="server"></asp:ContentPlaceHolder>                        
-            <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
-            <asp:ContentPlaceHolder ID="contentright" runat="server"></asp:ContentPlaceHolder>
-        </div>
-        <footer>
-            <div class="copyright"><h5>&copy; Pifferi e Tamburi Ivrea</h5></div>
-        </footer>
-    </div>
+		<div class="row">
+			<!-- In home page contiene slider immagini e news -->
+			<asp:ContentPlaceHolder ID="top" runat="server"></asp:ContentPlaceHolder>
+			<asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+			<asp:ContentPlaceHolder ID="contentright" runat="server"></asp:ContentPlaceHolder>
+		</div>
+		<footer>
+			<div class="copyright">
+				<h5>&copy; Pifferi e Tamburi Ivrea</h5>
+			</div>
+		</footer>
+	</div>
 
-    <!-- Javascript import -->
-    <script src="/js/jquery/jquery.min.js"></script>
-    <script src="/royalslider/jquery.royalslider.min.js"></script>
-    <script src="/js/bootstrap/bootstrap.min.js"></script>
-    <asp:ContentPlaceHolder ID="addScript" runat="server"></asp:ContentPlaceHolder>
+	<!-- Javascript import -->
+	<script src="/js/jquery/jquery.min.js"></script>
+	<script src="/royalslider/jquery.royalslider.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.min.js"></script>
+	<script src="/js/cookie/jquery.cookie.js"></script>
+	<script src="/js/pifferi.js"></script>
+	<asp:ContentPlaceHolder ID="addScript" runat="server"></asp:ContentPlaceHolder>
+
 </body>
 </html>

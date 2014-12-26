@@ -89,6 +89,9 @@ public class Login
                     _retval = oLogin;
 
                     ConstWrapper.UtenteLoggato = oLogin;
+
+										// set the cookie for access control
+										HttpContext.Current.Response.SetCookie(new HttpCookie("loggedinbackend", "loggedinbackend"));
                 }
 
             }
