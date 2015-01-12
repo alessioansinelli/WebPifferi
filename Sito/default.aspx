@@ -28,7 +28,7 @@
                     <div class="infoBlock infoBlockLeftBlack rsABlock">
                         <h3><%# DataBinder.Eval(Container.DataItem, "Titolo")%></h3>
                         <p><%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%></p>
-                        <div class="leggitutto"><a href="dettaglionews.aspx?id=<%# DataBinder.Eval(Container.DataItem, "ID")%>">Leggi tutto &raquo;</a></div>
+                        <div class="leggitutto"><a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">Leggi tutto &raquo;</a></div>
                     </div>
                 </div>
             </ItemTemplate>
