@@ -7,7 +7,7 @@
         <ul class="dropdown-menu" role="menu">
             <li><a href="#">Panoramica</a></li>
             <li><a href="/strumenti/ilpiffero">La costruzione del Piffero</a></li>
-            <li><a href="#">La costruzione del Tamburo</a></li>           
+            <li><a href="/strumenti/iltamburo">La costruzione del Tamburo</a></li>           
           </ul>
     </li>
     <li class="mnuNotizie <% if (SelectedMenu == "mnuNotizie"){Response.Write("active");} %>"><a href="/news">Notizie</a></li>
