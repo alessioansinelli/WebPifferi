@@ -5,7 +5,7 @@
     <li class="mnuStrumenti dropdown <% if (SelectedMenu == "mnuStrumenti") { Response.Write("active"); } %>">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gli strumenti<span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Panoramica</a></li>
+            <li><a href="/strumenti">Panoramica</a></li>
             <li><a href="/strumenti/ilpiffero">La costruzione del Piffero</a></li>
             <li><a href="/strumenti/iltamburo">La costruzione del Tamburo</a></li>           
           </ul>
