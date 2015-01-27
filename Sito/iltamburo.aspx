@@ -19,82 +19,104 @@
 <asp:Content ID="divcontenuto" runat="server" ContentPlaceHolderID="content">
 	<div class="col-sm-6 col-md-8">
 		<div class="strumenti news">
-			<h1>La costruzione del piffero</h1>
+			<h1>La costruzione del tamburo</h1>
 			<div class="pnewshome">
-				<h3>La costruzione del piffero canavesano, come nasce la musica del Carnevale.</h3>
+				<h3>Caratteristiche tecnico-costruttive del tamburo incordato</h3>
 				<p>
-					<img src="/images/strumenti/piffero/piffero.jpg" class="img-rounded img-responsive" /></p>
+					<img src="/images/strumenti/tamburo/tamburo-smontato.jpg" class="img-rounded img-responsive" />
+				</p>
 				<p>
-					La costruzione del piffero canavesano ha subìto nel corso del tempo profondi mutamenti, soprattutto a livello tecnologico per quanto riguarda macchinari e utensili necessari, 
-                    tuttavia le operazioni fondamentali sono rimaste invariate.
+					Il tamburo che viene attualmente utilizzato dal gruppo, salvo specifici aggiornamenti del caso, è parente stretto di quello in uso presso gli eserciti europei fin dal XVI, che lo contraddistingue dai suoi predecessori, detti “Imperiali”, da due importanti caratteristiche: la prima è da attribuire al tipo di suono emesso, che passa da un suono Muto ad uno Vibrato; questa particolare emissione sonora, viene  generata dall’applicazione, sulla pelle inferiore, di una piccola “Corda” di origine animale, che ha diametro di un paio di millimetri, detta “Cordiera” o “Timbro”.
+				</p>
+				<p>
+					Va da se, che per ridurre il peso e aumentarne la praticità, rispetto al suo predecessore, le dimensioni in altezza sono state drasticamente ridotte. Se si fossero state mantenute le stesse dimensioni con l’affusto in ottone, si sarebbero superati i 5Kg, mentre con un’altezza di circa 28-30 cm, il peso corrisponde a 2,3Kg.<br />
+					Descriviamo qui di seguito, le parti che compongono il tamburo usato dal nostro Gruppo.
+				</p>
+				<h3>Affusto o Cassa</h3>
+				<p>
+					Come già anticipato in precedenza,  la cassa del tamburo attualmente utilizzato è formato da una lamiera d’ottone di uno spessore di 0,6 mm, e un’altezza di 28-30 cm; la lamiera così dimensionata, subisce un operazione di “rullatura”, fino ad ottenere un diametro di 35,2 cm, e quindi saldata a stagno. Questa misura consente di montare “Pelli sintetiche” normalmente in commercio, con il diametro di 14” (circa 35,6 cm). 
+					<br>
+					Nel 1984, si decise di costruire dei nuovi tamburi, per rendere uniformi le dimensioni in altezza,  e migliorare volume e qualità del suono. Le dimensioni del nuovo Affusto, furono rilevate da tamburi utilizzati fino ad allora, eccetto un piccolo ritocco al diametro.<br />
+				</p>
+				<p>
+					<img src="/images/strumenti/tamburo/fusto.jpg" class="img-rounded img-responsive" />
+				</p>
+				<p>
+					L’Affusto, viene preparato praticando un foro di circa 6-8 mm in una posizione poco visibile, con lo scopo di consentire la fuoriuscita dell’aria quando la pelle superiore viene percossa dalle bacchette. Altri tre fori dal diametro di 4 mm in posizione prestabilita, permettono l’ancoraggio del gruppo di “Tensionamento” della Cordiera o Timbro.
+				</p>
+				<h3>Pelle</h3>
+				<p>
+					La pelle inizialmente naturale, viene poi necessariamente sostituita da quella “Sintetica” anche perché, a partire dagl’anni 70, risultò sempre più difficile reperire sul mercato pelle naturale, preparata con una “concia” fatta a regola d’arte. In altre parole, le pelli “naturali” duravano a mala pena qualche Carnevale, e in alcuni casi si rompevano rapidamente.
 					<br />
-					Prenderemo pertanto in considerazione le principali fasi costruttive, facendo il confronto tra passato e presente.
+					Va anche considerato che, oltre ad una durata ridotta, sostituire una pelle naturale richiedeva una procedura molto dispendiosa in termini di tempo; occorreva infatti bagnare la nuova pelle, per renderne possibile il montaggio arrotolandola, con l’ausilio di un particolare attrezzo sull’apposito cerchietto e successivamente, imbastirla sul tamburo. Terminate queste operazioni, bisognava aspettare pazientemente l’asciugatura della pelle per almeno due giorni, mettendo a rischio l’uso dello strumento nei giorni di carnevale. Al contrario, la sostituzione della pelle sintetica risulta decisamente più pratica e veloce (20 min.) e il suo utilizzo porta altri vantaggi come poter suonare anche sotto la poggia senza cali di prestazione, grazie alla proprietà di non assorbire l’umidità. L’unico svantaggio è che il suono risulta più metallico.
 				</p>
-				<h3>I tipi di legname e la loro scelta:</h3>
+				<h3>Cordiera o Timbro</h3>
 				<p>
-					il bosso ed il corniolo erano in ordine di importanza i materiali utilizzati per la costruzione dei pifferi e venivano reperiti sul territorio,
-                     con il sambuco solitamente si costruivano strumenti giocattolo, oppure per i principianti. 
-                    A volte si utilizzavano anche tubi in metallo. 
-                    Oggi abbiamo la possibilità di disporre di una ampia gamma di tipi di essenze, reperibili in magazzini specializzati, da quelle esotiche (ebani, palissandri) alle più comuni e locali (bosso europeo, ciliegio, pero, sorbo).
-				</p>
-				<h3>La stagionatura:</h3>
-				<p>
-					prima di procedere con le lavorazioni era necessario far stagionare il legno
-                    tagliato in listelli di sezione quadrata, il periodo ottimale si aggirava da cinque a dieci anni, questo 
-                    per consentire che i movimenti del legno, una volta lavorato, si riducessero al minimo. Oggi come 
-                    allora questa fase ricopre un’importanza di grande rilievo.
-				</p>
-				<h3>Le fasi della lavorazione:</h3>
-				<p>le varie fasi della costruzione possono essere riassunte nell’immagine che segue.</p>
-				<p>
-					<img src="/images/strumenti/piffero/fasi.png" class="img-rounded img-responsive" />
-				</p>
-				<p>La foratura e la tornitura venivano effettuate con il tornio a pedale.</p>
-				<p>
-					<img src="/images/strumenti/piffero/tornio.jpg" class="img-rounded img-responsive" /></p>
-				<p>
-					Gli utensili che si utilizzavano erano semplici mecchie o punte ad elica, spesso di lunghezza non 
-                    sufficiente per forare il piffero in un'unica passata, spesso generavano problemi di scarico della 
-                    polvere con conseguente surriscaldamento sia dell’utensile sia del legno, che portava spesso alla rottura dello stesso.<br />
-					Al termine della foratura si passava un tampone rovente all’interno per eliminare i residui e le eventuali pelurie lasciate dal passaggio dell’utensile.
-				</p>
-				<p>
-					<img src="/images/strumenti/piffero/punteieri.jpg" class="img-rounded img-responsive" /></p>
-				<p>
-					Attualmente la moderna tecnologia ci permette di usare, su un tornio di precisione, punte speciali e 
-                    completamente differenti, chiamate “punte a cannone” che utilizzano il passaggio al loro interno di un getto di aria compressa che permette
-                    di forare il legno ad una temperatura relativamente bassa e in una sola unica passata.
-				</p>
-				<p>
-					<img src="/images/strumenti/piffero/puntemoderne.jpg" class="img-rounded img-responsive" /></p>
-				<p>
-					Terminata la fase di foratura interna si procede col creare la sede per gli anelli laterali di ottone che
-                    servono, oltre che per un aspetto estetico, a rinforzare e proteggere le estremità del piffero.
-				</p>
-				<p>
-					<img src="/images/strumenti/piffero/anello.jpg" class="img-rounded img-responsive" /></p>
-				<p>
-					Di seguito si procede col dare la forma allo strumento, questa lavorazione si effettua a mano oggi 
-                    come in passato e di conseguenza, fa si che ogni piffero sia un pezzo unico, caratteristica questa che 
-                    ben si addice a questi singolari prodotti artigianali. Gli utensili necessari a svolgere tale operazione 
-                    sono rimasti invariati col passare del tempo e sono sgorbie e coltelli di svariate forme.
+					Si tratta di un cordino intrecciato di materiale organico (in Budello o Nervo), lungo circa un metro e con un diametro di 2 mm, che viene montato a contatto della pelle inferiore del tamburo, ed ancorato su un apposita “Meccanica”.
 					<br />
-					Una volta raggiunte le dimensioni volute, si provvede a rifinire e lucidare la superficie esterna, 
-                    a questo punto si potranno eseguire i sette fori che sono necessari allo strumento: uno di 
-                    insufflazione, dove si appoggerà il labbro del suonatore e sei di melodia che verranno chiusi dai 
-                    polpastrelli delle dita.
+					La “Meccanica”, che è stata costruita su un progetto interno al gruppo, posiziona e tiene la cordiera a contatto della pelle inferiore ed è costituita da un “Pomello” filettato, che agisce su un asta esagonale scorrevole, il cui movimento, permette di regolare la tensione della Cordiera, determinando il suono più o meno vibrato. Percuotendo infatti la pelle superiore del tamburo, si ottiene una conseguente flessione o movimento della pelle inferiore, dovuta alla spinta dell’aria all’nterno dell’affusto, che fa vibrare la Cordiera generando il suono “Vibrato”. 
 				</p>
 				<p>
-					<img src="/images/strumenti/piffero/foratura.jpg" class="img-rounded img-responsive" /></p>
+					<img src="/images/strumenti/tamburo/meccanica.jpg" class="img-rounded img-responsive" />
+				</p>
+				<h3>Cerchio</h3>
 				<p>
-					Infine, il piccolo tappo di sughero, che i pifferi chiamano “natin” sarà collocato internamente, 
-                    vicino al foro di insufflazione e a questo punto lo strumento è terminato.
+					È costituito da tre sottili listelli di faggio incollati fra di loro che determinano uno spessore totale di 8-9 mm, per un’altezza di 4 cm 
+					ed un diametro interno di 35,7 cm.
 				</p>
 				<p>
-					<img src="/images/strumenti/piffero/natin.jpg" class="img-rounded img-responsive" /></p>
+					<img src="/images/strumenti/tamburo/cerchi1.jpg" class="img-rounded img-responsive" />
+				</p>
 				<p>
-					Dopo un breve collaudo 
-                    verrà marchiato, trattato con olio protettivo e finalmente sarà pronto per essere suonato.
+					Sul tamburo ne vengono montati due, uno sulla pelle superiore ed uno su quella inferiore. I cerchi vengono preparati 
+					con dieci fori equidistanti fra loro, con un diametro di 9 mm.  Al cerchio inferiore,  vengono aggiunti due orifizi rettangolari a 180 gradi, che permettono
+					 il passaggio della Cordiera. I due cerchi così preparati, possono accogliere la corda che servirà a tendere le due pelli montate sul tamburo.  
+				</p>
+				<p>
+					<img src="/images/strumenti/tamburo/cerchi2.jpg" class="img-rounded img-responsive" />
+				</p>
+				<h3>Corda</h3>
+				<p>
+					In origine era di canapa, purtroppo non è più reperibile sul mercato, almeno quella a “quattro principi”  con un diametro di 8 mm. 
+					<br />
+					La corda che viene utilizzata attualmente, è in “Poliestere”, e ne servono circa dodici metri per completare un tamburo. 
+				</p>
+				<p>
+					<img src="/images/strumenti/tamburo/corda.jpg" class="img-rounded img-responsive" />
+				</p>
+				<p>
+					Essa va preparata come segue: ad una estremità si crea un “occhiello”,  formato e legato con un sottilissimo cordino di Nylon Cerato, all’altra estremità, “intestata”,
+					 fissandola con il cordino in Nylon, ad evitare che si scomponga.
+				</p>
+				<h3>Passante</h3>
+				<p>
+					E’ un particolare in cuoio di forma trapezoidale, che ha un’altezza di circa 6 cm ed assume la forma di “tubetto” dopo averne cucito i due lembi.
+				</p>
+				<p>
+					<img src="/images/strumenti/tamburo/passante.jpg" class="img-rounded img-responsive" />
+				</p>
+				<p>
+					Sul tamburo attualmente in dotazione al gruppo, ne servono dieci, in cui viene passata la corda che tiene uniti i cerchi su tutta la circonferenza della cassa del tamburo.<br />
+					La loro funzione, é quella di tendere ulteriormente la corda che assembla il tamburo, e di conseguenza anche le due pelli. 
+				</p>
+				<p>Il peso del tamburo assemblato con tutti i particolari descritti, è di circa 4 Kg.</p>
+				<h3>La Grancassa</h3>
+				<p>
+					E’ lo strumento che completa la caratteristica armonica del nostro Gruppo.
+				</p>
+				<p>
+					<img src="/images/strumenti/tamburo/grancassa.jpg" class="img-rounded img-responsive" />
+				</p>
+				<p>
+					Attualmente viene utilizzato uno strumento acquistato da un artigiano specializzato nella costruzione di ogni tipo di strumento a percussione che originariamente era dotata di  una meccanica di  “Tensionamento “ delle pelli (Sintetiche) da 22”, in acciaio.
+					<br />
+					Al fine di alleggerire il più possibile lo strumento e per renderlo più simile allo stile dei tamburi, si è deciso di eliminare questa meccanica, adottando lo stesso tipo di tiraggio delle pelli, con corda e passanti. 
+				</p>
+				<p>
+					<img src="/images/strumenti/tamburo/grancassa.jpg" class="img-rounded img-responsive" />
+				</p>
+				<p>
+					Il peso dello strumento è di 5,6 Kg con l’incordatura tradizionale, rispetto ai 7,8 Kg di prima. 
 				</p>
 			</div>
 		</div>
@@ -103,9 +125,9 @@
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
 	<div class="col-sm-6 col-md-4">
-		<ul class="nav nav-pills nav-stacked">
+		<ul class="nav nav-pills nav-stacked mnu-strumenti">
 			<li class="mnu-right"><a href="/strumenti/ilpiffero">La costruzione del Piffero</a></li>
-			<li class="mnu-right"><a href="/strumenti/iltamburo">La costruzione del Tamburo</a></li>
+			<li class="mnu-right active"><a href="/strumenti/iltamburo">La costruzione del Tamburo</a></li>
 		</ul>
 		<edtRepeater:EditorialRepeater runat="server" ID="strumentiRepeater" Count="4" Titolo="Video" TipoOggetto="Video" />
 	</div>

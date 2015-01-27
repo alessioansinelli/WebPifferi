@@ -43,7 +43,7 @@
     <div class="col-sm-6 col-md-4">
         <div class="homestoria box">
             <figure>
-                <a href="/lanostrastoria.aspx">
+                <a href="/storia">
                     <img src="/images/layout/lanostrastoriathumb.jpg" />
                 </a>
                 <figcaption>
@@ -55,7 +55,7 @@
     <div class="col-sm-6 col-md-4">
         <div class="homestrumenti box">
             <figure>
-                <a href="/strumenti.aspx">
+                <a href="/strumenti">
                     <img src="/images/glistrumentithumb.jpg" />
                 </a>
                 <figcaption><a href="/strumenti"><span>Gli strumenti</span></a></figcaption>

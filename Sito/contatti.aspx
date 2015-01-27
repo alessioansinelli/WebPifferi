@@ -16,6 +16,10 @@
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="content">
     <div class="col-sm-6 col-md-8">
         <h1>Contatti</h1>
+				<p>
+					Per contattare il gruppo "Pifferi e Tamburi di Ivrea" scrivere all'indirizzo email : <a href="mailto:gruppo.pifferi.tamburi.ivrea@gmail.com">gruppo.pifferi.tamburi.ivrea@gmail.com</a> 
+					oppure telefonicamente al numero +39 335 84 85 099
+				</p>
         <div class="contatti box">
                 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
                 <div style="overflow:hidden;height:100%;width:auto;"><div id="gmap_canvas"></div>

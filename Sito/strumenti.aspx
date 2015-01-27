@@ -55,7 +55,7 @@
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
 	<div class="col-sm-6 col-md-4">
-		<ul class="nav nav-pills nav-stacked">
+		<ul class="nav nav-pills nav-stacked mnu-strumenti">
 			<li class="mnu-right"><a href="/strumenti/ilpiffero">La costruzione del Piffero</a></li>
 			<li class="mnu-right"><a href="/strumenti/iltamburo">La costruzione del Tamburo</a></li>
 		</ul>

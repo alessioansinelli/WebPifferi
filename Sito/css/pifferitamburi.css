@@ -5981,6 +5981,23 @@ video {
   height: 500px;
   margin: auto;
 }
+.mnu-strumenti {
+  margin-top: 20px;
+}
+.mnu-strumenti li.mnu-right {
+  background-color: #11715f;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.mnu-strumenti li.mnu-right a {
+  /*color:#fff;*/
+}
+.mnu-strumenti li.mnu-right.active a,
+.mnu-strumenti li.mnu-right.active a:hover,
+.mnu-strumenti li.mnu-right.active a:focus,
+.mnu-strumenti li.mnu-right.active a:visited {
+  background-color: #dc242e;
+}
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
