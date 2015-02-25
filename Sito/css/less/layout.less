@@ -208,12 +208,20 @@ video {
 .newslist {
 	li {
 		clear: both;
+		overflow:auto;
+		margin-bottom:1em;
 
 		a {
+			display:block;
 			text-decoration: none;
 
-			h2 {
+			h4.newstitledate{
+				margin:0;
+			}
+
+			h2.newstitle {
 				color: rgb(220,36,46);
+				margin:0;
 			}
 
 			.divnews {
@@ -225,7 +233,7 @@ video {
 	figure {
 		float: left;
 		width: 120px;
-		max-height: 90px !important;
+		/*max-height: 90px !important;*/
 		margin: 0 10px 0 0;
 
 		img {
@@ -253,10 +261,15 @@ video {
 	margin-top: 20px;
 
 	li.mnu-right {
-		a { /*color:#fff;*/
+		a { 
+			background-color: #11715f;
+			color:#fff;
 		}
 
-		background-color: #11715f;
+		a:hover { 
+			background-color: #dc242e;
+		}
+		
 		font-size: 1.6em;
 		font-weight: bold;		
 	}

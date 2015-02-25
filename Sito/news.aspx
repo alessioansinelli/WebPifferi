@@ -25,10 +25,8 @@
                                 <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w2") %>
                             </figure>
                             <div class="newsdetail">
-                                <h2><%# DataBinder.Eval(Container.DataItem, "Titolo")%>
-                                (<%# ((Oggetti.Oggetto)Container.DataItem).DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT")) %>)
-                                
-                                </h2>
+																<h4 class="newstitledate"><%# ((Oggetti.Oggetto)Container.DataItem).DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT")) %></h4>
+                                <h2 class="newstitle"><%# DataBinder.Eval(Container.DataItem, "Titolo")%></h2>
                                 <div class="divnews">
                                     <%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%>
                                 </div>
