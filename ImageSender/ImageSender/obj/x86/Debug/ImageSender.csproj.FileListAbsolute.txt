@@ -27,3 +27,12 @@ I:\pcalessio\SITI\WebMercenari\ImageSender\ImageSender\obj\x86\Debug\ImageSender
 I:\pcalessio\SITI\WebMercenari\ImageSender\ImageSender\obj\x86\Debug\ImageSender.Properties.Resources.resources
 I:\pcalessio\SITI\WebMercenari\ImageSender\ImageSender\obj\x86\Debug\ImageSender.Form1.resources
 I:\pcalessio\SITI\WebMercenari\ImageSender\ImageSender\obj\x86\Debug\ImageSender.csproj.GenerateResource.Cache
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\bin\Debug\ImageSender.exe.config
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\bin\Debug\ImageSender.exe
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\bin\Debug\ImageSender.pdb
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\obj\x86\Debug\ImageSender.csprojResolveAssemblyReference.cache
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\obj\x86\Debug\ImageSender.Properties.Resources.resources
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\obj\x86\Debug\ImageSender.Form1.resources
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\obj\x86\Debug\ImageSender.csproj.GenerateResource.Cache
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\obj\x86\Debug\ImageSender.exe
+C:\Users\Alessio\Documents\WebPifferi\ImageSender\ImageSender\obj\x86\Debug\ImageSender.pdb
