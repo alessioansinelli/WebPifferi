@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Business;
 
-public partial class be_default : System.Web.UI.Page
+namespace be { 
+
+public partial class BeDefault : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,32 +14,27 @@ public partial class be_default : System.Web.UI.Page
     {
         if ((txtNomeUtente.Text != string.Empty) && (txtPassword.Text != string.Empty))
         {
-            Oggetti.OggettoLogin oLogin = new Oggetti.OggettoLogin();
-            oLogin.NomeUtente = txtNomeUtente.Text.Trim();
-            oLogin.PwdUtente = txtPassword.Text.Trim();
+            var oLogin = new OggettoLogin
+            {
+                NomeUtente = txtNomeUtente.Text.Trim(),
+                PwdUtente = txtPassword.Text.Trim()
+            };
 
-            Login oggettoLogin = new Login();
+            var oggettoLogin = new LoginHelper();
 
             oLogin = oggettoLogin.AutenticaUtente(oLogin);
 
-            if (oLogin != null)
+            if (oLogin == null) return;
+            try
             {
-                try
-                {
-                    if (!string.IsNullOrEmpty(Request["from"])) { 
-                        Response.Redirect(Request["from"]); 
-                    }
-                    else
-                    {
-                        Response.Redirect("Admin.aspx");
-                    }
-                }
-                catch (System.Threading.ThreadAbortException ex)
-                {
-
-                }
+                Response.Redirect(!string.IsNullOrEmpty(Request["from"]) ? Request["from"] : "Admin.aspx");
             }
+            catch (System.Threading.ThreadAbortException ex)
+            {
 
+            }
         }
     }
+}
+
 }

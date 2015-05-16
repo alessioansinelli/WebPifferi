@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="photogallery.aspx.cs" Inherits="_photogallery" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="photogallery.aspx.cs" Inherits="Photogallery" %>
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="uc/contenuto.ascx" TagName="contenuto" TagPrefix="uc2" %>

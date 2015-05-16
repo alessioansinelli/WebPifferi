@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="link.aspx.cs" Inherits="_link" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="link.aspx.cs" Inherits="Link" %>
 
 <%@ Register src="uc/menu.ascx" tagname="menu" tagprefix="uc1" %>
 <%@ Register src="uc/contenuto.ascx" tagname="contenuto" tagprefix="uc2" %>

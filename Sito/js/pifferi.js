@@ -1,14 +1,14 @@
 ﻿$(document).ready(function () {	
 
 	// check if present authentication token
-	if (getParameterByName('authToken') == 'Ivrea2015') {
-		$.cookie('loggedin', 'loggedin');
-	}
+	//if (getParameterByName('authToken') == 'Ivrea2015') {
+	//	$.cookie('loggedin', 'loggedin');
+	//}
 
-	// check the cookie, in case go to google.it
-	if ($.cookie('loggedin') != 'loggedin') {
-		document.location.href = 'http://www.google.it';
-	};
+	//// check the cookie, in case go to google.it
+	//if ($.cookie('loggedin') != 'loggedin') {
+	//	document.location.href = 'http://www.google.it';
+	//};
 });
 
 

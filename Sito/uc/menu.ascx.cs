@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class uc_menu : System.Web.UI.UserControl
+namespace uc
 {
-	private string _selectedmenu;
-	public string SelectedMenu {
-		get { return _selectedmenu == "" ? "none" : _selectedmenu; }
-		set { _selectedmenu = value; }
-	}
-
-
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class UcMenu : UserControl
     {
+        private string _selectedmenu;
+        public string SelectedMenu {
+            get { return _selectedmenu == "" ? "none" : _selectedmenu; }
+            set { _selectedmenu = value; }
+        }
 
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

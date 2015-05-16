@@ -1,7 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="news.aspx.cs" Inherits="be_news" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="news.aspx.cs" Inherits="be.BeNews" %>
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc2" %>
-<%@ Register Assembly="Moxiecode.TinyMCE" Namespace="Moxiecode.TinyMCE.Web" TagPrefix="TinyMCE" %>
 <%@ Register Src="uc/menunews.ascx" TagName="menunews" TagPrefix="uc1" %>
 
 <asp:Content ID="mnu" ContentPlaceHolderID="menu" runat="server">

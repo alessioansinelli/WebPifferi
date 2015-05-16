@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class _ilpiffero : Page
+public partial class Ilpiffero : Page
 {
 
     public string TitoloHomePage = "";

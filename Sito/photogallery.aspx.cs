@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Gestione;
 
-public partial class _photogallery : Page
+public partial class Photogallery : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,22 +13,18 @@ public partial class _photogallery : Page
 
     }   
 
-    public List<Oggetti.Oggetto> ElencoPhotogallery
+    public List<Oggetto> ElencoPhotogallery
     {
         get
         {
             if (HttpContext.Current.Cache["ElencoPhotogallery"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["ElencoPhotogallery"];
+                return (List<Oggetto>)HttpContext.Current.Cache["ElencoPhotogallery"];
             }
-            else
-            {
-                Notizie oNotizie = new Notizie(TipoOggetto.Photogallery);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetAll(0, true, 1);
-                ElencoPhotogallery = oOggetti;
-                return oOggetti;
-            }
+            var oNotizie = new Notizie(TipoOggetto.Photogallery);
+            var oOggetti = oNotizie.GetAll(0, true, 1);
+            ElencoPhotogallery = oOggetti;
+            return oOggetti;
         }
         set { HttpContext.Current.Cache["ElencoPhotogallery"] = value; }
     }

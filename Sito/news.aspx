@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true"
-    CodeFile="news.aspx.cs" Inherits="_news" %>
+    CodeFile="news.aspx.cs" Inherits="News" %>
+<%@ Import Namespace="Business.Oggetti" %>
+<%@ Import Namespace="Business" %>
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRep" %>
@@ -22,10 +24,10 @@
                     <li>
                         <a href="/news/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
                             <figure class="imgList">
-                                <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w2") %>
+                                <%# Utility.GetUrlPhoto(((Oggetto)Container.DataItem).Foto, "w2") %>
                             </figure>
                             <div class="newsdetail">
-																<h4 class="newstitledate"><%# ((Oggetti.Oggetto)Container.DataItem).DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT")) %></h4>
+																<h4 class="newstitledate"><%# ((Oggetto)Container.DataItem).DataInserimento.ToString("dd MMM yyyy", new System.Globalization.CultureInfo("it-IT")) %></h4>
                                 <h2 class="newstitle"><%# DataBinder.Eval(Container.DataItem, "Titolo")%></h2>
                                 <div class="divnews">
                                     <%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%>
@@ -45,6 +47,6 @@
 
 <asp:Content ID="right" runat="server" ContentPlaceHolderID="contentright">
     <div class="col-sm-6 col-md-4">
-        <edtRep:EditorialRepeater ID="rightNews" runat="server" TipoOggetto="PhotoGallery" Count="3" Titolo="Foto" />
+        <edtRep:EditorialRepeater ID="rightNews" runat="server" TipoRepeater="PhotoGallery" Count="3" Titolo="Foto" />
     </div>
 </asp:Content>

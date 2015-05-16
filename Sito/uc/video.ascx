@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="video.ascx.cs" Inherits="uc_video" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="video.ascx.cs" Inherits="uc.UcVideo" %>
 <%@ Register src="Photogallery.ascx" tagname="Photogallery" tagprefix="uc1" %>
 <%@ Register Src="~/uc/slider.ascx" TagPrefix="uc1" TagName="slider" %>
 

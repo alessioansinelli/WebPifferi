@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 
 
-namespace Mercenari.Data
+namespace Data
 {
     public class DataLayer
     {
 
-        private IDbConnection _conn = null;
-        private IDbCommand _command = null;
+        private IDbConnection _conn;
+        private IDbCommand _command;
 
-        private string _connString = Business.ConstWrapper.NomeConnessione;
+        private readonly string _connString = Business.ConstWrapper.NomeConnessione;
 
         public DataLayer()
         {
@@ -90,10 +87,10 @@ namespace Mercenari.Data
         /// </summary>
         /// <param name="sqlString"></param>
         /// <returns></returns>
-        public System.Data.IDataReader GetDataReader(string sqlString)
+        public IDataReader GetDataReader(string sqlString)
         {
 
-            _command = this.CreateCommand();
+            _command = CreateCommand();
 
             using (_command)
             {
@@ -108,7 +105,7 @@ namespace Mercenari.Data
         /// </summary>
         /// <param name="dbCommand"></param>
         /// <returns></returns>
-        public System.Data.IDataReader GetDataReader(IDbCommand dbCommand)
+        public IDataReader GetDataReader(IDbCommand dbCommand)
         {
             using (dbCommand)
             {
@@ -225,15 +222,15 @@ namespace Mercenari.Data
             finally { Conn.Close(); }
         }
 
-        public IDataParameter CreatePar(string ParamName, object ParamValue)
+        public IDataParameter CreatePar(string paramName, object paramValue)
         {
             switch (Business.ConstWrapper.ConnectionType)
             {
                 case "SqlServer":
-                    return new SqlParameter(ParamName, ParamValue);
+                    return new SqlParameter(paramName, paramValue);
 
                 case "OleDb":
-                    return new OleDbParameter(ParamName, ParamValue);
+                    return new OleDbParameter(paramName, paramValue);
 
                 default:
                     throw new Exception("No ConnectionType initialized");

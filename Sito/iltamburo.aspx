@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="iltamburo.aspx.cs" Inherits="_iltamburo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="iltamburo.aspx.cs" Inherits="Iltamburo" %>
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="~/uc/EditorialRepeater.ascx" TagName="EditorialRepeater" TagPrefix="edtRepeater" %>

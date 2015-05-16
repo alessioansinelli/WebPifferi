@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class _dettaglionews : Page
+public partial class Dettaglionews : Page
 {
 
 	public string TitoloHomePage = "";
@@ -17,7 +13,7 @@ public partial class _dettaglionews : Page
 	protected void Page_Load(object sender, EventArgs e)
 	{
 
-        notizia1.PreRender += new EventHandler(notizia1_PreRender);
+        notizia1.PreRender += notizia1_PreRender;
 
 	}
 

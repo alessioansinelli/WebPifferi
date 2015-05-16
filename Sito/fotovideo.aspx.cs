@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Gestione;
 
-public partial class _fotoVideo : Page
+public partial class FotoVideo : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,19 +16,18 @@ public partial class _fotoVideo : Page
         repVideo.DataBind();
     }
 
-    public List<Oggetti.Oggetto> GalleriePhoto
+    public List<Oggetto> GalleriePhoto
     {
         get
         {
             if (HttpContext.Current.Cache["GalleriePhoto"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["GalleriePhoto"];
+                return (List<Oggetto>)HttpContext.Current.Cache["GalleriePhoto"];
             }
             else
             {
-                Notizie oNotizie = new Notizie(TipoOggetto.Photogallery);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetAll(0, true, 1);
+                var oNotizie = new Notizie(TipoOggetto.Photogallery);
+                var oOggetti = oNotizie.GetAll(0, true, 1);
                 GalleriePhoto = oOggetti;
                 return oOggetti;
             }
@@ -36,19 +35,18 @@ public partial class _fotoVideo : Page
         set { HttpContext.Current.Cache["GalleriePhoto"] = value; }
     }
 
-    public List<Oggetti.Oggetto> Video
+    public List<Oggetto> Video
     {
         get
         {
             if (HttpContext.Current.Cache["Video"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["Video"];
+                return (List<Oggetto>)HttpContext.Current.Cache["Video"];
             }
             else
             {
-                Notizie oVideo = new Notizie(TipoOggetto.Video);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oVideo.GetAll(0, true, 1);
+                var oVideo = new Notizie(TipoOggetto.Video);
+                var oOggetti = oVideo.GetAll(0, true, 1);
                 Video = oOggetti;
                 return oOggetti;
             }

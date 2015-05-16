@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucimage.ascx.cs" Inherits="be_uc_ucimage" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucimage.ascx.cs" Inherits="be.uc.BeUcUcimage" %>
 <div>
     <h2><% = TitoloOggettoParent %></h2>
 </div>

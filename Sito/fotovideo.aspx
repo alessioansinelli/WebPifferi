@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="fotovideo.aspx.cs" Inherits="_fotoVideo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="fotovideo.aspx.cs" Inherits="FotoVideo" %>
+<%@ Import Namespace="Business.Oggetti" %>
+<%@ Import Namespace="Business" %>
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="uc/contenuto.ascx" TagName="contenuto" TagPrefix="uc2" %>
@@ -24,7 +26,7 @@
                     <div class="box">
                         <figure>
                             <a href="/gallery/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
-                                <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w6") %>
+                                <%# Utility.GetUrlPhoto(((Oggetto)Container.DataItem).Foto, "w6") %>
                             </a>
                             <figcaption><a href="/gallery/<%# DataBinder.Eval(Container.DataItem, "slug")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
                         </figure>
@@ -43,7 +45,7 @@
                     <div class="box">
                         <figure>
                             <a href="/video/<%# DataBinder.Eval(Container.DataItem, "slug")%>">
-                                <%# Utility.getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w6") %>
+                                <%# Utility.GetUrlPhoto(((Oggetto)Container.DataItem).Foto, "w6") %>
                             </a>
                             <figcaption><a href="/video/<%# DataBinder.Eval(Container.DataItem, "slug")%>"><span><%# DataBinder.Eval(Container.DataItem, "Titolo")%></span></a></figcaption>
                         </figure>

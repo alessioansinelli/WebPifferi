@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="VideoEdit.aspx.cs" Inherits="be_videoEdit" ValidateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="VideoEdit.aspx.cs" Inherits="be.BeVideoEdit" ValidateRequest="false" %>
 
 <%@ Register Src="uc/menunews.ascx" TagName="menunews" TagPrefix="uc1" %>
 <%@ Register Src="uc/ucoggetto.ascx" TagName="ucoggetto" TagPrefix="uc2" %>

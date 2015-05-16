@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="photogalleryedit.aspx.cs" Inherits="be_photogalleryedit" ValidateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="photogalleryedit.aspx.cs" Inherits="be.BePhotogalleryedit" ValidateRequest="false" %>
 
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc2" %>
 <%@ Register Src="uc/menunews.ascx" TagName="menunews" TagPrefix="uc1" %>

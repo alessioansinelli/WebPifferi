@@ -1,65 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Gestione;
 
-public partial class be_photogallery : CheckLoginPage
+namespace be
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class BePhotogallery : CheckLoginPage
     {
-        if (!Page.IsPostBack)
+        protected void Page_Load(object sender, EventArgs e)
         {
-
-            PopolaGridNews();
-        }
-    }
-    protected void RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        Notizie oNotizie = new Notizie(TipoOggetto.Photogallery);
-        if (e.CommandName == "up")
-        {
-            
-            //Immagini oImmagini = new Immagini();
-            oNotizie.UpdateNumOrder(int.Parse(grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString()), "UP");
-
-            oNotizie = null;
-
-        }
-        else if (e.CommandName == "down")
-        {
-            //Immagini oImmagini = new Immagini();
-            oNotizie.UpdateNumOrder(int.Parse(grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString()), "DOWN");
-
-            oNotizie = null;
-        }
-        else if (e.CommandName == "elimina")
-        {
-            oNotizie.Delete(int.Parse(grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString()));
-        }
-        else if (e.CommandName == "modifica")
-        {
-            try
+            if (!Page.IsPostBack)
             {
-                Response.Redirect("/be/photogalleryedit.aspx?IdNews=" + int.Parse(grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString()));
-            }catch(System.Threading.ThreadAbortException){
-                // TODO
+
+                PopolaGridNews();
             }
         }
-
-        PopolaGridNews();
-
-    }
-
-    private void PopolaGridNews() {
-        Notizie oNotizie = new Notizie(TipoOggetto.Photogallery);
-        List<Oggetti.Oggetto> oListaNews = oNotizie.GetAll(0);
-
-        if (oListaNews.Count > 0)
+        protected void RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            grdNews.DataSource = oListaNews;
-            grdNews.DataBind();
+            Notizie oNotizie = new Notizie(TipoOggetto.Photogallery);
+            if (e.CommandName == "up")
+            {
+                //Immagini oImmagini = new Immagini();
+                var dataKey = grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())];
+                if (dataKey != null)
+                    oNotizie.UpdateNumOrder(int.Parse(dataKey.Value.ToString()), "UP");
+            }
+            else if (e.CommandName == "down")
+            {
+                //Immagini oImmagini = new Immagini();
+                var dataKey = grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())];
+                if (dataKey != null)
+                    oNotizie.UpdateNumOrder(int.Parse(dataKey.Value.ToString()), "DOWN");
+            }
+            else if (e.CommandName == "elimina")
+            {
+                var dataKey = grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())];
+                if (dataKey != null)
+                    oNotizie.Delete(int.Parse(dataKey.Value.ToString()));
+            }
+            else if (e.CommandName == "modifica")
+            {
+                try
+                {
+                    var dataKey = grdNews.DataKeys[int.Parse(e.CommandArgument.ToString())];
+                    if (dataKey != null)
+                        Response.Redirect("/be/photogalleryedit.aspx?IdNews=" + int.Parse(dataKey.Value.ToString()));
+                }
+                catch(System.Threading.ThreadAbortException){
+                    // TODO
+                }
+            }
+
+            PopolaGridNews();
+
+        }
+
+        private void PopolaGridNews() {
+            Notizie oNotizie = new Notizie(TipoOggetto.Photogallery);
+            List<Oggetto> oListaNews = oNotizie.GetAll(0);
+
+            if (oListaNews.Count > 0)
+            {
+                grdNews.DataSource = oListaNews;
+                grdNews.DataBind();
+            }
         }
     }
 }

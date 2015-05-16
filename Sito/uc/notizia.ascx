@@ -1,5 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="notizia.ascx.cs" Inherits="uc_notizia" %>
-<%@ Register src="Photogallery.ascx" tagname="Photogallery" tagprefix="uc1" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="notizia.ascx.cs" Inherits="uc.UcNotizia" %>
 <%@ Register Src="~/uc/slider.ascx" TagPrefix="uc1" TagName="slider" %>
 
 <div class="newsdate vertical">

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucoggetto.ascx.cs" Inherits="be_uc_ucoggetto" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucoggetto.ascx.cs" Inherits="be.uc.BeUcUcoggetto" %>
 <%@ Register Assembly="Moxiecode.TinyMCE" Namespace="Moxiecode.TinyMCE.Web" TagPrefix="TinyMCE" %>
 <%@ Register Src="ucimage.ascx" TagName="ucimage" TagPrefix="uc1" %>
 <div id="dettaglionews" runat="server">
@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
         <label for="txtTitolo"><b>Titolo :</b></label>
-        <asp:TextBox ID="txtTitolo" runat="server" CssClass="txtTitolo form-control" placeholder="Inserisci il titolo..." AutoPostBack="True" OnTextChanged="titoloChanged"></asp:TextBox>
+        <asp:TextBox ID="txtTitolo" runat="server" CssClass="txtTitolo form-control" placeholder="Inserisci il titolo..." AutoPostBack="True" OnTextChanged="TitoloChanged"></asp:TextBox>
     </div>
     <div class="form-group">
         <label for="slug">Slug :</label>

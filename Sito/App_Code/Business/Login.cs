@@ -1,104 +1,79 @@
 using System;
-using System.Data;
-using System.Configuration;
 using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using Oggetti;
-using Business;
-using System.Data.OleDb;
-using Mercenari.Data;
+using Business.Oggetti;
+using Data;
 
 
-/// <summary>
-/// Summary description for Login
-/// </summary>
-public class Login
+namespace Business
 {
 
-    public Login()
+    /// <summary>
+    /// Summary description for Login
+    /// </summary>
+    public class LoginHelper
     {
-        //
-        // TODO: Add constructor logic here
-        //
-    }
-
-    public OggettoLogin AutenticaUtente(OggettoLogin oLogin)
-    {
-        OggettoLogin _retval = null;
-        if (oLogin != null)
+        public OggettoLogin AutenticaUtente(OggettoLogin oLogin)
         {
-            if ((oLogin.NomeUtente.CompareTo(string.Empty) != 0) && (oLogin.NomeUtente.CompareTo(string.Empty) != 0))
+            OggettoLogin retval = null;
+            if (oLogin != null)
             {
-
-                // compongo l'SQL per verificare l'autenticazione
-                //OleDbCommand oCmd = new OleDbCommand();
-                DataLayer Dal = new DataLayer();
-                IDbCommand dbC = Dal.CreateCommand();
-
-                dbC.CommandText = "SELECT *" +
-                    " FROM ADMIN " +
-                    " WHERE NomeUtente = @NomeUtente " +
-                    " AND [Password] = @PwdUtente";
-
-
-                dbC.Parameters.Add(Dal.CreatePar("@NomeUtente", oLogin.NomeUtente));
-                dbC.Parameters.Add(Dal.CreatePar("@PwdUtente", oLogin.PwdUtente));
-
-                bool LoggedIn = false;
-
-                using (IDataReader DtLogin = Dal.GetDataReader(dbC))
+                if (!string.IsNullOrEmpty(oLogin.NomeUtente))
                 {
-                    while (DtLogin.Read())
-                    {
-                        oLogin.IdUtente = int.Parse(DtLogin["ID"].ToString());
-                        // pulisco il campo password
-                        oLogin.PwdUtente = "";
-                        oLogin.NomeUtente = DtLogin["Nome"].ToString() + " " + DtLogin["Cognome"];
-                        oLogin.DataOraAccesso = DateTime.Parse(DtLogin["UltimoAccesso"].ToString());
 
-                        LoggedIn = true;
+                    // compongo l'SQL per verificare l'autenticazione
+                    //OleDbCommand oCmd = new OleDbCommand();
+                    var dal = new DataLayer();
+                    var dbC = dal.CreateCommand();
+
+                    dbC.CommandText = "SELECT *" +
+                        " FROM ADMIN " +
+                        " WHERE NomeUtente = @NomeUtente " +
+                        " AND [Password] = @PwdUtente";
+
+
+                    dbC.Parameters.Add(dal.CreatePar("@NomeUtente", oLogin.NomeUtente));
+                    dbC.Parameters.Add(dal.CreatePar("@PwdUtente", oLogin.PwdUtente));
+
+                    var loggedIn = false;
+
+                    using (var dtLogin = dal.GetDataReader(dbC))
+                    {
+                        while (dtLogin.Read())
+                        {
+                            oLogin.IdUtente = int.Parse(dtLogin["ID"].ToString());
+                            // pulisco il campo password
+                            oLogin.PwdUtente = "";
+                            oLogin.NomeUtente = dtLogin["Nome"] + " " + dtLogin["Cognome"];
+                            oLogin.DataOraAccesso = DateTime.Parse(dtLogin["UltimoAccesso"].ToString());
+
+                            loggedIn = true;
+                        }
+
+                        dtLogin.Close();
+
                     }
 
-                    DtLogin.Close();
 
-                }
-
-
-                if (LoggedIn)
-                {
-                    ///*oLogin.DataOraAccesso = DateTime.Parse(DtLogin.Rows[0][""]);*/
-                    //oLogin.IdUtente = int.Parse(DtLogin["ID"].ToString());
-                    //// pulisco il campo password
-                    //oLogin.PwdUtente = "";
-                    //oLogin.NomeUtente = DtLogin["Nome"].ToString() + " " + DtLogin["Cognome"];
-                    //oLogin.DataOraAccesso = DateTime.Parse(DtLogin["UltimoAccesso"].ToString());
-
+                    if (!loggedIn) return null;
                     //memorizzo data e ora dell'ultimo accesso al sistema.
                     dbC.Parameters.Clear();
                     dbC.CommandText = "UPDATE Admin set UltimoAccesso = @UltimoAccesso where ID = @IdUtente";
 
-                    dbC.Parameters.Add(Dal.CreatePar("@UltimoAccesso", DateTime.Now));
-                    dbC.Parameters.Add(Dal.CreatePar("@IdUtente", oLogin.IdUtente));
+                    dbC.Parameters.Add(dal.CreatePar("@UltimoAccesso", DateTime.Now));
+                    dbC.Parameters.Add(dal.CreatePar("@IdUtente", oLogin.IdUtente));
 
-                    Dal.Execute(dbC);
+                    dal.Execute(dbC);
 
-                    _retval = oLogin;
+                    retval = oLogin;
 
                     ConstWrapper.UtenteLoggato = oLogin;
 
-										// set the cookie for access control
-										HttpContext.Current.Response.SetCookie(new HttpCookie("loggedinbackend", "loggedinbackend"));
+                    // set the cookie for access control
+                    HttpContext.Current.Response.SetCookie(new HttpCookie("loggedinbackend", "loggedinbackend"));
                 }
-
             }
+
+            return retval;
         }
-
-        return _retval;
     }
-
-
 }

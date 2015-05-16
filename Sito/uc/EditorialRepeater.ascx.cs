@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Gestione;
 
 public partial class uc_EditorialRepeater : System.Web.UI.UserControl
 {
     #region Property
-    public TipoOggetto TipoOggetto { get; set; }
+    public TipoOggetto TipoRepeater { get; set; }
     public int Count { get; set; }
     public string Titolo { get; set; }
     #endregion
@@ -19,18 +18,18 @@ public partial class uc_EditorialRepeater : System.Web.UI.UserControl
         repEventi.DataBind();
     }
 
-    public List<Oggetti.Oggetto> Eventi
+    public List<Oggetto> Eventi
     {
         get
         {
             if (HttpContext.Current.Cache["EditorialRepeater" + this.ID] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["EditorialRepeater" + this.ID];
+                return (List<Oggetto>)HttpContext.Current.Cache["EditorialRepeater" + this.ID];
             }
             else
             {
-                Notizie oNotizie = new Notizie(TipoOggetto);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
+                Notizie oNotizie = new Notizie(TipoOggetto.News);
+                List<Oggetto> oOggetti = new List<Oggetto>();
                 oOggetti = oNotizie.GetAll(Count, true, 1);
                 Eventi = oOggetti;
                 return oOggetti;

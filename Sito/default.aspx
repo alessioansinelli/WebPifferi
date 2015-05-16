@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="_default" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pifferi.master" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="Default" %>
+<%@ Import Namespace="Business.Oggetti" %>
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc1" %>
-
-<%@ Register Src="uc/Photogallery.ascx" TagName="Photogallery" TagPrefix="uc2" %>
 
 <%-- Aggiungere qui i controlli del contenuto --%>
 <asp:Content ID="menu" runat="server" ContentPlaceHolderID="menu">
@@ -24,7 +22,7 @@
             </HeaderTemplate>
             <ItemTemplate>
                 <div class="rsContent">
-                    <%# getUrlPhoto(((Oggetti.Oggetto)Container.DataItem).Foto, "w12", "rsImg") %>
+                    <%# GetUrlPhoto(((Oggetto)Container.DataItem).Foto, "w12", "rsImg") %>
                     <div class="infoBlock infoBlockLeftBlack rsABlock">
                         <h3><%# DataBinder.Eval(Container.DataItem, "Titolo")%></h3>
                         <p><%# DataBinder.Eval(Container.DataItem, "SottoTitolo")%></p>

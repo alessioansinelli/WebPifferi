@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="menu.ascx.cs" Inherits="uc_menu" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="menu.ascx.cs" Inherits="uc.UcMenu" %>
 <ul class="nav navbar-nav">
     <li class="mnuHome <% if (SelectedMenu == "mnuHome"){Response.Write("active");} %>"><a href="/">Home</a></li>
     <li class="mnuStoria <% if (SelectedMenu == "mnuStoria"){Response.Write("active");} %>"><a href="/storia">La nostra Storia</a></li>

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Gestione;
 
-public partial class _default : Page
+public partial class Default : Page
 {
 
     public string TitoloHomePage = "";
@@ -16,9 +17,8 @@ public partial class _default : Page
     protected void Page_Load(object sender, EventArgs e)
     {
         // popolo la notizia centrale dell'home page
-        List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
         //oOggetti = oNotizie.GetAll(1,true);
-        oOggetti = NotiziaCentraleHomePage;
+        var oOggetti = NotiziaCentraleHomePage;
 
         if (oOggetti.Count > 0)
         {
@@ -31,43 +31,35 @@ public partial class _default : Page
             }
         }
 
-        oOggetti = new List<Oggetti.Oggetto>();
-        oOggetti = NotiziePrimoPiano;
-        
-        if (NotiziaCentraleHomePage.Count() > 0)
-        {
-            repSliderHome.DataSource = NotiziaCentraleHomePage;
-            repSliderHome.DataBind();
-        }
-
-
+        if (!NotiziaCentraleHomePage.Any()) return;
+        repSliderHome.DataSource = NotiziaCentraleHomePage;
+        repSliderHome.DataBind();
     }
 
-    public string getUrlPhoto(Oggetti.OggettoFoto[] oFoto, string Dimensione, string cssClass)
+    public string GetUrlPhoto(OggettoFoto[] oFoto, string dimensione, string cssClass)
     {
         string sret = "";
         if (oFoto.Length > 0)
         {
-            sret = "<img src=\"" + ResolveUrl(Business.ConstWrapper.CartellaFoto + oFoto[0].Percorso + Dimensione + oFoto[0].Estensione + "\" alt=\"" + oFoto[0].Titolo + "\" class=\""+ cssClass +"\" />");
+            sret = "<img src=\"" + ResolveUrl(Business.ConstWrapper.CartellaFoto + oFoto[0].Percorso + dimensione + oFoto[0].Estensione + "\" alt=\"" + oFoto[0].Titolo + "\" class=\""+ cssClass +"\" />");
 
         }
 
         return sret;
     }
 
-    public List<Oggetti.Oggetto> NotiziaCentraleHomePage
+    public List<Oggetto> NotiziaCentraleHomePage
     {
         get
         {
             if (HttpContext.Current.Cache["NotiziaCentraleHomePage"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["NotiziaCentraleHomePage"];
+                return (List<Oggetto>)HttpContext.Current.Cache["NotiziaCentraleHomePage"];
             }
             else
             {
-                Notizie oNotizie = new Notizie(TipoOggetto.News);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetHomePage(10, true);
+                var oNotizie = new Notizie(TipoOggetto.News);
+                var oOggetti = oNotizie.GetHomePage(10, true);
                 NotiziaCentraleHomePage = oOggetti;
                 return oOggetti;
             }
@@ -75,19 +67,18 @@ public partial class _default : Page
         set { HttpContext.Current.Cache["NotiziaCentraleHomePage"] = value; }
     }
 
-    public List<Oggetti.Oggetto> NotiziePrimoPiano
+    public List<Oggetto> NotiziePrimoPiano
     {
         get
         {
             if (HttpContext.Current.Cache["NotiziePrimoPiano"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["NotiziePrimoPiano"];
+                return (List<Oggetto>)HttpContext.Current.Cache["NotiziePrimoPiano"];
             }
             else
             {
-                Notizie oNotizie = new Notizie(TipoOggetto.News);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetHomePage(5, false);
+                var oNotizie = new Notizie(TipoOggetto.News);
+                var oOggetti = oNotizie.GetHomePage(5, false);
                 NotiziePrimoPiano = oOggetti;
                 return oOggetti;
             }
@@ -95,19 +86,18 @@ public partial class _default : Page
         set { HttpContext.Current.Cache["NotiziePrimoPiano"] = value; }
     }
 
-    public List<Oggetti.Oggetto> Eventi
+    public List<Oggetto> Eventi
     {
         get
         {
             if (HttpContext.Current.Cache["EventiHome"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["EventiHome"];
+                return (List<Oggetto>)HttpContext.Current.Cache["EventiHome"];
             }
             else
             {
-                Notizie oNotizie = new Notizie(TipoOggetto.Eventi);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetAll(3, true, 1);
+                var oNotizie = new Notizie(TipoOggetto.Eventi);
+                var oOggetti = oNotizie.GetAll(3, true, 1);
                 Eventi = oOggetti;
                 return oOggetti;
             }

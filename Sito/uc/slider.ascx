@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="slider.ascx.cs"
-    Inherits="uc_slider" %>
+    Inherits="uc.UcSlider" %>
+<%@ Import Namespace="Business.Oggetti" %>
 
 <asp:Repeater ID="repSlider" runat="server">
     <HeaderTemplate>
@@ -7,7 +8,7 @@
     </HeaderTemplate>
     <ItemTemplate>
         <div class="rsContent">
-            <%# getUrlPhoto(((Oggetti.OggettoFoto)Container.DataItem), "w8", "rsImg") %>
+            <%# GetUrlPhoto(((OggettoFoto)Container.DataItem), "w8", "rsImg") %>
             
             <div class="infoBlock infoBlockLeftBlack rsABlock" visible='<%# (DataBinder.Eval(Container.DataItem, "Titolo").ToString().Length > 0) %>' runat="server">
                 <h3><%# DataBinder.Eval(Container.DataItem, "Titolo")%>&nbsp;</h3>

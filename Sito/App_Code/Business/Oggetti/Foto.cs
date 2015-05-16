@@ -1,87 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 
 
-namespace Oggetti
+namespace Business.Oggetti
 {
-
-
 	/// <summary>
 	/// Summary description for Foto
 	/// </summary>
 	public class OggettoFoto
 	{
+	    public OggettoFoto()
+	    {
+	        Estensione = "";
+	        NumOrder = 0;
+	        ParentObjectId = 0;
+	        DataInserimento = DateTime.Now;
+	        Percorso = "";
+	        SottoTitolo = "";
+	        Titolo = "";
+	        Id = 0;
+	    }
 
-        private int _ID = 0;
-        private string _Titolo = "";
-        private string _SottoTitolo = "";
-        private string _Percorso = "";
-        private DateTime _DataInserimento = DateTime.Now;
-        private int _ParentObjectID = 0;
-        private int _NumOrder = 0;
-        private string _Estensione = "";
+	    public int Id { get; set; }
 
-        public int ID {
-            get { return _ID; }
-            set { _ID = value; }
-        }
-        
-        public string Titolo{
-            get { return _Titolo; }
-            set { _Titolo = value; }
-        }
+	    public string Titolo { get; set; }
 
-        public string SottoTitolo
-        {
-            get { return _SottoTitolo; }
-            set { _SottoTitolo = value; }
-        }
+	    public string SottoTitolo { get; set; }
 
-        public string Percorso {
-            get { return _Percorso; }
-            set { _Percorso = value; }
-        }
+	    public string Percorso { get; set; }
 
-        public DateTime DataInserimento {
-            get { return _DataInserimento; }
-            set { _DataInserimento = value; }
-        }
+	    public DateTime DataInserimento { get; set; }
 
-        public int ParentObjectID {
-            get { return _ParentObjectID; }
-            set { _ParentObjectID = value; }
-        }
+	    public int ParentObjectId { get; set; }
 
-        public int NumOrder {
-            get { return _NumOrder; }
-            set { _NumOrder = value; }
-        }
+	    public int NumOrder { get; set; }
 
-        public string Estensione {
-            get { return _Estensione; }
-            set { _Estensione = value; }
-        }
+	    public string Estensione { get; set; }
 
 
+	    public void FromDataReader(IDataReader oDr) {
 
-		public OggettoFoto()
-		{
-
-		}
-
-		public void FromDataReader(IDataReader oDr) {
-
-            this._ID = (int.Parse(oDr["tImageID"].ToString()));
-            this._Titolo = oDr["tImageTitolo"].ToString();
-            this._SottoTitolo = oDr["tImageSottoTitolo"].ToString();
-            this._Percorso = oDr["tImagePercorso"].ToString();
-            this._ParentObjectID = int.Parse(oDr["tObjectID"].ToString());
-            this._NumOrder = int.Parse(oDr["tImageNumOrder"].ToString());
-            this._Estensione = oDr["tImageEstensione"].ToString();
-            this._DataInserimento = DateTime.Parse(oDr["tImageDataInserimento"].ToString());
+            Id = (int.Parse(oDr["tImageID"].ToString()));
+            Titolo = oDr["tImageTitolo"].ToString();
+            SottoTitolo = oDr["tImageSottoTitolo"].ToString();
+            Percorso = oDr["tImagePercorso"].ToString();
+            ParentObjectId = int.Parse(oDr["tObjectID"].ToString());
+            NumOrder = int.Parse(oDr["tImageNumOrder"].ToString());
+            Estensione = oDr["tImageEstensione"].ToString();
+            DataInserimento = DateTime.Parse(oDr["tImageDataInserimento"].ToString());
 		}
 	}
 }

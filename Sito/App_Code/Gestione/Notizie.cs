@@ -1,474 +1,446 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Oggetti;
+using Business.Oggetti;
 using System.Data;
-//using AleDBManager;
-using Mercenari.Data;
+using Data;
 
-/// <summary>
-/// Summary description for Notizie
-/// </summary>
-public class Notizie
+
+namespace Gestione
 {
-
-    private TipoOggetto[] _TipoOggetto;
-    private bool HomePage = false;
-    //private OleDbConnection _Connessione;
-    //private OleDbCommand _Command;
-
-    private DataLayer DAL = new DataLayer();
-
-    string sSQL = "";
-    public Notizie(TipoOggetto[] TipoObj)
+    /// <summary>
+    /// Summary description for Notizie
+    /// </summary>
+    public class Notizie
     {
-        //_Connessione = Business.ConstWrapper.Connessione;
-        _TipoOggetto = TipoObj;
-        if (_TipoOggetto.Length == 1 && _TipoOggetto[0] == TipoOggetto.Homepage)
+
+        private TipoOggetto[] _TipoOggetto;
+        private readonly bool _homePage;
+        //private OleDbConnection _Connessione;
+        //private OleDbCommand _Command;
+
+        private DataLayer DAL = new DataLayer();
+
+        string _sSql = "";
+        public Notizie(TipoOggetto[] tipoObj)
         {
-            HomePage = true;
-            _TipoOggetto[0] = TipoOggetto.News;
-        }
-    }
-
-    public Notizie(TipoOggetto _oTipOggetto)
-    {
-        TipoOggetto[] artpo = new TipoOggetto[1];
-        artpo[0] = _oTipOggetto;
-        _TipoOggetto = artpo;
-        //_Connessione = Business.ConstWrapper.Connessione;
-    }
-
-    public Oggetto Get(int iNotizia)
-    {
-
-        Oggetto ret = new Oggetto();
-        //OleDbManager oDbManager = Business.ConstWrapper.DbManager;
-
-        string sTipoOggetto = "";
-        for (int iT = 0; iT < _TipoOggetto.Length; iT++)
-        {
-            sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
-            if (iT < _TipoOggetto.Length)
+            //_Connessione = Business.ConstWrapper.Connessione;
+            _TipoOggetto = tipoObj;
+            if (_TipoOggetto.Length == 1 && _TipoOggetto[0] == TipoOggetto.Homepage)
             {
-                sTipoOggetto += ", ";
+                _homePage = true;
+                _TipoOggetto[0] = TipoOggetto.News;
             }
         }
 
-        sSQL = sqlGetSingleObject;
-        
-        IDbCommand dbC = DAL.CreateCommand();
-        dbC.CommandText = sSQL;
-				dbC.CommandType = CommandType.StoredProcedure;
-
-        dbC.Parameters.Add(DAL.CreatePar("@objectID", iNotizia));
-
-
-        IDataReader oDr = DAL.GetDataReader(dbC);
-        if (oDr.Read())
+        public Notizie(TipoOggetto oTipOggetto)
         {
-            ret.FromDataReader(oDr);
-            oDr.Close();
+            TipoOggetto[] artpo = new TipoOggetto[1];
+            artpo[0] = oTipOggetto;
+            _TipoOggetto = artpo;
+            //_Connessione = Business.ConstWrapper.Connessione;
         }
-        else { ret = null; }
 
-        return ret;
-
-    }
-
-    public Oggetto Get(string slug)
-    {
-
-        Oggetto ret = new Oggetto();
-        //OleDbManager oDbManager = Business.ConstWrapper.DbManager;
-
-        string sTipoOggetto = "";
-        for (int iT = 0; iT < _TipoOggetto.Length; iT++)
+        public Oggetto Get(int iNotizia)
         {
-            sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
-            if (iT < _TipoOggetto.Length)
+
+            var ret = new Oggetto();
+
+
+            _sSql = SqlGetSingleObject;
+
+            var dbC = DAL.CreateCommand();
+            dbC.CommandText = _sSql;
+            dbC.CommandType = CommandType.StoredProcedure;
+
+            dbC.Parameters.Add(DAL.CreatePar("@objectID", iNotizia));
+
+
+            IDataReader oDr = DAL.GetDataReader(dbC);
+            if (oDr.Read())
             {
-                sTipoOggetto += ", ";
+                ret.FromDataReader(oDr);
+                oDr.Close();
             }
+            else { ret = null; }
+
+            return ret;
+
         }
 
-        sSQL = sqlGetSingleObject;
-
-        IDbCommand dbC = DAL.CreateCommand();
-        dbC.CommandText = sSQL;
-        dbC.CommandType = CommandType.StoredProcedure;
-
-        dbC.Parameters.Add(DAL.CreatePar("@slug", slug));
-
-
-        IDataReader oDr = DAL.GetDataReader(dbC);
-        if (oDr.Read())
+        public Oggetto Get(string slug)
         {
-            ret.FromDataReader(oDr);
-            oDr.Close();
-        }
-        else { ret = null; }
 
-        return ret;
+            Oggetto ret = new Oggetto();
+            //OleDbManager oDbManager = Business.ConstWrapper.DbManager;
 
-    }
+            _sSql = SqlGetSingleObject;
 
-    public Oggetto Get(int iNotizia, bool GetFoto, int CountImage)
-    {
+            IDbCommand dbC = DAL.CreateCommand();
+            dbC.CommandText = _sSql;
+            dbC.CommandType = CommandType.StoredProcedure;
 
-        Oggetto ret = Get(iNotizia);
+            dbC.Parameters.Add(DAL.CreatePar("@slug", slug));
 
-        ret.Foto = new Immagini().GetAll(iNotizia, CountImage).ToArray();
 
-        return ret;
-
-    }
-
-    public Oggetto Get(string slug, bool GetFoto, int CountImage)
-    {
-
-        Oggetto ret = Get(slug);
-
-        ret.Foto = new Immagini().GetAll(ret.ID, CountImage).ToArray();
-
-        return ret;
-
-    }
-
-    public List<Oggetto> GetAll(int Count)
-    {
-
-        List<Oggetto> oList = new List<Oggetto>();
-
-        string sTipoOggetto = "";
-        string sOrderBy = "";
-        for (int iT = 0; iT < _TipoOggetto.Length; iT++)
-        {
-            sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
-            if (iT < _TipoOggetto.Length - 1)
+            IDataReader oDr = DAL.GetDataReader(dbC);
+            if (oDr.Read())
             {
-                sTipoOggetto += ", ";
+                ret.FromDataReader(oDr);
+                oDr.Close();
             }
+            else { ret = null; }
+
+            return ret;
 
         }
 
-        if (_TipoOggetto.Length > 1)
+        public Oggetto Get(int iNotizia, bool getFoto, int countImage)
         {
-            sOrderBy += " order by tObjectDataInserimento desc, tObjectNumOrder ";
-        }
-        else
-        {
-            sOrderBy += " order by tObjectNumOrder";
-        }
 
-        IDbCommand dbC = DAL.CreateCommand();
+            Oggetto ret = Get(iNotizia);
 
-        if (Count > 0 && HomePage == false)
-        {
-            dbC.CommandText = (sqlGetCountObject.Replace("{count}", Count.ToString()).Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
-        }
-        else if (HomePage == false)
-        {
-            dbC.CommandText = (sqlGetAllObject.Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
-        }
-        else
-        {
-            dbC.CommandText = (sqlGetHomePageObject.Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
+            ret.Foto = new Immagini().GetAll(iNotizia, countImage).ToArray();
+
+            return ret;
+
         }
 
-
-        dbC.Parameters.Add(DAL.CreatePar("@TipoOggetto", sTipoOggetto));
-        dbC.Parameters.Add(DAL.CreatePar("@isHomePage", HomePage));
-
-
-        using (IDataReader oDr = DAL.GetDataReader(dbC))
+        public Oggetto Get(string slug, bool getFoto, int countImage)
         {
 
-            while (oDr.Read())
+            Oggetto ret = Get(slug);
+
+            ret.Foto = new Immagini().GetAll(ret.Id, countImage).ToArray();
+
+            return ret;
+
+        }
+
+        public List<Oggetto> GetAll(int count)
+        {
+
+            var oList = new List<Oggetto>();
+
+            string sTipoOggetto = "";
+            string sOrderBy = "";
+            for (int iT = 0; iT < _TipoOggetto.Length; iT++)
             {
-                Oggetto oNotizia = new Oggetto();
-                oNotizia.FromDataReader(oDr);
-                oList.Add(oNotizia);
+                sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
+                if (iT < _TipoOggetto.Length - 1)
+                {
+                    sTipoOggetto += ", ";
+                }
+
             }
-            oDr.Close();
+
+            if (_TipoOggetto.Length > 1)
+            {
+                sOrderBy += " order by tObjectDataInserimento desc, tObjectNumOrder ";
+            }
+            else
+            {
+                sOrderBy += " order by tObjectNumOrder";
+            }
+
+            IDbCommand dbC = DAL.CreateCommand();
+
+            if (count > 0 && _homePage == false)
+            {
+                dbC.CommandText = (SqlGetCountObject.Replace("{count}", count.ToString()).Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
+            }
+            else if (_homePage == false)
+            {
+                dbC.CommandText = (SqlGetAllObject.Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
+            }
+            else
+            {
+                dbC.CommandText = (SqlGetHomePageObject.Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
+            }
+
+
+            dbC.Parameters.Add(DAL.CreatePar("@TipoOggetto", sTipoOggetto));
+            dbC.Parameters.Add(DAL.CreatePar("@isHomePage", _homePage));
+
+
+            using (var oDr = DAL.GetDataReader(dbC))
+            {
+
+                while (oDr.Read())
+                {
+                    var oNotizia = new Oggetto();
+                    oNotizia.FromDataReader(oDr);
+                    oList.Add(oNotizia);
+                }
+                oDr.Close();
+            }
+
+
+            return oList;
         }
 
-
-        return oList;
-    }
-
-		public List<Oggetto> GetHomePage(int Count, bool isHomePage)
-		{
-
-			List<Oggetto> oList = new List<Oggetto>();
-
-			string sTipoOggetto = "";
-			string sOrderBy = "";
-			for (int iT = 0; iT < _TipoOggetto.Length; iT++)
-			{
-				sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
-				if (iT < _TipoOggetto.Length - 1)
-				{
-					sTipoOggetto += ", ";
-				}
-
-			}
-
-			if (_TipoOggetto.Length > 1)
-			{
-				sOrderBy += " order by tObjectDataInserimento desc, tObjectNumOrder ";
-			}
-			else
-			{
-				sOrderBy += " order by tObjectNumOrder";
-			}
-
-			IDbCommand dbC = DAL.CreateCommand();
-
-			if (Count > 0)
-			{
-				dbC.CommandText = (sqlGetHomePageObject.Replace("{count}", Count.ToString()).Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));				
-			}
-
-			dbC.Parameters.Add(DAL.CreatePar("@TipoOggetto", sTipoOggetto));
-			dbC.Parameters.Add(DAL.CreatePar("@isHomePage", isHomePage));
-
-
-			using (IDataReader oDr = DAL.GetDataReader(dbC))
-			{
-
-				while (oDr.Read())
-				{
-					Oggetto oNotizia = new Oggetto();
-					oNotizia.FromDataReader(oDr);
-					oList.Add(oNotizia);
-				}
-				oDr.Close();
-			}
-
-			foreach (Oggetto oObj in oList)
-			{
-			  oObj.Foto = new Immagini().GetAll(oObj.ID, 0).ToArray();
-			}
-
-			return oList;
-		}
-
-    public List<Oggetto> GetAll(int Count, bool GetImage, int CountImage)
-    {
-
-        List<Oggetto> oList = new List<Oggetto>();
-
-        oList = GetAll(Count);
-
-
-        foreach (Oggetto oObj in oList)
+        public List<Oggetto> GetHomePage(int count, bool isHomePage)
         {
-            oObj.Foto = new Immagini().GetAll(oObj.ID, CountImage).ToArray();
+
+            List<Oggetto> oList = new List<Oggetto>();
+
+            string sTipoOggetto = "";
+            string sOrderBy = "";
+            for (int iT = 0; iT < _TipoOggetto.Length; iT++)
+            {
+                sTipoOggetto += ((int)_TipoOggetto[iT]).ToString();
+                if (iT < _TipoOggetto.Length - 1)
+                {
+                    sTipoOggetto += ", ";
+                }
+
+            }
+
+            if (_TipoOggetto.Length > 1)
+            {
+                sOrderBy += " order by tObjectDataInserimento desc, tObjectNumOrder ";
+            }
+            else
+            {
+                sOrderBy += " order by tObjectNumOrder";
+            }
+
+            IDbCommand dbC = DAL.CreateCommand();
+
+            if (count > 0)
+            {
+                dbC.CommandText = (SqlGetHomePageObject.Replace("{count}", count.ToString()).Replace("{@TipoOggetto}", sTipoOggetto).Replace("{sOrderBy}", sOrderBy));
+            }
+
+            dbC.Parameters.Add(DAL.CreatePar("@TipoOggetto", sTipoOggetto));
+            dbC.Parameters.Add(DAL.CreatePar("@isHomePage", isHomePage));
+
+
+            using (IDataReader oDr = DAL.GetDataReader(dbC))
+            {
+
+                while (oDr.Read())
+                {
+                    Oggetto oNotizia = new Oggetto();
+                    oNotizia.FromDataReader(oDr);
+                    oList.Add(oNotizia);
+                }
+                oDr.Close();
+            }
+
+            foreach (Oggetto oObj in oList)
+            {
+                oObj.Foto = new Immagini().GetAll(oObj.Id, 0).ToArray();
+            }
+
+            return oList;
         }
 
-        return oList;
-    }
-
-    public int Add(Oggetto oNotizia)
-    {
-        int iRetVal = 0;
-
-        //OleDbManager oDbManager = Business.ConstWrapper.DbManager;
-        IDbCommand dbC = DAL.CreateCommand();
-
-        dbC.CommandText = (sqlInsertSingleObject);
-
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTitolo", oNotizia.Titolo));
-        string slug = string.IsNullOrEmpty(oNotizia.Slug) ? oNotizia.Slug : Utility.GenerateSlug(oNotizia.Titolo);
-        dbC.Parameters.Add(DAL.CreatePar("@slug", oNotizia.Slug));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectSottoTitolo", oNotizia.SottoTitolo));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTesto", oNotizia.Testo));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectDataInserimento", DateTime.Now));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectDataModifica", DateTime.Now));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectIDUtente", oNotizia.IdUtente));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTypeID", oNotizia.TipoOggetto));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectNumOrder", 1));
-
-
-        iRetVal = DAL.ExecuteGetId(dbC);
-
-        // UPDATE NumOrder 
-
-        dbC = DAL.CreateCommand();
-
-        dbC.Parameters.Clear();
-        dbC.CommandText = "update tObject SET tObjectNumOrder = tObjectNumOrder+1 " +
-                            " WHERE tObjectID <> " + iRetVal.ToString() + " and tObjectTypeID=" + (int)oNotizia.TipoOggetto;
-
-        iRetVal = DAL.Execute(dbC);
-
-        return iRetVal;
-    }
-
-    public int Update(Oggetto oNotizia)
-    {
-        int iRetVal = 0;
-
-        IDbCommand dbC = DAL.CreateCommand();
-
-        dbC.CommandText = (sqlUpdateSingleObject);
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTitolo", oNotizia.Titolo));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectSottoTitolo", oNotizia.SottoTitolo));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTesto", oNotizia.Testo));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectDataModifica", oNotizia.DataModifica));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectIDUtente", oNotizia.IdUtente));
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectID", oNotizia.ID));
-        dbC.Parameters.Add(DAL.CreatePar("@slug", oNotizia.Slug));
-
-        iRetVal = DAL.Execute(dbC);
-
-        return iRetVal;
-    }
-
-    public bool Delete(int IdNotizia)
-    {
-        bool bRet = false;
-
-        Oggetti.Oggetto oNotizia = Get(IdNotizia);
-
-        IDbCommand dbC = DAL.CreateCommand();
-
-        dbC.CommandText = sqlDeleteSingleObject;
-				dbC.CommandType = CommandType.StoredProcedure;
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectID", IdNotizia));
-
-
-        if (DAL.Execute(dbC) > 0)
+        public List<Oggetto> GetAll(int count, bool getImage, int countImage)
         {
-            bRet = true;
+            var oList = GetAll(count);
+
+
+            foreach (var oObj in oList)
+            {
+                oObj.Foto = new Immagini().GetAll(oObj.Id, countImage).ToArray();
+            }
+
+            return oList;
         }
 
-        dbC = DAL.CreateCommand();
-
-        // UPDATE NEW ORDER
-        dbC.CommandText = ("UPDATE tObject SET tObjectNumOrder = tObjectNumOrder-1 " +
-                " WHERE tObjectNumOrder > @NumOrder AND tObjectTypeID=@Tipologia;");
-
-        dbC.Parameters.Add(DAL.CreatePar("@NumOrder", oNotizia.NumOrder));
-        dbC.Parameters.Add(DAL.CreatePar("@Tipologia", (int)_TipoOggetto[0]));
-
-        DAL.Execute(dbC);
-
-        return bRet;
-
-    }
-
-    public bool UpdateNumOrder(int ID, string Direction)
-    {
-        bool bRet = false;
-
-        Oggetti.Oggetto oNotizia = this.Get(ID);
-
-        int CurrentNumOrder = oNotizia.NumOrder;
-
-        int MaxNewOrder = GetLastNumOrder(_TipoOggetto[0]);
-
-        IDbCommand dbC = DAL.CreateCommand();
-        dbC.CommandText = "UPDATE tObject set tObjectNumOrder=@NewNumOrder where tObjectID=@Id";
-
-
-        if ((Direction == "UP") && (CurrentNumOrder != 1))
+        public int Add(Oggetto oNotizia)
         {
+            //OleDbManager oDbManager = Business.ConstWrapper.DbManager;
+            var dbC = DAL.CreateCommand();
 
-            dbC.Parameters.Add(DAL.CreatePar("@NewNumOrder", CurrentNumOrder - 1));
-            dbC.Parameters.Add(DAL.CreatePar("@Id", oNotizia.ID));
+            dbC.CommandText = (SqlInsertSingleObject);
 
-            DAL.Execute(dbC);
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectTitolo", oNotizia.Titolo));
+            dbC.Parameters.Add(DAL.CreatePar("@slug", oNotizia.Slug));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectSottoTitolo", oNotizia.SottoTitolo));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectTesto", oNotizia.Testo));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectDataInserimento", DateTime.Now));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectDataModifica", DateTime.Now));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectIDUtente", oNotizia.IdUtente));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectTypeID", oNotizia.TipoOggetto));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectNumOrder", 1));
+
+
+            var iRetVal = DAL.ExecuteGetId(dbC);
+
+            // UPDATE NumOrder 
 
             dbC = DAL.CreateCommand();
 
-            dbC.CommandText = ("UPDATE tObject set tObjectNumOrder=" + CurrentNumOrder + " where tObjectID <> " + oNotizia.ID + " and tObjectNumOrder=" + (CurrentNumOrder - 1) + " and tObjectTypeID=" + Convert.ToInt32(_TipoOggetto[0]));
+            dbC.Parameters.Clear();
+            dbC.CommandText = "update tObject SET tObjectNumOrder = tObjectNumOrder+1 " +
+                                " WHERE tObjectID <> " + iRetVal + " and tObjectTypeID=" + (int)oNotizia.TipoOggetto;
 
-            DAL.Execute(dbC);
+            iRetVal = DAL.Execute(dbC);
+
+            return iRetVal;
         }
-        else if ((Direction == "DOWN") && (CurrentNumOrder != MaxNewOrder - 1))
+
+        public int Update(Oggetto oNotizia)
         {
+            var dbC = DAL.CreateCommand();
 
-            dbC.Parameters.Add(DAL.CreatePar("@NewNumOrder", CurrentNumOrder + 1));
-            dbC.Parameters.Add(DAL.CreatePar("@Id", oNotizia.ID));
+            dbC.CommandText = (SqlUpdateSingleObject);
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectTitolo", oNotizia.Titolo));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectSottoTitolo", oNotizia.SottoTitolo));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectTesto", oNotizia.Testo));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectDataModifica", oNotizia.DataModifica));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectIDUtente", oNotizia.IdUtente));
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectID", oNotizia.Id));
+            dbC.Parameters.Add(DAL.CreatePar("@slug", oNotizia.Slug));
 
-            DAL.Execute(dbC);
+            var iRetVal = DAL.Execute(dbC);
+
+            return iRetVal;
+        }
+
+        public bool Delete(int idNotizia)
+        {
+            bool bRet = false;
+
+            Oggetto oNotizia = Get(idNotizia);
+
+            IDbCommand dbC = DAL.CreateCommand();
+
+            dbC.CommandText = SqlDeleteSingleObject;
+            dbC.CommandType = CommandType.StoredProcedure;
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectID", idNotizia));
+
+
+            if (DAL.Execute(dbC) > 0)
+            {
+                bRet = true;
+            }
 
             dbC = DAL.CreateCommand();
 
-            dbC.CommandText = ("UPDATE tObject set tObjectNumOrder=" + CurrentNumOrder + " where tObjectID <> " + oNotizia.ID + " and tObjectNumOrder=" + (CurrentNumOrder + 1) + " and tObjectTypeID=" + Convert.ToInt32(_TipoOggetto[0]));
+            // UPDATE NEW ORDER
+            dbC.CommandText = ("UPDATE tObject SET tObjectNumOrder = tObjectNumOrder-1 " +
+                    " WHERE tObjectNumOrder > @NumOrder AND tObjectTypeID=@Tipologia;");
+
+            dbC.Parameters.Add(DAL.CreatePar("@NumOrder", oNotizia.NumOrder));
+            dbC.Parameters.Add(DAL.CreatePar("@Tipologia", (int)_TipoOggetto[0]));
 
             DAL.Execute(dbC);
 
+            return bRet;
+
         }
 
-        return bRet;
-    }
-
-    private int GetLastNumOrder(TipoOggetto tipoOggetto)
-    {
-        int iRet = 0;
-
-        IDbCommand dbC = DAL.CreateCommand();
-        dbC.CommandText = (sqlGetLastNumOrder);
-        dbC.Parameters.Add(DAL.CreatePar("@tObjectTypeID", (int)tipoOggetto));
-
-        try
+        public bool UpdateNumOrder(int id, string direction)
         {
-            iRet = (int)DAL.ExecuteScalar(dbC) + 1;
+            const bool bRet = false;
+
+            var oNotizia = Get(id);
+
+            var currentNumOrder = oNotizia.NumOrder;
+
+            var maxNewOrder = GetLastNumOrder(_TipoOggetto[0]);
+
+            IDbCommand dbC = DAL.CreateCommand();
+            dbC.CommandText = "UPDATE tObject set tObjectNumOrder=@NewNumOrder where tObjectID=@Id";
+
+
+            if ((direction == "UP") && (currentNumOrder != 1))
+            {
+
+                dbC.Parameters.Add(DAL.CreatePar("@NewNumOrder", currentNumOrder - 1));
+                dbC.Parameters.Add(DAL.CreatePar("@Id", oNotizia.Id));
+
+                DAL.Execute(dbC);
+
+                dbC = DAL.CreateCommand();
+
+                dbC.CommandText = ("UPDATE tObject set tObjectNumOrder=" + currentNumOrder + " where tObjectID <> " + oNotizia.Id + " and tObjectNumOrder=" + (currentNumOrder - 1) + " and tObjectTypeID=" + Convert.ToInt32(_TipoOggetto[0]));
+
+                DAL.Execute(dbC);
+            }
+            else if ((direction == "DOWN") && (currentNumOrder != maxNewOrder - 1))
+            {
+
+                dbC.Parameters.Add(DAL.CreatePar("@NewNumOrder", currentNumOrder + 1));
+                dbC.Parameters.Add(DAL.CreatePar("@Id", oNotizia.Id));
+
+                DAL.Execute(dbC);
+
+                dbC = DAL.CreateCommand();
+
+                dbC.CommandText = ("UPDATE tObject set tObjectNumOrder=" + currentNumOrder + " where tObjectID <> " + oNotizia.Id + " and tObjectNumOrder=" + (currentNumOrder + 1) + " and tObjectTypeID=" + Convert.ToInt32(_TipoOggetto[0]));
+
+                DAL.Execute(dbC);
+
+            }
+
+            return bRet;
         }
-        catch
+
+        private int GetLastNumOrder(TipoOggetto tipoOggetto)
         {
-            iRet = 1;
+            int iRet;
+
+            var dbC = DAL.CreateCommand();
+            dbC.CommandText = (SqlGetLastNumOrder);
+            dbC.Parameters.Add(DAL.CreatePar("@tObjectTypeID", (int)tipoOggetto));
+
+            try
+            {
+                iRet = (int)DAL.ExecuteScalar(dbC) + 1;
+            }
+            catch
+            {
+                iRet = 1;
+            }
+
+            return iRet;
         }
 
-        return iRet;
-    }
+        public int SetHomePage(int id, bool homeNews)
+        {
+            IDbCommand dbC = DAL.CreateCommand();
+            dbC.CommandText = "UPDATE tObject set isHomeNews=@isHomeNews where tObjectID=@Id;";
+            //dbC.CommandText += "UPDATE tObject set isHomeNews=0 where tObjectID <> @Id;";
+            dbC.Parameters.Add(DAL.CreatePar("@isHomeNews", homeNews));
+            dbC.Parameters.Add(DAL.CreatePar("@Id", id));
 
-    public int SetHomePage(int ID, bool HomeNews)
-    {
-        IDbCommand dbC = DAL.CreateCommand();
-        dbC.CommandText = "UPDATE tObject set isHomeNews=@isHomeNews where tObjectID=@Id;";
-        //dbC.CommandText += "UPDATE tObject set isHomeNews=0 where tObjectID <> @Id;";
-        dbC.Parameters.Add(DAL.CreatePar("@isHomeNews", HomeNews));
-        dbC.Parameters.Add(DAL.CreatePar("@Id", ID));
+            return DAL.Execute(dbC);
 
-        return DAL.Execute(dbC);
-
-    }
+        }
 
 
-		private const string sqlGetSingleObject = "selectSingleObject";/*"SELECT * " +
+        private const string SqlGetSingleObject = "selectSingleObject";/*"SELECT * " +
         "FROM tObject " +
         "WHERE tObjectID=@IdObject";//and tObject.tObjectTypeID in ({@TipoOggetto});*/
 
-    private const string sqlGetAllObject = "SELECT * " +
+        private const string SqlGetAllObject = "SELECT * " +
+            "FROM tObject " +
+            "WHERE tObject.tObjectTypeID in ({@TipoOggetto}) {sOrderBy}";
+
+        private const string SqlGetHomePageObject = "SELECT TOP {count} * " +
         "FROM tObject " +
-        "WHERE tObject.tObjectTypeID in ({@TipoOggetto}) {sOrderBy}";
+        "WHERE tObject.tObjectTypeID in ({@TipoOggetto}) and [isHomeNews]=@isHomePage {sOrderBy}";
 
-    private const string sqlGetHomePageObject = "SELECT TOP {count} * " +
-    "FROM tObject " +
-    "WHERE tObject.tObjectTypeID in ({@TipoOggetto}) and [isHomeNews]=@isHomePage {sOrderBy}";
+        private const string SqlGetCountObject = "SELECT TOP {count} * " +
+            "FROM tObject " +
+            "WHERE tObject.tObjectTypeID IN ({@TipoOggetto}) {sOrderBy}";
 
-    private const string sqlGetCountObject = "SELECT TOP {count} * " +
-        "FROM tObject " +
-        "WHERE tObject.tObjectTypeID IN ({@TipoOggetto}) {sOrderBy}";
+        private const string SqlUpdateSingleObject = "UPDATE tObject SET tObjectTitolo = @tObjectTitolo, tObjectSottoTitolo = @tObjectSottoTitolo, tObjectTesto = @tObjectTesto, tObjectDataModifica = @tObjectDataModifica, tObjectIDUtente = @tObjectIDUtente, slug=@slug " +
+            " WHERE tObjectID=@tObjectID";
 
-    private const string sqlUpdateSingleObject = "UPDATE tObject SET tObjectTitolo = @tObjectTitolo, tObjectSottoTitolo = @tObjectSottoTitolo, tObjectTesto = @tObjectTesto, tObjectDataModifica = @tObjectDataModifica, tObjectIDUtente = @tObjectIDUtente, slug=@slug " +
-        " WHERE tObjectID=@tObjectID";
+        private const string SqlInsertSingleObject = "INSERT INTO tObject ( tObjectTitolo, tObjectSottoTitolo, tObjectTesto, tObjectDataInserimento, tObjectDataModifica, tObjectIDUtente, tObjectTypeID, tObjectNumOrder, slug ) " +
+            " VALUES ( @tObjectTitolo, @tObjectSottoTitolo, @tObjectTesto, @tObjectDataInserimento, @tObjectDataModifica, @tObjectIDUtente, @tObjectTypeID, @tObjectNumOrder, @slug )";
 
-    private const string sqlInsertSingleObject = "INSERT INTO tObject ( tObjectTitolo, tObjectSottoTitolo, tObjectTesto, tObjectDataInserimento, tObjectDataModifica, tObjectIDUtente, tObjectTypeID, tObjectNumOrder, slug ) " +
-        " VALUES ( @tObjectTitolo, @tObjectSottoTitolo, @tObjectTesto, @tObjectDataInserimento, @tObjectDataModifica, @tObjectIDUtente, @tObjectTypeID, @tObjectNumOrder, @slug )";
+        private const string SqlGetLastNumOrder = "SELECT Max(tObject.tObjectNumOrder) AS MaxNumOrder" +
+            " FROM tObject" +
+            " GROUP BY tObject.tObjectTypeID" +
+            " HAVING (tObject.tObjectTypeID = @tObjectTypeID);";
 
-    private const string sqlUpdateNumOrder = "";
+        private const string SqlDeleteSingleObject = "deleteSingleObject"; /* stored procedure */
 
-    private const string sqlGetLastNumOrder = "SELECT Max(tObject.tObjectNumOrder) AS MaxNumOrder" +
-        " FROM tObject" +
-        " GROUP BY tObject.tObjectTypeID" +
-        " HAVING (tObject.tObjectTypeID = @tObjectTypeID);";
-
-		private const string sqlDeleteSingleObject = "deleteSingleObject"; /* stored procedure */
+    }
 
 }

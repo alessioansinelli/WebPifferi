@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using Business;
+using Business.Oggetti;
+using Gestione;
 
-public partial class _news : Page
+public partial class News : Page
 {
     public string TitoloHomePage = "";
     public string SottoTitoloHomePage = "";
@@ -18,10 +21,10 @@ public partial class _news : Page
     {
 
         int iPagina = 1;
-        int iCount = int.Parse(System.Configuration.ConfigurationManager.AppSettings["countnews"].ToString());
+        int iCount = int.Parse(ConfigurationManager.AppSettings["countnews"]);
         if (Request["page"] != null)
         {
-            int.TryParse(Request["Page"].ToString(), out iPagina);
+            int.TryParse(Request["Page"], out iPagina);
         }
 
         // Gestione paginazione
@@ -71,12 +74,12 @@ public partial class _news : Page
 
     }
 
-    public string getUrlPhoto(Oggetti.OggettoFoto[] oFoto, string Dimensione)
+    public string GetUrlPhoto(OggettoFoto[] oFoto, string dimensione)
     {
         string sret = "";
         if (oFoto.Length > 0)
         {
-            sret = "<img src=\"" + ResolveUrl(Business.ConstWrapper.CartellaFoto + oFoto[0].Percorso + Dimensione + oFoto[0].Estensione + "\" alt=\"" + oFoto[0].Titolo + "\" />");
+            sret = "<img src=\"" + ResolveUrl(ConstWrapper.CartellaFoto + oFoto[0].Percorso + dimensione + oFoto[0].Estensione + "\" alt=\"" + oFoto[0].Titolo + "\" />");
 
         }
 
@@ -84,19 +87,18 @@ public partial class _news : Page
     }
 
 
-    public List<Oggetti.Oggetto> ElencoNotizie
+    public List<Oggetto> ElencoNotizie
     {
         get
         {
             if (HttpContext.Current.Cache["ElencoNotizie"] != null)
             {
-                return (List<Oggetti.Oggetto>)HttpContext.Current.Cache["ElencoNotizie"];
+                return (List<Oggetto>)HttpContext.Current.Cache["ElencoNotizie"];
             }
             else
             {
-                Notizie oNotizie = new Notizie(TipoOggetto.News);
-                List<Oggetti.Oggetto> oOggetti = new List<Oggetti.Oggetto>();
-                oOggetti = oNotizie.GetAll(0, true, 1);
+                var oNotizie = new Notizie(TipoOggetto.News);
+                var oOggetti = oNotizie.GetAll(0, true, 1);
                 ElencoNotizie = oOggetti;
                 return oOggetti;
             }

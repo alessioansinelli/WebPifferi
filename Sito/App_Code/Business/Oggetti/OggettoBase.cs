@@ -1,146 +1,99 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
-using System.Data.OleDb;
 
-/// <summary>
-/// Summary description for OggettoBase
-/// </summary>
-public class OggettoBase
+namespace Business.Oggetti
 {
-    private int _ID = 0;
-    private string _Titolo = "";
-    private string _SottoTitolo = "";
-    private string _Testo = "";
-    private DateTime _DataInserimento;
-    private DateTime _DataModifica;
-    private int _IdUtente;
-    private TipoOggetto _TipoOggetto;
-    private bool _isHomeNews = false;
-    /* Specifiche per documenti e photo */
-    private string _PathOggetto = "";
-    private string _NomeFileOggetto = "";
-    private int _NumOrder;
-    private OleDbConnection Connessione;
-    /// <summary>
-    /// ID presente sul Database
-    /// </summary>
-    public int ID
-    {
-        get { return _ID; }
-        set { _ID = value; }
-    }
 
     /// <summary>
-    /// Titolo
+    /// Summary description for OggettoBase
     /// </summary>
-    public string Titolo
+    public class OggettoBase
     {
-        get { return _Titolo; }
-        set { _Titolo = value; }
+        /* Specifiche per documenti e photo */
+
+        public OggettoBase()
+        {
+            Testo = "";
+            SottoTitolo = "";
+            Titolo = "";
+            IsHomeNews = false;
+            NomeFileOggetto = "";
+            PathFileOggetto = "";
+            Id = 0;
+        }
+
+        /// <summary>
+        /// ID presente sul Database
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Titolo
+        /// </summary>
+        public string Titolo { get; set; }
+
+        public string Slug { get; set; }
+
+        /// <summary>
+        /// SottoTitolo
+        /// </summary>
+        public string SottoTitolo { get; set; }
+
+        /// <summary>
+        /// Testo
+        /// </summary>
+        public string Testo { get; set; }
+
+        /// <summary>
+        /// Data inserimento
+        /// </summary>
+        public DateTime DataInserimento { get; set; }
+
+        /// <summary>
+        /// Data Modifica
+        /// </summary>
+        public DateTime DataModifica { get; set; }
+
+        /// <summary>
+        /// IdUtente
+        /// </summary>
+        public int IdUtente { get; set; }
+
+        public TipoOggetto TipoOggetto { get; set; }
+
+        public string PathFileOggetto { get; set; }
+
+        public string NomeFileOggetto { get; set; }
+
+        public int NumOrder { get; set; }
+
+        public virtual void FromDataReader(IDataReader oDr)
+        {
+            Id = int.Parse(oDr["tObjectID"].ToString());
+            Titolo = oDr["tObjectTitolo"].ToString();
+            Testo = oDr["tObjectTesto"].ToString();
+            SottoTitolo = oDr["tObjectSottoTitolo"].ToString();
+            DataInserimento = DateTime.Parse(oDr["tObjectDataInserimento"].ToString());
+            DataModifica = DateTime.Parse(oDr["tObjectDataModifica"].ToString());
+            IdUtente = int.Parse(oDr["tObjectIDUtente"].ToString());
+            TipoOggetto = (TipoOggetto)int.Parse(oDr["tObjectTypeID"].ToString());
+            NumOrder = int.Parse(oDr["tObjectNumOrder"].ToString());
+            Slug = oDr["slug"].ToString();
+            bool isHomeNews;
+            bool.TryParse(oDr["isHomeNews"].ToString(), out isHomeNews);
+            IsHomeNews = isHomeNews;
+        }
+
+        public bool IsHomeNews { get; set; }
     }
 
-    public string Slug { get; set; }
-
-    /// <summary>
-    /// SottoTitolo
-    /// </summary>
-    public string SottoTitolo
+    public enum TipoOggetto
     {
-        get { return _SottoTitolo; }
-        set { _SottoTitolo = value; }
+        Homepage = 0,
+        News = 1,
+        Photogallery = 2,
+        Eventi = 3,
+        Video = 4
     }
 
-    /// <summary>
-    /// Testo
-    /// </summary>
-    public string Testo
-    {
-        get { return _Testo; }
-        set { _Testo = value; }
-    }
-
-    /// <summary>
-    /// Data inserimento
-    /// </summary>
-    public DateTime DataInserimento
-    {
-        get { return _DataInserimento; }
-        set { _DataInserimento = value; }
-    }
-
-    /// <summary>
-    /// Data Modifica
-    /// </summary>
-    public DateTime DataModifica
-    {
-        get { return _DataModifica; }
-        set { _DataModifica = value; }
-    }
-
-    /// <summary>
-    /// IdUtente
-    /// </summary>
-    public int IdUtente
-    {
-        get { return _IdUtente; }
-        set { _IdUtente = value; }
-    }
-
-    public TipoOggetto TipoOggetto
-    {
-        get { return _TipoOggetto; }
-        set { _TipoOggetto = value; }
-    }
-
-    public string PathFileOggetto
-    {
-        get { return _PathOggetto; }
-        set { _PathOggetto = value; }
-    }
-
-    public string NomeFileOggetto
-    {
-        get { return _NomeFileOggetto; }
-        set { _NomeFileOggetto = value; }
-    }
-
-    public int NumOrder
-    {
-        get { return _NumOrder; }
-        set { _NumOrder = value; }
-    }
-
-    public virtual void FromDataReader(IDataReader oDr)
-    {
-        this.ID = int.Parse(oDr["tObjectID"].ToString());
-        this.Titolo = oDr["tObjectTitolo"].ToString();
-        this.Testo = oDr["tObjectTesto"].ToString();
-        this.SottoTitolo = oDr["tObjectSottoTitolo"].ToString();
-        this.DataInserimento = DateTime.Parse(oDr["tObjectDataInserimento"].ToString());
-        this.DataModifica = DateTime.Parse(oDr["tObjectDataModifica"].ToString());
-        this.IdUtente = int.Parse(oDr["tObjectIDUtente"].ToString());
-        this.TipoOggetto = (TipoOggetto)int.Parse(oDr["tObjectTypeID"].ToString());
-        this.NumOrder = int.Parse(oDr["tObjectNumOrder"].ToString());
-        this.Slug = oDr["slug"].ToString();
-        bool.TryParse(oDr["isHomeNews"].ToString(), out _isHomeNews);
-    }
-
-    public bool isHomeNews
-    {
-        get { return _isHomeNews; }
-        set { _isHomeNews = value; }
-    }
-
-}
-
-public enum TipoOggetto
-{
-    Homepage = 0,
-    News = 1,
-    Photogallery = 2,
-    Eventi = 3,
-    Video = 4
 }

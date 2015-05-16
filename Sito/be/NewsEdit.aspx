@@ -1,7 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="NewsEdit.aspx.cs" Inherits="be_newsEdit" ValidateRequest="false" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="NewsEdit.aspx.cs" Inherits="be.BeNewsEdit" ValidateRequest="false" %>
 <%@ Register Src="uc/menu.ascx" TagName="menu" TagPrefix="uc2" %>
-<%@ Register Src="uc/menunews.ascx" TagName="menunews" TagPrefix="uc1" %>
 <%@ Register Src="uc/ucoggetto.ascx" TagName="ucoggetto" TagPrefix="uc2" %>
 <asp:Content ID="mnu" ContentPlaceHolderID="menu" runat="server">
     <uc2:menu ID="mnu1" runat="server" SelectedMenu="Notizie" />

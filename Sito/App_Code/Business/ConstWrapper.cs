@@ -1,12 +1,5 @@
-using System;
-using System.Data;
 using System.Configuration;
 using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 
 namespace Business
 {
@@ -26,13 +19,11 @@ namespace Business
                 switch (ConnectionType)
                 {
                     case "SqlServer":
-                        connString = ConfigurationManager.AppSettings["connString"].ToString();
+                        connString = ConfigurationManager.AppSettings["connString"];
                         break;
                     case "OleDb":
-                        connString = ConfigurationManager.AppSettings["provider"].ToString() +
-                    "Data Source=" + @HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["pathdbaccess"].ToString());
-                        break;
-                    default:
+                        connString = ConfigurationManager.AppSettings["provider"] +
+                    "Data Source=" + @HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["pathdbaccess"]);
                         break;
                 }
 
@@ -45,19 +36,19 @@ namespace Business
         {
             get
             {
-                return ConfigurationManager.AppSettings["connType"].ToString();
+                return ConfigurationManager.AppSettings["connType"];
             }
         }
 
       
-        public static string SmtpURL
+        public static string SmtpUrl
         {
-            get { return ConfigurationManager.AppSettings["smtpaddress"].ToString(); }
+            get { return ConfigurationManager.AppSettings["smtpaddress"]; }
         }
 
         public static string MailTo
         {
-            get { return ConfigurationManager.AppSettings["mailrecipient"].ToString(); }
+            get { return ConfigurationManager.AppSettings["mailrecipient"]; }
         }
 
 
@@ -69,27 +60,27 @@ namespace Business
 
         public static string CartellaFoto
         {
-            get { return ConfigurationManager.AppSettings["pathsalvataggiofoto"].ToString(); }
+            get { return ConfigurationManager.AppSettings["pathsalvataggiofoto"]; }
         }
 
         public static string LarghezzaThumb
         {
-            get { return ConfigurationManager.AppSettings["thumbwidth"].ToString(); }
+            get { return ConfigurationManager.AppSettings["thumbwidth"]; }
         }
 
         public static string AltezzaThumb
         {
-            get { return ConfigurationManager.AppSettings["thumbheight"].ToString(); }
+            get { return ConfigurationManager.AppSettings["thumbheight"]; }
         }
 
         public static string LarghezzaImg
         {
-            get { return ConfigurationManager.AppSettings["imgwidth"].ToString(); }
+            get { return ConfigurationManager.AppSettings["imgwidth"]; }
         }
 
         public static string AltezzaImg
         {
-            get { return ConfigurationManager.AppSettings["imgheight"].ToString(); }
+            get { return ConfigurationManager.AppSettings["imgheight"]; }
         }
 
     }

@@ -1,50 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Business.Oggetti;
+using Gestione;
 
-public partial class uc_notizia : System.Web.UI.UserControl
+namespace uc
 {
-
-    public string TitoloNotizia = "";
-    public string SottoTitolo = "";
-    public string TestoNotizia = "";
-    public string Anno = "";
-    public string Mese = "";
-    public string Giorno = "";
-    public string ID = "";
-
-
-    private string slug = "";
-
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class UcNotizia : System.Web.UI.UserControl
     {
 
-        slug = Page.RouteData.Values["slug"] as string;
+        public string TitoloNotizia = "";
+        public string SottoTitolo = "";
+        public string TestoNotizia = "";
+        public string Anno = "";
+        public string Mese = "";
+        public string Giorno = "";
+        public string Id = "";
 
-        Oggetti.Oggetto oNotizia = Notizia;
-        TitoloNotizia = oNotizia.Titolo;
-        SottoTitolo = oNotizia.SottoTitolo;
-        TestoNotizia = oNotizia.Testo;
-        Anno = oNotizia.DataInserimento.ToString("yyyy", new System.Globalization.CultureInfo("it-IT"));
-        Mese = oNotizia.DataInserimento.ToString("MMM", new System.Globalization.CultureInfo("it-IT")).ToUpper();
-        Giorno = oNotizia.DataInserimento.ToString("dd", new System.Globalization.CultureInfo("it-IT"));
-        ID = oNotizia.ID.ToString();
-    }
 
-    public Oggetti.Oggetto Notizia {
-        get {
-            if (HttpContext.Current.Cache["notizia-" + slug] != null)
-            {
-                return (Oggetti.Oggetto)HttpContext.Current.Cache["notizia-" + slug];
-            }
-            else
-            {
-                Oggetti.Oggetto oNews = new Notizie(TipoOggetto.News).Get(slug, false, 0);
-                HttpContext.Current.Cache["notizia-" + slug] = oNews;
-                return oNews;
+        private string _slug = "";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            _slug = Page.RouteData.Values["slug"] as string;
+
+            Oggetto oNotizia = Notizia;
+            TitoloNotizia = oNotizia.Titolo;
+            SottoTitolo = oNotizia.SottoTitolo;
+            TestoNotizia = oNotizia.Testo;
+            Anno = oNotizia.DataInserimento.ToString("yyyy", new System.Globalization.CultureInfo("it-IT"));
+            Mese = oNotizia.DataInserimento.ToString("MMM", new System.Globalization.CultureInfo("it-IT")).ToUpper();
+            Giorno = oNotizia.DataInserimento.ToString("dd", new System.Globalization.CultureInfo("it-IT"));
+            Id = oNotizia.Id.ToString();
+        }
+
+        public Oggetto Notizia {
+            get {
+                if (HttpContext.Current.Cache["notizia-" + _slug] != null)
+                {
+                    return (Oggetto)HttpContext.Current.Cache["notizia-" + _slug];
+                }
+                else
+                {
+                    Oggetto oNews = new Notizie(TipoOggetto.News).Get(_slug, false, 0);
+                    HttpContext.Current.Cache["notizia-" + _slug] = oNews;
+                    return oNews;
+                }
             }
         }
     }

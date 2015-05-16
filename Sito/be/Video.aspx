@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="Video.aspx.cs" Inherits="be_video" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/be/be.master" AutoEventWireup="true" CodeFile="Video.aspx.cs" Inherits="be.BeVideo" %>
 
 <%@ Register Assembly="Moxiecode.TinyMCE" Namespace="Moxiecode.TinyMCE.Web" TagPrefix="TinyMCE" %>
 <%@ Register Src="~/be/uc/menuvideo.ascx" TagName="menuvideo" TagPrefix="uc1" %>

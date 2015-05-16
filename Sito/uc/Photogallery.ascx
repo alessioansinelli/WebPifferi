@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Photogallery.ascx.cs"
-    Inherits="uc_Photogallery" %>
+    Inherits="uc.UcPhotogallery" %>
+<%@ Import Namespace="Business.Oggetti" %>
+<%@ Import Namespace="Business" %>
 <%  if (!HideTitle)
     { %>
 <div class="newsdate vertical">
@@ -7,8 +9,8 @@
     <span class="mese"><% = Mese %></span>
     <span class="anno"><% = Anno %></span>
 </div>
-<h1><% = _TitoloGallery %></h1>
-<div class="testo"><% = _SottoTitoloGallery%></div>
+<h1><% = Galleria.Titolo %></h1>
+<div class="testo"><% = Galleria.SottoTitolo%></div>
 <% }  
 %>
 <div class="photogallery">
@@ -18,8 +20,8 @@
         </HeaderTemplate>
         <ItemTemplate>
             <div class="rsContent">
-                <a class="rsImg" href="<%# Utility.getPathPhoto(((Oggetti.OggettoFoto)Container.DataItem), "w12") %>">
-                    <img src="<%# Utility.getPathPhoto(((Oggetti.OggettoFoto)Container.DataItem), "w3") %>" class="rsTmb" />
+                <a class="rsImg" href="<%# Utility.GetPathPhoto(((OggettoFoto)Container.DataItem), "w12") %>">
+                    <img src="<%# Utility.GetPathPhoto(((OggettoFoto)Container.DataItem), "w3") %>" class="rsTmb" />
                 </a>
             </div>
         </ItemTemplate>
@@ -32,6 +34,6 @@
    { %>
 <div id="divPaginazione" runat="server" class="pagfoto"></div>
 
-<div class="testo"><% = _TestoGallery%></div>
+<div class="testo"><% = TestoGallery %></div>
 <% } %>
 

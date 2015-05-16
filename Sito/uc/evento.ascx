@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="evento.ascx.cs" Inherits="uc_evento" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="evento.ascx.cs" Inherits="uc.UcEvento" %>
 <%@ Register src="Photogallery.ascx" tagname="Photogallery" tagprefix="uc1" %>
 <h1><% = TitoloNotizia %></h1>
 <div class="newsdate">Pubblicata : <% = DataInserimento %></div>
