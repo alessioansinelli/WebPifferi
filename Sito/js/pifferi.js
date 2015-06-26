@@ -1,14 +1,11 @@
 ﻿$(document).ready(function () {	
-
-	// check if present authentication token
-	//if (getParameterByName('authToken') == 'Ivrea2015') {
-	//	$.cookie('loggedin', 'loggedin');
-	//}
-
-	//// check the cookie, in case go to google.it
-	//if ($.cookie('loggedin') != 'loggedin') {
-	//	document.location.href = 'http://www.google.it';
-	//};
+		$.cookieBar({
+			message: "Questo sito utilizza i cookie per raccogliere dati anonimi sulle visite.",
+			acceptButton: true,
+			acceptText: "Accetto",
+			declineButton: true,
+			declineText: "Disabilita i cookie"
+		});
 });
 
 
@@ -28,5 +25,8 @@ function getParameterByName(name) {
   m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-58009688-1', 'auto');
-ga('send', 'pageview');
+
+if (jQuery.cookieBar('cookies')) {
+	ga('create', 'UA-58009688-1', 'auto');
+	ga('send', 'pageview');
+}

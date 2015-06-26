@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="pifferi.master.cs" Inherits="Pifferi" %>
+﻿<%@ master language="C#" autoeventwireup="true" inherits="pifferi, App_Web_2ezj5f1z" %>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -63,7 +63,8 @@
 	<script src="/js/bootstrap/bootstrap.min.js"></script>
 	<script src="/js/cookie/jquery.cookie.js"></script>
 	<script src="/js/cookie/jquery.cookiebar.js"></script>
-	<script src="/js/pifferi.js"></script>
+	<script src="/js/pifferi.js"></script>	
 	<asp:ContentPlaceHolder ID="addScript" runat="server"></asp:ContentPlaceHolder>
+
 </body>
 </html>
