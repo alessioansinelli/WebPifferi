@@ -2,8 +2,8 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
-using Business.Oggetti;
 using Gestione;
+using Oggetti;
 
 namespace be.uc
 {
