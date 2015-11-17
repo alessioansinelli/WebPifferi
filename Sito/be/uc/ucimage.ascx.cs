@@ -3,7 +3,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using Gestione;
-using Oggetti;
+using Business.Oggetti;
 
 namespace be.uc
 {
