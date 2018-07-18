@@ -1,3 +1,7 @@
 sh.exe.stackdump
 Sito/SitoPifferi.v12.suo
 Sito/public/
+/Sito/.vs/SitoPifferi/v15/Server/sqlite3/storage.ide-wal
+/Sito/.vs/SitoPifferi/v15/Server/sqlite3/storage.ide-shm
+/Sito/.vs/SitoPifferi/v15/Server/sqlite3/storage.ide
+/Sito/.vs/SitoPifferi/v15/Server/sqlite3/db.lock
