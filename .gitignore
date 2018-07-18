@@ -5,3 +5,5 @@ Sito/public/
 /Sito/.vs/SitoPifferi/v15/Server/sqlite3/storage.ide-shm
 /Sito/.vs/SitoPifferi/v15/Server/sqlite3/storage.ide
 /Sito/.vs/SitoPifferi/v15/Server/sqlite3/db.lock
+/FrontendComponents/node_modules
+/FrontendComponents/obj/Debug

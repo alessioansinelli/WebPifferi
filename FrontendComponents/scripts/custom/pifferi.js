@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $.cookieBar({
         message: "Questo sito utilizza i cookie per raccogliere dati anonimi sulle visite.",
         acceptButton: true,
